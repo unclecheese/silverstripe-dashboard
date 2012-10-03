@@ -25,7 +25,7 @@ The Dashbaord module provides a splash page for the CMS in SilverStripe 3 with c
 
 Dashboard panels have their own MVC architecture and are easy to create. In this example, we'll create a panel that displays recent orders for an imaginary website. The user will have the option to configure the panel to only show orders that are shipped.
 
-### Creating a model and a template
+### Creating the model
 
 First, create a class for the panel as a descendant of DashboardPanel. We'll include the database fields that define the configurable properties, and create the configuration fields in the getConfiguration() method.
 
@@ -72,7 +72,9 @@ class DashboardRecentOrdersPanel extends DashboardPanel {
 
 ```
 
-The Orders() method will be the function that actually returns data to the template. The panel object will look for a template that matches its class name.
+### Creating the Template
+
+The panel object will look for a template that matches its class name.
 
 **mysite/templates/Includes/DashboardRecentOrdersPanel.ss**
 ```html
