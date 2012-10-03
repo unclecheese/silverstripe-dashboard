@@ -65,7 +65,7 @@ class DashboardRecentOrdersPanel extends DashboardPanel {
   
   
   public function Orders() {
-    $orders = Order::get()->limit($this->Count);
+    $orders = Order::get()->sort("Created DESC")->limit($this->Count);
     return $this->OnlyShowShipped ? $orders->filter(array('Shipped' => true)) : $orders;
   }
 }
