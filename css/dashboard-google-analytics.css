@@ -1,0 +1,38 @@
+.dashboard-google-analytics-data {display:none;}
+.dashboard-panel-page-analytics .metric {
+    background: #fefefe; /* Old browsers */
+        background: -moz-linear-gradient(top, #fefefe 0%, #f2f3f2 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fefefe), color-stop(100%,#f2f3f2)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #fefefe 0%,#f2f3f2 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #fefefe 0%,#f2f3f2 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, #fefefe 0%,#f2f3f2 100%); /* IE10+ */
+        background: linear-gradient(top, #fefefe 0%,#f2f3f2 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#f2f3f2',GradientType=0 ); /* IE6-9 */
+    border: 1px solid #ccc;
+    float: left;
+    font-size: 11px;
+    margin: -4px 0 0 -1px;
+    padding: 10px;
+    width: 99px;
+}
+.dashboard-panel-page-analytics .metric .legend {
+    background-color: #058DC7;
+    border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+    font-size: 0;
+    margin-right: 5px;
+    padding: 10px 5px 0;
+}
+.dashboard-panel-page-analytics .metric strong {
+    font-size: 16px;
+    font-weight: bold;
+}
+.dashboard-panel-page-analytics .range {
+    color: #686868;
+    font-size: 11px;
+    margin-bottom: 7px;
+    width: 100%;
+}
+
+#SubjectPageID, #CustomPath {display:none;}
