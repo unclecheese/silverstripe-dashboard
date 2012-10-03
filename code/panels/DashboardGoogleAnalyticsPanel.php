@@ -257,7 +257,8 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 			array('date'),
 			array('pageviews'), 
 			'date', 
-			'pagePath == ' . $this->getPath(),
+			 null,
+			//'pagePath == ' . $this->getPath(),
 			date('Y-m-d',$this->getStartDateStamp())
 		);    
 
@@ -291,7 +292,8 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 			'pagePath', 
 			array('pageviews', 'uniquePageviews', 'exitRate', 'avgTimeOnPage', 'entranceBounceRate'), 
 			null, 
-			'pagePath == ' . $this->getPath(),
+			null,
+			//'pagePath == ' . $this->getPath(),
 			date('Y-m-d',$this->getStartDateStamp())
 		);
 		$results = $this->api()->getResults();

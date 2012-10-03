@@ -287,7 +287,11 @@
 	$('.dashboard-has-many-editor-form').entwine({
 
 		Open: false,
-		reveal: function(callback) {
+
+		onmatch: function () {
+			this.css({'width': this.getPanel().innerWidth()-40});
+		},
+		reveal: function(callback) {			
 			this.animate({height: '248px' }, callback);
 			this.getPanel().find('.dashboard-panel-configure-actions').hide();
 
@@ -323,6 +327,9 @@
 	});
 
 	$('.dashboard-has-many-editor-detail-form-form').entwine({
+		onmatch: function() {
+			this.css({'width': this.getPanel().innerWidth()-50});
+		},
 		onsubmit: function(e) {
 			e.preventDefault();
 			var $form = this;

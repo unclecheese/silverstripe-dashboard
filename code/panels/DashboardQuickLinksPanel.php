@@ -17,6 +17,7 @@ class DashboardQuickLinksPanel extends DashboardPanel {
 	static $icon = "dashboard/images/quick-links.png";
 
 
+	static $size = "small";
 
 	public function getLabel() {
 		return _t('Dashboard.QUICKLINKSLABEL','Quick Links');

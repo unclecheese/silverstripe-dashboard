@@ -55,12 +55,12 @@
 			.dashboard-panel .dashboard-has-many-list li a:hover {background:transparent;}
 			.dashboard-has-many-list .edit-link {float:left;width:85%;}
 			.dashboard-has-many-list .delete-link {float:right;width:16px;}
-	.dashboard-has-many-editor-form {position:absolute;height:0;background:#f9f9f9;bottom:34px;width:460px;padding:10px;}
+	.dashboard-has-many-editor-form {position:absolute;height:0;background:#f9f9f9;bottom:34px;padding:10px;}
 		.dashboard-has-many-editor-detail-form {}
 	.dashboard-has-many-editor-header {position:relative;padding:0 11px;}
 		.dashboard-has-many-editor-header .ss-ui-button {position:absolute;top:7px; right:10px;}		
-		.dashboard-has-many-editor-detail-form-actions {position:absolute;top:5px;right:10px;}		
-		.dashboard-has-many-editor-detail-form-form {position: absolute;z-index: 999;width: 460px;left: 22px;top: 16px;}
+		.dashboard-has-many-editor-detail-form-actions {text-align:center;}		
+		.dashboard-has-many-editor-detail-form-form {position: absolute;z-index: 999;left: 22px;top: 16px;}
 
 
 .ss-ui-button.ui-button-text-only.small .ui-button-text {font-size:11px;padding:0.1em 0.5em;}		
