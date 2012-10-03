@@ -2,6 +2,10 @@
 
 The Dashbaord module provides a splash page for the CMS in SilverStripe 3 with configurable widgets that display relevant information. Panels can be created and extended easily. The goal of the Dashboard module is to provide users with a launchpad for common CMS actions such as creating specific page types or browsing new content.
 
+## Screenshot
+http://dashboard.unclecheeseproductions.com/mysite/images/screenshot.png
+
+
 ## Included panels
 * Recently edited pages
 * Recently uploaded files
