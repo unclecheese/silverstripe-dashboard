@@ -11,6 +11,12 @@ The Dashbaord module provides a splash page for the CMS in SilverStripe 3 with c
 * Google Analytics
 * Weather
 
+## Installation
+
+* Install the contents of this repository in the root of your SilverStripe project in a directory named "dashboard".
+* Run /dev/build?flush=1
+
+
 ## Creating a Custom Dashboard Panel
 
 Dashboard panels have their own MVC architecture and are easy to create. In this example, we'll create a panel that displays recent orders for an imaginary website. The user will have the option to configure the panel to only show orders that are shipped.
