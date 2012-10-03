@@ -8,12 +8,16 @@
         background: -ms-linear-gradient(top, #fefefe 0%,#f2f3f2 100%); /* IE10+ */
         background: linear-gradient(top, #fefefe 0%,#f2f3f2 100%); /* W3C */
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#f2f3f2',GradientType=0 ); /* IE6-9 */
-    border: 1px solid #ccc;
-    float: left;
-    font-size: 11px;
-    margin: -4px 0 0 -1px;
-    padding: 10px;
-    width: 99px;
+        border-left: 1px solid #CCC;
+        float: left;
+        font-size: 11px;
+        margin: -4px 0 0 -1px;
+        padding: 5px 0;
+        width: 25%;
+        text-align: center;
+}
+.dashboard-panel-page-analytics .metric.first {
+    border:0;
 }
 .dashboard-panel-page-analytics .metric .legend {
     background-color: #058DC7;

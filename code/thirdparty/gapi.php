@@ -192,7 +192,6 @@ class gapi
     }
     
     $parameters['start-date'] = $start_date;
-    
     if($end_date==null)
     {
       $end_date=date('Y-m-d');

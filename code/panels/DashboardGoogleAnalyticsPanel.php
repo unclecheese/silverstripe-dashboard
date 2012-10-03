@@ -15,7 +15,7 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 		'ProfileID' => 'Varchar(20)',
 		'DateFormat' => "Enum('mdy,dmy','dmy')",
 		'DateRange' => "Enum('day,week,month,year','month')",
-		'PathType' => "Enum('list,custom','list')",
+		'PathType' => "Enum('none,list,custom','none')",
 		'CustomPath' => 'Varchar'
 	);
 
@@ -103,9 +103,10 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 		$fields->push(EmailField::create("AccountEmail",_t('Dashboard.GAACCOUNTEMAIL','Google account email')));
 		$fields->push(PasswordField::create("AccountPassword",_t('Dashboard.GAACCOUNTPASSWORD','Google account password')));
 		$fields->push(TextField::create("ProfileID",_t('Dashboard.GAACCOUNTPROFILE','Profile ID (located in the "Profile Settings" of Google Analytics)')));
-		$fields->push(OptionsetField::create("PathType",_t('Dashboard.SUBJECTPAGE','Show analytics for'),array(
-				'list' => _t('Dashboard.PAGEINLIST','A page in the site tree'),
-				'custom' => _t('Dashboard.ACUSTOMPATH','A custom path')
+		$fields->push(OptionsetField::create("PathType",_t('Dashboard.FILTERBYPAGE','Filter'),array(
+				'none' => _t('Dashboard.NONESHOWALL','No filter. Show analytics for the entire site'),
+				'list' => _t('Dashboard.PAGEINLIST','Filter by a specific page in the tree'),
+				'custom' => _t('Dashboard.ACUSTOMPATH','Filter by a specific path')
 			)));
 		$fields->push(DropdownField::create("SubjectPageID",'',$pages)
 			->addExtraClass('no-chzn')
@@ -169,7 +170,7 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 	 * @return bool
 	 */
 	public function isValid() {
-		return $this->AccountEmail && $this->AccountPassword && $this->getPath();
+		return $this->AccountEmail && $this->AccountPassword;
 	}
 
 
@@ -240,7 +241,15 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 	public function ChartTitle() {
 		$stamp = $this->getStartDateStamp();
 		$key = $this->DateFormat == "dmy" ? "j M, Y" : "M j, Y";
-		return date($key, $stamp) . " - " . date($key) . " ({$this->getPath()})";
+		$title = date($key, $stamp) . " - " . date($key);
+		if($this->getPath()) {
+			$title .= " ("._t('Dashboard.PATH','Path').": {$this->getPath()})";
+		}
+		else {
+			$title .= " ("._t('Dashboard.ENTIRESITE','Entire site').")";
+		}
+		return $title;
+
 	}
 
 
@@ -257,17 +266,29 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 			array('date'),
 			array('pageviews'), 
 			'date', 
-			 null,
-			//'pagePath == ' . $this->getPath(),
+			$this->getPath() ? "pagePath == {$this->getPath()}" : null,			
 			date('Y-m-d',$this->getStartDateStamp())
 		);    
 
 		$results = $this->api()->getResults();
 
 		$set = ArrayList::create(array());
-
 		if($results) {
 			$datekey = $this->DateFormat == "mdy" ? "M j" : "j M";
+			if($this->PathType == "none") {				
+				$map = array ();
+				foreach($results as $result) {
+					$date = date($datekey, strtotime($result->getDate()));
+					if(!isset($map[$date])) $map[$date] = 0;
+					$map[$date] += $result->getPageViews();
+				}
+				foreach($map as $date => $views) {
+					$set->push(ArrayData::create(array(
+						'FormattedDate' => $date,
+						'PageViews' => $views
+					)));					
+				}
+			}
 			foreach($results as $result) {				
 				$set->push(ArrayData::create(array(
 					'FormattedDate' => date($datekey, strtotime($result->getDate())),
@@ -292,13 +313,25 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 			'pagePath', 
 			array('pageviews', 'uniquePageviews', 'exitRate', 'avgTimeOnPage', 'entranceBounceRate'), 
 			null, 
-			null,
-			//'pagePath == ' . $this->getPath(),
+			$this->getPath() ? "pagePath == {$this->getPath()}" : null,
 			date('Y-m-d',$this->getStartDateStamp())
 		);
-		$results = $this->api()->getResults();
 		$set = ArrayList::create(array());
-		if($results) {
+		if(!$this->getPath()) {
+			$metrics = $this->api()->getMetrics();
+			if($metrics) {
+				$set->push(ArrayData::create(array(
+					'FormattedPageViews' => number_format($metrics['pageviews']),
+					'FormattedUniquePageViews' => number_format($metrics['uniquePageviews']),
+					'AverageMinutesOnPage' => self::seconds_to_minutes($metrics['avgTimeOnPage']),
+					'BounceRate' => round($metrics['entranceBounceRate'],2)."%",
+					'ExitRate' => round($metrics['exitRate'],2)."%"
+				)));
+			}
+			return $set;			
+		}
+		$results = $this->api()->getResults();
+		if($results) {			
 			foreach($results as $result) {
 				$set->push(ArrayData::create(array(
 					'FormattedPageViews' => number_format($result->getPageViews()),
@@ -308,7 +341,8 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 					'ExitRate' => round($result->getExitrate(), 2).'%'
 				)));
 			}
-		}
+
+		}		
 		return $set;
 
 	}

@@ -5,7 +5,7 @@
 
 	<div id="page-analtyics-$ID" class="dashboard-panel-page-analytics">
 	<% loop PageResults %>
-	    <div class="metric"><span class="label">Pageviews</span><br /><strong>$FormattedPageViews</strong></div>
+	    <div class="metric $FirstLast"><span class="label">Pageviews</span><br /><strong>$FormattedPageViews</strong></div>
 	    <div class="metric"><span class="label">Unique pageviews</span><br /><strong>$FormattedUniquePageViews</strong></div>
 	    <div class="metric"><span class="label">Avg time on page</span><br /><strong>$AverageMinutesOnPage</strong></div>
 	    <div class="metric"><span class="label">Bounce rate</span><br /><strong>$BounceRate</strong></div>
