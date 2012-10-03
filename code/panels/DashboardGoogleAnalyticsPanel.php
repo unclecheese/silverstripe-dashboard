@@ -170,7 +170,7 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 	 * @return bool
 	 */
 	public function isValid() {
-		return $this->AccountEmail && $this->AccountPassword;
+		return $this->AccountEmail && $this->AccountPassword && $this->ProfileID;
 	}
 
 
