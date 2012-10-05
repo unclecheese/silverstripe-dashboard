@@ -1,0 +1,106 @@
+es:
+  CMSMain:
+    AddNew: 'Agregar nueva página'
+    ListFiltered: 'Lista filtrada.'
+    TreeFilteredClear: 'Limpiar filtro'
+  Dashbaord:
+    QUICKLINKSDESCRIPTION: 'Permite el manejo de enlaces arbitrarios desde el panel de control'
+    SECTIONEDITORDESCRIPTION: 'Agrega páginas desde una sección del sitio directamente'
+  Dashboard:
+    ACCESS: 'Acceso a la sección ''{title}'''
+    ACCESS_HELP: 'Permite al usuario remover paneles desde su panel de control'
+    ACUSTOMPATH: 'Filtrar por una ruta específica'
+    ADD: Agregar
+    ADDPANEL: 'Nuevo panel'
+    ADDPANELS: 'Agregar paneles de control'
+    APPLYTOALL: 'Aplicar este panel de control a todos los miembros'
+    APPLYTOALLSUCCESS: 'Excelente! El panel de control ha sido aplicado a todos los miembros que tienen acceso a paneles de control'
+    CANCEL: Cancelar
+    CELCIUS: Celcius
+    CHOOSEPANELTYPE: 'Elegir tipo de panel'
+    CONFIGUREANELS: 'Configurar paneles de control'
+    CREATENEW: 'Crear nuevo %s'
+    DATEFORMAT: 'Formato de fecha'
+    DATERANGE: 'Rango de fecha'
+    DAY: Día
+    DELETEPANELS: 'Remover paneles de contro'
+    ENTIRESITE: 'Sitio completo'
+    FARENHEIT: Farenheit
+    FILTERBYPAGE: Filtro
+    GAACCOUNTEMAIL: 'Google email'
+    GAACCOUNTPASSWORD: 'Google password'
+    GAACCOUNTPROFILE: 'ID del perfil (ubicado en la sección "Configuración de perfil de Google Analytics)'
+    GOOGLEDESCRIPTION: 'Muestra un gráfico de Google Analytics para una página o para el sitio completo'
+    LOCATION: Ubicación
+    MENUTITLE: Panel de control
+    NONESHOWALL: 'Sin filtro. Muestra analytics para el sitio completo'
+    NORECORDS: 'No hay información'
+    PAGEINLIST: 'Filtrar por una página específica del sitio'
+    PAGEVIEWS: Vistas
+    PATH: Ruta
+    PLEASESELECT: 'Por favor seleccione'
+    PREVIOUSSEVENDAYS: '7 días'
+    PREVIOUSTHIRTYDAYS: '30 días'
+    PREVIOUSYEAR: '365 días'
+    QUICKLINKSLABEL: 'Enlaces rápidos'
+    RSSFEED: 'RSS'
+    RSSFEEDDESCRIPTION: 'Agrega un RSS desde cualquier URL pública'
+    SAVE: Guardar
+    SECTIONEDTIORLABEL: 'Editor de secciones'
+    SELECTLOCATION: 'Por favor, seleccione la ubicación de la cual quieres mirar el clima.'
+    SETASDEFAULT: 'Convertir este panel de control en el por defecto'
+    SETASDEFAULTSUCCESS: 'Excelente! Este panel de control ha sido configurado para todos los miembros.'
+    TITLE: Título
+    TODAY: Hoy
+    TOMORROW: Mañana
+    UNITS: Unidades
+    VIEWALL: 'Ver todos %s'
+    VIEWFORECAST: 'Ver pronóstico completo'
+    WEATHER: Clima
+    WEATHERDESCRIPTION: 'Muestra el clima de una ubicación especificada.'
+    WEATHERNORESPONSE: 'El servidor de climas no responde, deben tener una tormenta por ahí.'
+  DashboardGoogleAnalyticsPanel:
+    PLURALNAME: 'Paneles de control para Google Analytics'
+    SINGULARNAME: 'Panel de control para Google Analytics'
+  DashboardPanel:
+    PLURALNAME: 'Paneles de control'
+    SINGULARNAME: 'Panel de control'
+  DashboardPanelDataObject:
+    PLURALNAME: 'Paneles de control para Data Objects'
+    SINGULARNAME: 'Panel de control para Data Objects'
+  DashboardQuickLink:
+    LINK: 'Enlace (incluír http://)'
+    LINKTEXT: 'Texto del enlace'
+    NEWWINDOW: 'Abrir el enlace en una ventana nueva'
+    PLURALNAME: 'Enlaces rápidos para el panel de control'
+    SINGULARNAME: 'Enlace rápido para el panel de control'
+  DashboardQuickLinksPanel:
+    PLURALNAME: 'Paneles de control para enlaces'
+    SINGULARNAME: 'Panel de control para enlaces'
+  DashboardRSSFeedPanel:
+    PLURALNAME: 'Paneles de control para RSS'
+    SINGULARNAME: 'Panel de control para RSS'
+  DashboardRecentEdits:
+    COUNT: 'Número de páginas a mostrar'
+  DashboardRecentEditsPanel:
+    PLURALNAME: 'Paneles de control para páginas recién editadas'
+    SINGULARNAME: 'Panel de control para páginas recién editadas'
+  DashboardRecentFile:
+    COUNT: 'Número de archivos a mostrar'
+  DashboardRecentFilesPanel:
+    PLURALNAME: 'Paneles de control para archivos'
+    SINGULARNAME: 'Panel de control para archivos'
+  DashboardSectionEditorPanel:
+    PLURALNAME: 'Paneles de control para el panel de edición'
+    SINGULARNAME: 'Panel de control para el panel de edición'
+  DashboardWeatherPanel:
+    PLURALNAME: 'Paneles de control para el panel del tiempo'
+    SINGULARNAME: 'Panel de control para el panel del tiempo'
+  Permission:
+    CMS_ACCESS_CATEGORY: 'Acceso al CMS'
+  RecentEdits:
+    DESCRIPTION: 'Muestra una lista de enlaces a las páginas recientemente editadas'
+    LABEL: 'Ediciones recientes'
+  RecentFiles:
+    DESCRIPTION: 'Muetra una lista de enlaces a los archivos recientemente editados'
+    LABEL: 'Archivos recientes'
