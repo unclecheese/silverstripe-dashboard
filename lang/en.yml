@@ -1,0 +1,106 @@
+en:
+  CMSMain:
+    AddNew: 'Add new page'
+    ListFiltered: 'Filtered list.'
+    TreeFilteredClear: 'Clear filter'
+  Dashbaord:
+    QUICKLINKSDESCRIPTION: 'Allows management of arbitrary links from the dashboard'
+    SECTIONEDITORDESCRIPTION: 'Pulls pages from a section of the website for viewing and creation'
+  Dashboard:
+    ACCESS: 'Access to ''{title}'' section'
+    ACCESS_HELP: 'Allow user to remove panels from his/her dashbaord'
+    ACUSTOMPATH: 'Filter by a specific path'
+    ADD: Add
+    ADDPANEL: 'New Panel'
+    ADDPANELS: 'Add dashboard panels'
+    APPLYTOALL: 'Apply this dashboard to all members'
+    APPLYTOALLSUCCESS: 'Success! This dashboard configuration has been applied to all members who have dashboard access.'
+    CANCEL: Cancel
+    CELCIUS: Celcius
+    CHOOSEPANELTYPE: 'Choose a panel type'
+    CONFIGUREANELS: 'Configure dashboard panels'
+    CREATENEW: 'Create new %s'
+    DATEFORMAT: 'Date format'
+    DATERANGE: 'Date range'
+    DAY: Day
+    DELETEPANELS: 'Remove dashboard panels'
+    ENTIRESITE: 'Entire site'
+    FARENHEIT: Farenheit
+    FILTERBYPAGE: Filter
+    GAACCOUNTEMAIL: 'Google account email'
+    GAACCOUNTPASSWORD: 'Google account password'
+    GAACCOUNTPROFILE: 'Profile ID (located in the "Profile Settings" of Google Analytics)'
+    GOOGLEDESCRIPTION: 'Displays a Google Analytics chart for a given page'
+    LOCATION: Location
+    MENUTITLE: Dashboard
+    NONESHOWALL: 'No filter. Show analytics for the entire site'
+    NORECORDS: 'No records'
+    PAGEINLIST: 'Filter by a specific page in the tree'
+    PAGEVIEWS: Pageviews
+    PATH: Path
+    PLEASESELECT: 'Please select'
+    PREVIOUSSEVENDAYS: '7 days'
+    PREVIOUSTHIRTYDAYS: '30 days'
+    PREVIOUSYEAR: '365 days'
+    QUICKLINKSLABEL: 'Quick Links'
+    RSSFEED: 'RSS Feed'
+    RSSFEEDDESCRIPTION: 'Adds an RSS feed from any public URL'
+    SAVE: Save
+    SECTIONEDTIORLABEL: 'Section Editor'
+    SELECTLOCATION: 'Please select a location whose weather you want to display.'
+    SETASDEFAULT: 'Make this the default dashboard'
+    SETASDEFAULTSUCCESS: 'Success! This dashboard configuration has been set as the default for all new members.'
+    TITLE: Title
+    TODAY: Today
+    TOMORROW: Tomorrow
+    UNITS: Units
+    VIEWALL: 'View all %s'
+    VIEWFORECAST: 'View full forecast'
+    WEATHER: Weather
+    WEATHERDESCRIPTION: 'Shows the weather for a given location.'
+    WEATHERNORESPONSE: 'The weather server did not respond. Try again in a few minutes.'
+  DashboardGoogleAnalyticsPanel:
+    PLURALNAME: 'Dashboard Google Analytics Panels'
+    SINGULARNAME: 'Dashboard Google Analytics Panel'
+  DashboardPanel:
+    PLURALNAME: 'Dashboard Panels'
+    SINGULARNAME: 'Dashboard Panel'
+  DashboardPanelDataObject:
+    PLURALNAME: 'Dashboard Panel Data Objects'
+    SINGULARNAME: 'Dashboard Panel Data Object'
+  DashboardQuickLink:
+    LINK: 'Link (include http://)'
+    LINKTEXT: 'Link text'
+    NEWWINDOW: 'Open link in new window'
+    PLURALNAME: 'Dashboard Quick Links'
+    SINGULARNAME: 'Dashboard Quick Link'
+  DashboardQuickLinksPanel:
+    PLURALNAME: 'Dashboard Quick Links Panels'
+    SINGULARNAME: 'Dashboard Quick Links Panel'
+  DashboardRSSFeedPanel:
+    PLURALNAME: 'Dashboard R S S Feed Panels'
+    SINGULARNAME: 'Dashboard R S S Feed Panel'
+  DashboardRecentEdits:
+    COUNT: 'Number of pages to display'
+  DashboardRecentEditsPanel:
+    PLURALNAME: 'Dashboard Recent Edits Panels'
+    SINGULARNAME: 'Dashboard Recent Edits Panel'
+  DashboardRecentFile:
+    COUNT: 'Number of files to display'
+  DashboardRecentFilesPanel:
+    PLURALNAME: 'Dashboard Recent Files Panels'
+    SINGULARNAME: 'Dashboard Recent Files Panel'
+  DashboardSectionEditorPanel:
+    PLURALNAME: 'Dashboard Section Editor Panels'
+    SINGULARNAME: 'Dashboard Section Editor Panel'
+  DashboardWeatherPanel:
+    PLURALNAME: 'Dashboard Weather Panels'
+    SINGULARNAME: 'Dashboard Weather Panel'
+  Permission:
+    CMS_ACCESS_CATEGORY: 'CMS Access'
+  RecentEdits:
+    DESCRIPTION: 'Shows a linked list of recently edited pages'
+    LABEL: 'Recent Edits'
+  RecentFiles:
+    DESCRIPTION: 'Shows a linked list of recently edited files'
+    LABEL: 'Recent Files'
