@@ -6,6 +6,8 @@ es:
   Dashbaord:
     QUICKLINKSDESCRIPTION: 'Permite el manejo de enlaces arbitrarios desde el panel de control'
     SECTIONEDITORDESCRIPTION: 'Agrega páginas desde una sección del sitio directamente'
+  Dashboard_Content:
+    ADMINISTRATION: Administración
   Dashboard:
     ACCESS: 'Acceso a la sección ''{title}'''
     ACCESS_HELP: 'Permite al usuario remover paneles desde su panel de control'
