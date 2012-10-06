@@ -11,7 +11,7 @@
 		<% end_if %>
 		<% if IsAdmin %>
 			<span class="ss-fancy-dropdown right">
-				<a class="ss-ui-button ss-fancy-dropdown-btn" href="javascript:void(0)">Administration</a>
+				<a class="ss-ui-button ss-fancy-dropdown-btn" href="javascript:void(0)"><% _t('Dashboard_Content.ADMINISTRATION','Administration') %></a>
 				<span class="ss-fancy-dropdown-options">
 					<a class="set-as-default dashboard-message-link" href="$Link(setdefault)"><% _t('Dashboard.SETASDEFAULT','Make this the default dashboard') %></a>	
 					<a class="apply-to-all dashboard-message-link" href="$Link(applytoall)"><% _t('Dashboard.APPLYTOALL','Apply this dashboard to all members') %></a>
