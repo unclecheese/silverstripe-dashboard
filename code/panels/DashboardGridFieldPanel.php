@@ -46,14 +46,14 @@ class DashboardGridFieldPanel extends DashboardPanel {
 
 
 	public function getLabel() {
-		return _t('Dashboard.MODELADMINPANELTITLE','Grid Field Editor');
+		return _t('Dashboard.GRIDFIELDPANELTITLE','Grid Field Editor');
 	}
 
 
 
 
 	public function getDescription() {
-		return _t('Dashboard.MODELADMINPANELDESCRIPTION','Adds a summary view of a GridField instnace on a given page.');
+		return _t('Dashboard.GRIDFIELDPANELDESCRIPTION','Adds a summary view of a GridField instance on a given page.');
 	}
 
 
