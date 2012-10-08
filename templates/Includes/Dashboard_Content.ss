@@ -41,7 +41,7 @@
 					<% loop AllPanels %>
 						<div class="available-panel $EvenOdd" data-type="$Class" data-create-url="$CreateLink">
 							<div class="available-panel-icon">
-								<img width="32" height="32" src="$Icon" />
+								<img src="$Icon" />
 							</div>
 							<div class="available-panel-content">
 								<h4>$Label</h4>

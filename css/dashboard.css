@@ -37,12 +37,14 @@
 			.dashboard-panel ul li a {padding:4px;display:block;}
 			.dashboard-panel ul li a:hover {background:#ddd;text-decoration:none;}
 
-	.available-panel {position:relative;clear:both;height:75px;margin:0 auto 10px auto;background-color:#dcdcdc;background-image:-webkit-gradient(linear,0% 0,0% 100%,from(#f1f1f1),to(#dcdcdc));background-image:-moz-linear-gradient(0% 100% 90deg,#dcdcdc,#f1f1f1);	-webkit-box-shadow:inset 0 1px 0 #f7f7f7;	-moz-box-shadow:inset 0 1px 0 #f7f7f7;	box-shadow:inset 0 1px 0 #f7f7f7;	border-style:solid; border-width:1px 2px 2px 1px; border-color:#b5b5b5 #999 #999 #b5b5b5;position:relative;	overflow:visible!important;	z-index:auto!important;	padding:4px;cursor:pointer;}	
+	.available-panel {position:relative;width:47%;height:75px;margin:0 0 10px 0;background-color:#dcdcdc;background-image:-webkit-gradient(linear,0% 0,0% 100%,from(#f1f1f1),to(#dcdcdc));background-image:-moz-linear-gradient(0% 100% 90deg,#dcdcdc,#f1f1f1);	-webkit-box-shadow:inset 0 1px 0 #f7f7f7;	-moz-box-shadow:inset 0 1px 0 #f7f7f7;	box-shadow:inset 0 1px 0 #f7f7f7;	border-style:solid; border-width:1px	; border-color:#b5b5b5 #999 #999 #b5b5b5;position:relative;	overflow:visible!important;	z-index:auto!important;	padding:4px;cursor:pointer;}	
+		.available-panel.odd {float:left;clear:right;}
+		.available-panel.even {float:right;}
 	.available-panel:hover {background:rgba(180,180,180,0.3);}
 		.available-panel h4 {margin:5px 0 8px 0;}
-		.available-panel .available-panel-content {margin:0 10px 0 55px;}
-		.available-panel .available-panel-icon {position: absolute;top: 50%;margin-top: -34px;padding:18px 6px 0 0;text-align:center;width:48px;}
-
+		.available-panel .available-panel-content {margin:0 10px 0 25%;}
+		.available-panel .available-panel-icon {position: absolute;top: 50%;margin-top: -34px;padding:18px 6px 0 0;text-align:center;width:25%;}
+			.available-panel-icon img {width: 60%;max-width: 32px;}
 
 .dashboard-panel-selection,
 .dashboard-panel-selection-inner {display:none;}
@@ -86,3 +88,12 @@
 
 
 
+@media screen and (max-width: 1180px) {
+	.available-panel {height:100px;width:45%;}
+}
+
+@media screen and (max-width:960px) {
+	.available-panel-icon {display:none;}
+	.available-panel .available-panel-content {margin:0;}
+	.available-panel {margin:0;}	
+}
