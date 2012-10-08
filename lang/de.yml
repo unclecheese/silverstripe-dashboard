@@ -1,0 +1,106 @@
+de:
+  CMSMain:
+    AddNew: 'Neue Seite hinzufügen'
+    ListFiltered: 'Gefilterte Liste.'
+    TreeFilteredClear: 'Filter leeren'
+  Dashbaord:
+    QUICKLINKSDESCRIPTION: 'Ermöglicht die Verwaltung von beliebigen Links aus dem Dashboard heraus'
+    SECTIONEDITORDESCRIPTION: 'Holt Seiten aus einem Bereich der Website zur Anzeige und Erstellung'
+  Dashboard:
+    ACCESS: 'Zugriff zum ''{title}'' Bereich'
+    ACCESS_HELP: 'Erlaubt Benutzern das Entfernen von Feldern aus dem Dashboard'
+    ACUSTOMPATH: 'Nach einem bestimmten Pfad filtern'
+    ADD: Hinzufügen
+    ADDPANEL: 'Neues Feld'
+    ADDPANELS: 'Dashboard Felder hinzufügen'
+    APPLYTOALL: 'Dieses Dashboard für alle Mitglieder einrichten'
+    APPLYTOALLSUCCESS: 'Erfolg! Die Dashboard Konfiguration wurde für alle Mitglieder mit Dashboard-Zugriff eingerichtet.'
+    CANCEL: Abbrechen
+    CELCIUS: Celcius
+    CHOOSEPANELTYPE: 'Wähle einen Feld-Typ'
+    CONFIGUREANELS: 'Dashboard Felder konfigurieren'
+    CREATENEW: 'Neues %s erstellen'
+    DATEFORMAT: 'Datumsformat'
+    DATERANGE: 'Datumsbereich'
+    DAY: Tag
+    DELETEPANELS: 'Dashboard Felder entfernen'
+    ENTIRESITE: 'Gesammte Seite'
+    FARENHEIT: Farenheit
+    FILTERBYPAGE: Filter
+    GAACCOUNTEMAIL: 'Google Konto E-Mail'
+    GAACCOUNTPASSWORD: 'Google Konto Passwort'
+    GAACCOUNTPROFILE: 'Profil ID (zu finden unter den "Profil Einstellungen" von Google Analytics)'
+    GOOGLEDESCRIPTION: 'Zeigt ein Google Analytics Diagramm für eine bestimmte Seite'
+    LOCATION: Ort
+    MENUTITLE: Dashboard
+    NONESHOWALL: 'Nicht filtern. Zeige analytics für die gesammte Seite'
+    NORECORDS: 'Keine Datensätze'
+    PAGEINLIST: 'Nach bestimmter Seite im Seitenbaum filtern'
+    PAGEVIEWS: Seitenzugriffe
+    PATH: Pfad
+    PLEASESELECT: 'Bitte auswählen'
+    PREVIOUSSEVENDAYS: '7 Tage'
+    PREVIOUSTHIRTYDAYS: '30 Tage'
+    PREVIOUSYEAR: '365 Tage'
+    QUICKLINKSLABEL: 'Quick Links'
+    RSSFEED: 'RSS Feed'
+    RSSFEEDDESCRIPTION: 'RSS feed einer öffentlichen URL hinzufügen'
+    SAVE: Save
+    SECTIONEDTIORLABEL: 'Bereichs Editor'
+    SELECTLOCATION: 'Bitte einen Ort zur Wetterdarstellung auswählen.'
+    SETASDEFAULT: 'Zum Standard-Dashboard machen'
+    SETASDEFAULTSUCCESS: 'Erfolg! Diese Dashboard Konfiguration wurde als Standard für alle neuen Mitglieder festgelegt.'
+    TITLE: Titel
+    TODAY: Heute
+    TOMORROW: Morgen
+    UNITS: Einheiten
+    VIEWALL: 'Alle %s ansehen'
+    VIEWFORECAST: 'Gesamte Vorhersage ansehen'
+    WEATHER: Wetter
+    WEATHERDESCRIPTION: 'Zeigt das Wetter für den angegebenen Ort.'
+    WEATHERNORESPONSE: 'Der Wetter-Server antwortet nicht. Versuchen Sie es in wenigen Minuten erneut.'
+  DashboardGoogleAnalyticsPanel:
+    PLURALNAME: 'Dashboard Google Analytics Felder'
+    SINGULARNAME: 'Dashboard Google Analytics Feld'
+  DashboardPanel:
+    PLURALNAME: 'Dashboard Felder'
+    SINGULARNAME: 'Dashboard Feld'
+  DashboardPanelDataObject:
+    PLURALNAME: 'Dashboard Felder Data Objects'
+    SINGULARNAME: 'Dashboard Feld Data Object'
+  DashboardQuickLink:
+    LINK: 'Link (beinhaltet http://)'
+    LINKTEXT: 'Link text'
+    NEWWINDOW: 'Öffnet link in einem neuen Fenster'
+    PLURALNAME: 'Dashboard Quick Links'
+    SINGULARNAME: 'Dashboard Quick Link'
+  DashboardQuickLinksPanel:
+    PLURALNAME: 'Dashboard Quick Links Felder'
+    SINGULARNAME: 'Dashboard Quick Links Feld'
+  DashboardRSSFeedPanel:
+    PLURALNAME: 'Dashboard R S S Feed Felder'
+    SINGULARNAME: 'Dashboard R S S Feed Feld'
+  DashboardRecentEdits:
+    COUNT: 'Anzahl der Seiten zur Anzeige'
+  DashboardRecentEditsPanel:
+    PLURALNAME: 'Dashboard Zuletzt Editiert Felder'
+    SINGULARNAME: 'Dashboard Zuletzt Editiert Felder'
+  DashboardRecentFile:
+    COUNT: 'Anzahl der Dateien zur Anzeige'
+  DashboardRecentFilesPanel:
+    PLURALNAME: 'Dashboard Letzte Dateien Felder'
+    SINGULARNAME: 'Dashboard Letzte Dateien Felde'
+  DashboardSectionEditorPanel:
+    PLURALNAME: 'Dashboard Bereichs-Editor Felder'
+    SINGULARNAME: 'Dashboard Bereichs-Editor Felde'
+  DashboardWeatherPanel:
+    PLURALNAME: 'Dashboard Wetter Felder'
+    SINGULARNAME: 'Dashboard Wetter Feld'
+  Permission:
+    CMS_ACCESS_CATEGORY: 'CMS Zugriff'
+  RecentEdits:
+    DESCRIPTION: 'Zeigt eine verlinkte Liste der zuletzt bearbeiteten Seiten'
+    LABEL: 'Zuletzt bearbeitet'
+  RecentFiles:
+    DESCRIPTION: 'Zeigt eine verlinkte Liste der zuletzt bearbeiteten Dateien'
+    LABEL: 'Letze Dateien'
