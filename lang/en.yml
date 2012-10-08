@@ -8,7 +8,7 @@ en:
     SECTIONEDITORDESCRIPTION: 'Pulls pages from a section of the website for viewing and creation'
   Dashboard_Content:
     ADMINISTRATION: Administration
-  DashbordModelAdmin:
+  DashboardModelAdmin:
     COUNT: 'Number of records to display'
     
   Dashboard:
@@ -36,6 +36,8 @@ en:
     GAACCOUNTPASSWORD: 'Google account password'
     GAACCOUNTPROFILE: 'Profile ID (located in the "Profile Settings" of Google Analytics)'
     GOOGLEDESCRIPTION: 'Displays a Google Analytics chart for a given page'
+    GRIDFIELDPANELTITLE: 'Grid Field Editor'
+    GRIDFIELDPANELDESCRIPTION: 'Adds a summary view of a GridField instance on a given page'
     LOCATION: Location
     MENUTITLE: Dashboard
     MODELADMINCLASS: 'Model admin tab'

@@ -8,7 +8,7 @@ de:
     SECTIONEDITORDESCRIPTION: 'Holt Seiten aus einem Bereich der Website zur Anzeige und Erstellung'
   Dashboard_Content:
     ADMINISTRATION: Administration
-  DashbordModelAdmin:
+  DashboardModelAdmin:
     COUNT: 'Anzahl der Objekte zur Anzeige'
     
   Dashboard:
