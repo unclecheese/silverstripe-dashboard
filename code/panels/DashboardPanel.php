@@ -65,6 +65,16 @@ class DashboardPanel extends DataObject {
 
 
 
+
+	/**
+	 * @var string The name of the request handler class that the Dashbaord controller
+	 * will use to communicate with a given panel
+	 */
+	protected $requestHandlerClass = "Dashboard_PanelRequest";
+
+
+
+	
 	/**
 	 * Gets the template, falls back on a default value of the class name
 	 *
@@ -83,6 +93,18 @@ class DashboardPanel extends DataObject {
 	 */
 	public function getHolderTemplate() {
 		return $this->holderTemplate;
+	}
+
+
+
+
+	/**
+	 * Gets the request handler class
+	 *
+	 * @return string
+	 */
+	public function getRequestHandlerClass() {
+		return $this->requestHandlerClass;
 	}
 
 

@@ -1,4 +1,4 @@
-		<div id="dashboard-panel-$ID" class="dashboard-panel $Size" data-refresh-url="$Link" >		
+		<div id="dashboard-panel-$ID" class="dashboard-panel $ClassName $Size" data-refresh-url="$Link" >		
 			<div class="dashboard-panel-header">
 				<% if PrimaryActions %>
 					<div class="dashboard-panel-header-actions">

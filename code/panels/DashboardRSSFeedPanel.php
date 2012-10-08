@@ -48,7 +48,7 @@ class DashboardRSSFeedPanel extends DashboardPanel {
 				'%e %B, %Y' => strftime('%e %B, %Y')
 			)));
 
-		$fields->push(TextField::create("Count", "Number of results to show"));
+		$fields->push(TextField::create("Count", _t('DashboardRecentEdits.COUNT','Number of pages to display')));
 		return $fields;
 	}
 
