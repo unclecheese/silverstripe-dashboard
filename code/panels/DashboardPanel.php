@@ -48,6 +48,15 @@ class DashboardPanel extends DataObject {
 	 */	
 	static $priority = 100;
 
+
+
+
+	/**
+	 * @var bool Show the configure form after creating. Used for panels that require
+	 * configuration in order to show data
+	 */
+	static $configure_on_create = false;
+
 	
 
 
@@ -209,6 +218,18 @@ class DashboardPanel extends DataObject {
 	 */
 	public function CreateLink() {
 		return Controller::join_links($this->getDashboard()->Link("panel/new"),"?type={$this->class}");
+	}
+
+
+
+
+	/**
+	 * Template accessor for the $configure_on_create boolean
+	 *
+	 * @return boolean
+	 */
+	public function ShowConfigure() {
+		return $this->stat('configure_on_create');
 	}
 
 

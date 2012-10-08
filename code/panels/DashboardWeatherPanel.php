@@ -16,7 +16,9 @@ class DashboardWeatherPanel extends DashboardPanel {
 	static $icon = "dashboard/images/weather.png";
 
 
-	static $size = "small";
+
+	static $configure_on_create = true;
+
 
 
 	public function getLabel() {

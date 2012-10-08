@@ -15,6 +15,7 @@
 		},
 		
 		showConfigure: function() {
+			console.log("show");
 			var $t = this;
 			this.flip({
 				direction: "rl",
@@ -33,6 +34,7 @@
 
 				}
 			});
+			console.log("done");
 		},
 
 		hideConfigure: function() {
@@ -198,13 +200,16 @@
 	$('.available-panel').entwine({
 		onclick: function(e) {
 			e.preventDefault();
+			configure = this.data('configure');
 			var $this = this;
-			console.log(this.data('create-url'));
 			$.ajax({
 				url: this.data('create-url'),
 				success: function(data) {
 					$this.getPanel().replaceWith(data);					
 					$('.dashboard').setSort($('.dashboard').sortable("serialize"));
+					if(configure) {
+						$('.dashboard-panel:first').showConfigure();
+					}
 				}
 			})
 		}

@@ -59,7 +59,7 @@
 	.dashboard-has-many-list {background:#f9f9f9;margin:0 10px;}
 		.dashboard-has-many-list li:after {content:".";visibility:hidden;display:block;clear:both;line-height:0;height:0;}
 			.dashboard-panel .dashboard-has-many-list li a:hover {background:transparent;}
-			.dashboard-has-many-list .edit-link {float:left;width:85%;}
+			.dashboard-has-many-list .edit-link {float:left;width:80%;}
 			.dashboard-has-many-list .delete-link {float:right;width:16px;}
 	.dashboard-has-many-editor-form {position:absolute;height:0;background:#f9f9f9;bottom:34px;padding:10px;}
 		.dashboard-has-many-editor-detail-form {}

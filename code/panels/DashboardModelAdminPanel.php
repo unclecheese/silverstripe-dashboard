@@ -26,6 +26,11 @@ class DashboardModelAdminPanel extends DashboardPanel {
 
 
 
+	static $configure_on_create = true;
+	
+
+
+
 	/**
 	 * @var string Overrides the standard request handler to provide custom controller actions
 	 */

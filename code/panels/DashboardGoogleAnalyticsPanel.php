@@ -30,6 +30,10 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 
 
 
+	static $configure_on_create = true;
+
+
+
 	/**
 	 * @var gapi A stored instantiation of the Google Analytics API object
 	 */

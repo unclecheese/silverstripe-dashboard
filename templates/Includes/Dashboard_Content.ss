@@ -39,7 +39,7 @@
 				</div>		
 				<div class="dashboard-panel-content">
 					<% loop AllPanels %>
-						<div class="available-panel $EvenOdd" data-type="$Class" data-create-url="$CreateLink">
+						<div class="available-panel $EvenOdd" data-type="$Class" data-create-url="$CreateLink" <% if ShowConfigure %>data-configure="true"<% end_if %>>
 							<div class="available-panel-icon">
 								<img src="$Icon" />
 							</div>

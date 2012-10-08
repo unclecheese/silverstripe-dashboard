@@ -27,6 +27,10 @@ class DashboardRSSFeedPanel extends DashboardPanel {
 	static $priority = 30;
 
 
+	static $configure_on_create = true;
+	
+
+
 
 	public function getLabel() {
 		return _t('Dashboard.RSSFEED','RSS Feed');

@@ -20,6 +20,11 @@ class DashboardSectionEditorPanel extends DashboardPanel {
 	static $defaults = array (
 		'Count' => 10
 	);
+
+
+
+	static $configure_on_create = true;
+	
 	
 
 
