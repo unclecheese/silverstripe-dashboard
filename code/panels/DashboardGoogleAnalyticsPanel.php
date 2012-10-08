@@ -289,11 +289,13 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 					)));					
 				}
 			}
-			foreach($results as $result) {				
-				$set->push(ArrayData::create(array(
-					'FormattedDate' => date($datekey, strtotime($result->getDate())),
-					'PageViews' => $result->getPageViews()
-				)));
+			else {
+				foreach($results as $result) {				
+					$set->push(ArrayData::create(array(
+						'FormattedDate' => date($datekey, strtotime($result->getDate())),
+						'PageViews' => $result->getPageViews()
+					)));
+				}
 			}
 		}		
 		return $set;
