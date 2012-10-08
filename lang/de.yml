@@ -6,6 +6,11 @@ de:
   Dashbaord:
     QUICKLINKSDESCRIPTION: 'Ermöglicht die Verwaltung von beliebigen Links aus dem Dashboard heraus'
     SECTIONEDITORDESCRIPTION: 'Holt Seiten aus einem Bereich der Website zur Anzeige und Erstellung'
+  Dashboard_Content:
+    ADMINISTRATION: Administration
+  DashbordModelAdmin:
+    COUNT: 'Anzahl der Objekte zur Anzeige'
+    
   Dashboard:
     ACCESS: 'Zugriff zum ''{title}'' Bereich'
     ACCESS_HELP: 'Erlaubt Benutzern das Entfernen von Feldern aus dem Dashboard'
@@ -31,8 +36,15 @@ de:
     GAACCOUNTPASSWORD: 'Google Konto Passwort'
     GAACCOUNTPROFILE: 'Profil ID (zu finden unter den "Profil Einstellungen" von Google Analytics)'
     GOOGLEDESCRIPTION: 'Zeigt ein Google Analytics Diagramm für eine bestimmte Seite'
+    GRIDFIELDPANELTITLE: 'Grid Field Editor'
+    GRIDFIELDPANELDESCRIPTION: 'Übersicht der GridField Objekte einer Seite'
     LOCATION: Ort
     MENUTITLE: Dashboard
+    MODELADMINCLASS: 'Model Admin Tab'
+    MODELADMINMODEL: Model
+    MODELADMINPANELDESCRIPTION: 'Übersicht aller Model-Admin Objekte'
+    MODELADMINPANELTITLE: 'Model Admin Editor'
+    PANELSIZE: ''
     NONESHOWALL: 'Nicht filtern. Zeige analytics für die gesammte Seite'
     NORECORDS: 'Keine Datensätze'
     PAGEINLIST: 'Nach bestimmter Seite im Seitenbaum filtern'
@@ -62,6 +74,9 @@ de:
   DashboardGoogleAnalyticsPanel:
     PLURALNAME: 'Dashboard Google Analytics Felder'
     SINGULARNAME: 'Dashboard Google Analytics Feld'
+  DashboardModelAdminPanel:
+    PLURALNAME: 'Model Admins'
+    SINGULARNAME: 'Model Admin'
   DashboardPanel:
     PLURALNAME: 'Dashboard Felder'
     SINGULARNAME: 'Dashboard Feld'
