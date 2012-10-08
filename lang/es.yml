@@ -4,10 +4,13 @@ es:
     ListFiltered: 'Lista filtrada.'
     TreeFilteredClear: 'Limpiar filtro'
   Dashbaord:
-    QUICKLINKSDESCRIPTION: 'Permite el manejo de enlaces arbitrarios desde el panel de control'
-    SECTIONEDITORDESCRIPTION: 'Agrega páginas desde una sección del sitio directamente'
+    QUICKLINKSDESCRIPTION: 'Enlaces arbitrarios en el panel de control'
+    SECTIONEDITORDESCRIPTION: 'Agrega páginas a sección del sitio'
   Dashboard_Content:
     ADMINISTRATION: Administración
+  DashbordModelAdmin:
+    COUNT: 'Objetos a mostrar'
+
   Dashboard:
     ACCESS: 'Acceso a la sección ''{title}'''
     ACCESS_HELP: 'Permite al usuario remover paneles desde su panel de control'
@@ -21,7 +24,7 @@ es:
     CELCIUS: Celcius
     CHOOSEPANELTYPE: 'Elegir tipo de panel'
     CONFIGUREANELS: 'Configurar paneles de control'
-    CREATENEW: 'Crear nuevo %s'
+    CREATENEW: 'Crear'
     DATEFORMAT: 'Formato de fecha'
     DATERANGE: 'Rango de fecha'
     DAY: Día
@@ -32,9 +35,14 @@ es:
     GAACCOUNTEMAIL: 'Google email'
     GAACCOUNTPASSWORD: 'Google password'
     GAACCOUNTPROFILE: 'ID del perfil (ubicado en la sección "Configuración de perfil de Google Analytics)'
-    GOOGLEDESCRIPTION: 'Muestra un gráfico de Google Analytics para una página o para el sitio completo'
+    GOOGLEDESCRIPTION: 'Analytics para una página o el sitio completo'
     LOCATION: Ubicación
     MENUTITLE: Panel de control
+    MODELADMINCLASS: 'Admin a mostrar'
+    MODELADMINMODEL: Modelo
+    MODELADMINPANELDESCRIPTION: 'Administrador de Objetos'
+    MODELADMINPANELTITLE: 'Editor de Objetos'
+    PANELSIZE: ''
     NONESHOWALL: 'Sin filtro. Muestra analytics para el sitio completo'
     NORECORDS: 'No hay información'
     PAGEINLIST: 'Filtrar por una página específica del sitio'
@@ -56,14 +64,17 @@ es:
     TODAY: Hoy
     TOMORROW: Mañana
     UNITS: Unidades
-    VIEWALL: 'Ver todos %s'
+    VIEWALL: 'Ver todos'
     VIEWFORECAST: 'Ver pronóstico completo'
     WEATHER: Clima
-    WEATHERDESCRIPTION: 'Muestra el clima de una ubicación especificada.'
+    WEATHERDESCRIPTION: 'Clima de un lugar en el mundo.'
     WEATHERNORESPONSE: 'El servidor de climas no responde, deben tener una tormenta por ahí.'
   DashboardGoogleAnalyticsPanel:
     PLURALNAME: 'Paneles de control para Google Analytics'
     SINGULARNAME: 'Panel de control para Google Analytics'
+  DashboardModelAdminPanel:
+    PLURALNAME: 'Model Admins'
+    SINGULARNAME: 'Model Admin'
   DashboardPanel:
     PLURALNAME: 'Paneles de control'
     SINGULARNAME: 'Panel de control'
@@ -101,8 +112,8 @@ es:
   Permission:
     CMS_ACCESS_CATEGORY: 'Acceso al CMS'
   RecentEdits:
-    DESCRIPTION: 'Muestra una lista de enlaces a las páginas recientemente editadas'
+    DESCRIPTION: 'Páginas recientemente editadas'
     LABEL: 'Ediciones recientes'
   RecentFiles:
-    DESCRIPTION: 'Muetra una lista de enlaces a los archivos recientemente editados'
+    DESCRIPTION: 'Archivos recientemente editados'
     LABEL: 'Archivos recientes'
