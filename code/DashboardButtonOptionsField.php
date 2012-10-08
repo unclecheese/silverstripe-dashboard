@@ -9,7 +9,7 @@ class DashboardButtonOptionsField extends OptionsetField {
 
 
 	public function FieldHolder($attributes = array ()) {		
-		Requirements::css("dashboard/css/dashboard-button-options.css");
+//		Requirements::css("dashboard/css/dashboard-button-options.css");
 		Requirements::javascript("dashboard/javascript/dashboard-button-options.js");
 		return parent::FieldHolder($attributes);
 	}
