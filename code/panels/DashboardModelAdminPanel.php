@@ -216,7 +216,9 @@ class DashboardModelAdminPanel extends DashboardPanel {
 	 */
 	public function ModelAdminItems() {
 		if($this->ModelAdminModel) {
-			$records = DataList::create($this->ModelAdminModel)->limit($this->Count);
+			$records = DataList::create($this->ModelAdminModel)
+				->limit($this->Count)
+				->sort("LastEdited DESC");
 			$url_segment = Injector::inst()->get($this->ModelAdminClass)->Link();
 			$ret = ArrayList::create(array());
 			foreach($records as $rec) {

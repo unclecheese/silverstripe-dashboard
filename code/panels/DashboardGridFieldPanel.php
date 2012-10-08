@@ -269,7 +269,9 @@ class DashboardGridFieldPanel extends DashboardPanel {
 	 */
 	public function GridFieldItems() {
 		if($grid = $this->getGrid()) {				
-			$list = $grid->getList()->limit($this->Count);			
+			$list = $grid->getList()
+				->limit($this->Count)
+				->sort("LastEdited DESC");			
 			$ret = ArrayList::create(array());
 			foreach($list as $record) {
 				$ret->push(ArrayData::create(array(
