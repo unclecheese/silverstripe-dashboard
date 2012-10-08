@@ -11,6 +11,7 @@ class DashboardPanel extends DataObject {
 
 	static $db = array (
 		'Title' => 'Varchar(50)',
+		'PanelSize' => "Enum('small,normal,large','normal')",
 		'SortOrder' => 'Int'		
 	);
 
@@ -199,7 +200,14 @@ class DashboardPanel extends DataObject {
 	 */
 	public function getConfiguration() {
 		return FieldList::create(
+			DashboardButtonOptionsField::create("PanelSize",_t('Dashboard.PANELSIZE',''), array(
+				'small' => '<img src="dashboard/images/panel-small.png" width="16" />',
+				'normal' => '<img src="dashboard/images/panel-normal.png" width="16" />',
+				'large' => '<img src="dashboard/images/panel-large.png" width="16" />'
+			))->setSize("small"),
+
 			TextField::create("Title", _t('Dashboard.TITLE','Title'))
+			//->setSize("small")
 		);
 	}
 
@@ -240,12 +248,12 @@ class DashboardPanel extends DataObject {
 
 
 	/**
-	 * A template accessor to get the size of this panel
+	 * For backward compatibility to the old static $size property.
 	 *
 	 * @return string
 	 */
 	public function Size() {
-		return Config::inst()->get($this->class, "size", Config::INHERITED);
+		return $this->PanelSize;
 	}
 
 

@@ -409,7 +409,18 @@
 				}
 			});
 		}
-	})
+	});
 
+
+
+	$('.configure-form .dashboard-button-options-btn-group > a').entwine({
+		onclick: function(e) {			
+			console.log(this.getButtonGroup().getValue());
+			this.closest(".dashboard-panel")
+				.removeClass(this.getButtonGroup().getValue())
+				.addClass(this.data('value'));
+			this._super(e);
+		}
+	});
 
 })(jQuery);

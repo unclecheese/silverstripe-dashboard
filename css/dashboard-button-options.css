@@ -1,0 +1,51 @@
+.dashboard-button-options-btn-group > a {
+	padding: 0.5em;
+	border-radius: 5px;
+	border: 1px solid #C0C0C2;
+	border-bottom: 1px solid #A6A6A9;
+	background-color: #E6E6E6;
+	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, white), color-stop(100%, #D9D9D9));
+	background: -webkit-linear-gradient(white, #D9D9D9);
+	background: -moz-linear-gradient(white, #D9D9D9);
+	background: -o-linear-gradient(white, #D9D9D9);
+	text-shadow: white 0 1px 1px;
+	color: #333;
+	font-weight: bold;	
+}
+
+.dashboard-button-options-btn-group > a:hover {
+	text-decoration:none;
+	background: -webkit-linear-gradient(white, #E6E6E6);
+	background: -moz-linear-gradient(white, #E6E6E6);
+	background: -o-linear-gradient(white, #E6E6E6);
+	background: linear-gradient(white, #E6E6E6);
+	-webkit-box-shadow: 0 0 5px #B3B3B3;
+	-moz-box-shadow: 0 0 5px #b3b3b3;
+	box-shadow: 0 0 5px #B3B3B3;	
+}
+.dashboard-button-options-btn-group > a.active {
+	background:white;
+}
+.dashboard-button-options-btn-group > a.middle {
+	border-radius:0;
+}
+
+.dashboard-button-options-btn-group > a.first {
+	border-radius: 5px 0 0 5px;
+	border-right: 0;
+}
+
+.dashboard-button-options-btn-group > a.last {
+	border-radius: 0 5px 5px 0;
+	border-left: 0;
+}
+
+.dashboard-button-options-btn-group > a img {
+	vertical-align:middle;
+}
+
+.dashboard-button-options-btn-group.small > a {
+	padding:0.1em 0.3em;
+}
+
+
