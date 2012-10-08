@@ -29,6 +29,10 @@
 	position: relative;
 }
 
+#Title label.left {
+	padding-top: 0;
+}
+
 .dashboard-panel.large {
 	width: 100%;
 	max-width: 1000px;
