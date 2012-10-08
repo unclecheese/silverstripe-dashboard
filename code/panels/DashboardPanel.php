@@ -229,7 +229,6 @@ class DashboardPanel extends DataObject {
 			))->setSize("small"),
 
 			TextField::create("Title", _t('Dashboard.TITLE','Title'))
-			//->setSize("small")
 		);
 	}
 
