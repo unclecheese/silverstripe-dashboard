@@ -6,6 +6,11 @@ en:
   Dashbaord:
     QUICKLINKSDESCRIPTION: 'Allows management of arbitrary links from the dashboard'
     SECTIONEDITORDESCRIPTION: 'Pulls pages from a section of the website for viewing and creation'
+  Dashboard_Content:
+    ADMINISTRATION: Administration
+  DashbordModelAdmin:
+    COUNT: 'Number of records to display'
+    
   Dashboard:
     ACCESS: 'Access to ''{title}'' section'
     ACCESS_HELP: 'Allow user to remove panels from his/her dashbaord'
@@ -33,6 +38,11 @@ en:
     GOOGLEDESCRIPTION: 'Displays a Google Analytics chart for a given page'
     LOCATION: Location
     MENUTITLE: Dashboard
+    MODELADMINCLASS: 'Model admin tab'
+    MODELADMINMODEL: Model
+    MODELADMINPANELDESCRIPTION: 'Adds a summary view of a Model Admin section of the CMS'
+    MODELADMINPANELTITLE: 'Model Admin Editor'
+    PANELSIZE: ''
     NONESHOWALL: 'No filter. Show analytics for the entire site'
     NORECORDS: 'No records'
     PAGEINLIST: 'Filter by a specific page in the tree'
@@ -62,6 +72,9 @@ en:
   DashboardGoogleAnalyticsPanel:
     PLURALNAME: 'Dashboard Google Analytics Panels'
     SINGULARNAME: 'Dashboard Google Analytics Panel'
+  DashboardModelAdminPanel:
+    PLURALNAME: 'Model Admins'
+    SINGULARNAME: 'Model Admin'
   DashboardPanel:
     PLURALNAME: 'Dashboard Panels'
     SINGULARNAME: 'Dashboard Panel'
