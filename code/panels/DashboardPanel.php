@@ -244,9 +244,9 @@ class DashboardPanel extends DataObject {
 	public function getConfiguration() {
 		return FieldList::create(
 			DashboardButtonOptionsField::create("PanelSize",_t('Dashboard.PANELSIZE',''), array(
-				'small' => '<img src="dashboard/images/panel-small.png" width="16" />',
-				'normal' => '<img src="dashboard/images/panel-normal.png" width="16" />',
-				'large' => '<img src="dashboard/images/panel-large.png" width="16" />'
+				'small' => '',
+				'normal' => '',
+				'large' => ''
 			))->setSize("small"),
 
 			TextField::create("Title", _t('Dashboard.TITLE','Title'))

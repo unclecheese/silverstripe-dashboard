@@ -284,8 +284,6 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 	 * @return SSViewer
 	 */
 	public function PanelHolder() {
-		Requirements::javascript("https://www.google.com/jsapi");
-		Requirements::javascript("https://www.google.com/uds/api/visualization/1.0/31f9974bf1146091ae320c1219fdf695/format+en,default,corechart.I.js");
 		Requirements::javascript("dashboard/javascript/dashboard-google-analytics.js");
 		Requirements::css("dashboard/css/dashboard-google-analytics.css");
 		return parent::PanelHolder();
@@ -320,7 +318,7 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 	 *
 	 * @return ArrayList
 	 */
-	public function ReportResults() {		
+	public function Chart() {		
 		if(!$this->isValid()) return false;
 		try {
 			$this->api()->requestReportData(
@@ -338,8 +336,13 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 
 		$results = $this->api()->getResults();
 
-		$set = ArrayList::create(array());
 		if($results) {
+			$chart = DashboardChart::create(
+				$this->ChartTitle(), 
+				_t('Dashboard.DAY','Day'), 
+				_t('Dashboard.PAGEVIEWS','Pageviews')
+			);
+			$chart->Height = 160;
 			$datekey = $this->DateFormat == "mdy" ? "M j" : "j M";
 			if($this->PathType == "none") {				
 				$map = array ();
@@ -348,23 +351,17 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 					if(!isset($map[$date])) $map[$date] = 0;
 					$map[$date] += $result->getPageViews();
 				}
-				foreach($map as $date => $views) {
-					$set->push(ArrayData::create(array(
-						'FormattedDate' => $date,
-						'PageViews' => $views
-					)));					
-				}
+				$chart->setData($map);
 			}
 			else {
-				foreach($results as $result) {				
-					$set->push(ArrayData::create(array(
-						'FormattedDate' => date($datekey, strtotime($result->getDate())),
-						'PageViews' => $result->getPageViews()
-					)));
+				foreach($results as $result) {	
+					$data = date($datekey, strtotime($result->getDate()));
+					$chart->addData($date, $result->getPageViews());			
 				}
 			}
+			return $chart;
 		}		
-		return $set;
+		return false;
 	}
 
 
