@@ -102,6 +102,36 @@ public function PanelHolder() {
 }
 ```
 
+### Adding a chart to visualize data
+
+The Dashboard module comes with an API for creating charts using the Google API.
+
+**mysite/code/DashboardRecentOrdersPanel.php**
+```php
+<?php
+
+  public function Chart() {
+		$chart = DashboardChart::create("Order history, last 30 days", "Date", "Number of orders");
+		$result = DB::query("SELECT COUNT(*) AS OrderCount, DATE_FORMAT(Date,'%d %b %Y') AS Date FROM \"Order\" GROUP BY Date");
+		if($result) {
+			while($row = $result->nextRecord()) {
+				$chart->addData($row['Date'], $row['OrderCount']);
+			}
+		}
+		return $chart;
+	}
+
+```
+
+**mysite/code/DashboardRecentOrdersPanel.ss**
+```html
+$Chart
+```
+
+![Screenshot](http://dashboard.unclecheeseproductions.com/mysite/images/screenshot2.png)
+
+
+
 ## Try a demo
 
 http://dashboard.unclecheeseproductions.com/admin
