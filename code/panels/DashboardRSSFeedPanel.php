@@ -58,6 +58,8 @@ class DashboardRSSFeedPanel extends DashboardPanel {
 
 
 
+
+
 	/**
 	 * Gets a list of all the items in the RSS feed given a user-provided URL, limit, and date format
 	 *
@@ -66,9 +68,10 @@ class DashboardRSSFeedPanel extends DashboardPanel {
 	public function RSSItems() {
 		if(!$this->FeedURL) return false;
 		$doc = new DOMDocument();
-		$doc->load($this->FeedURL);
-		$feeds = array();
-		foreach ($doc->getElementsByTagName('item') as $node) {
+		@$doc->load($this->FeedURL);		
+		$items = $doc->getElementsByTagName('item');		
+		$feeds = array ();
+		foreach ($items as $node) {
 			$itemRSS = array ( 
 				'title' => $node->getElementsByTagName('title')->item(0)->nodeValue,
 				'desc' => $node->getElementsByTagName('description')->item(0)->nodeValue,

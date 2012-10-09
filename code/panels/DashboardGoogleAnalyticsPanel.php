@@ -10,9 +10,6 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 	
 
 	static $db = array (
-		'AccountEmail' => 'Varchar(50)',
-		'AccountPassword' => 'Varchar(50)',
-		'ProfileID' => 'Varchar(20)',
 		'DateFormat' => "Enum('mdy,dmy','dmy')",
 		'DateRange' => "Enum('day,week,month,year','month')",
 		'PathType' => "Enum('none,list,custom','none')",
@@ -30,7 +27,15 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 
 
 
-	static $configure_on_create = true;
+	protected static $gapi_email;
+
+
+
+	protected static $gapi_password;
+
+
+
+	protected static $gapi_profile;
 
 
 
@@ -56,6 +61,26 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 	    else { $secResult = round($secResult); }
 	    return $minResult.":".$secResult;
 	}
+
+
+
+
+
+	/**
+	 * Sets the username and password for the Google Analytics account
+	 *
+	 * @param string The email address of the account
+	 * @param string The password of the account
+	 * @param string The profile ID of the account
+	 *
+	 */
+	public static function set_account($email, $password, $profile) {
+		self::$gapi_email = $email;
+		self::$gapi_password = $password;
+		self::$gapi_profile = $profile;
+	}
+
+
 
 
 
@@ -89,7 +114,12 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 	 */
 	public function api() {
 		if(!$this->gapi) {
-			$this->gapi = new gapi($this->AccountEmail, $this->AccountPassword);
+			try {
+				$this->gapi = new gapi(self::$gapi_email, self::$gapi_password);
+			}
+			catch(Exception $e) {
+				return $this->gapi;			
+			}
 		}
 		return $this->gapi;
 	}
@@ -103,10 +133,13 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 	 */
 	public function getConfiguration() {
 		$fields = parent::getConfiguration();
+		if(!$this->isValid()) {
+			$fields->push(LiteralField::create("warning",_t('Dashboard.NOGOOGLEACCOUNT','<p>You have not configured a valid Google Analytics account.</p>')));
+			return $fields;
+
+		}
+
 		$pages = $this->getHierarchy(0);
-		$fields->push(EmailField::create("AccountEmail",_t('Dashboard.GAACCOUNTEMAIL','Google account email')));
-		$fields->push(PasswordField::create("AccountPassword",_t('Dashboard.GAACCOUNTPASSWORD','Google account password')));
-		$fields->push(TextField::create("ProfileID",_t('Dashboard.GAACCOUNTPROFILE','Profile ID (located in the "Profile Settings" of Google Analytics)')));
 		$fields->push(OptionsetField::create("PathType",_t('Dashboard.FILTERBYPAGE','Filter'),array(
 				'none' => _t('Dashboard.NONESHOWALL','No filter. Show analytics for the entire site'),
 				'list' => _t('Dashboard.PAGEINLIST','Filter by a specific page in the tree'),
@@ -174,7 +207,31 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 	 * @return bool
 	 */
 	public function isValid() {
-		return $this->AccountEmail && $this->AccountPassword && $this->ProfileID;
+		return self::$gapi_email && self::$gapi_password && self::$gapi_profile && $this->api();
+	}
+
+
+
+
+	/**
+	 * A template accessor to determine if the connection to the API was successful
+	 *
+	 * @return bool
+	 */
+	public function IsConnected() {
+		return $this->api() ? true : false;
+	}
+
+
+
+
+	/**
+	 * A template access to determine if the credentials have been entered
+	 *
+	 * @return bool
+	 */
+	public function IsConfigured() {
+		return self::$gapi_email && self::$gapi_password && self::$gapi_profile;
 	}
 
 
@@ -265,14 +322,19 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 	 */
 	public function ReportResults() {		
 		if(!$this->isValid()) return false;
-		$this->api()->requestReportData(
-			$this->ProfileID, 
-			array('date'),
-			array('pageviews'), 
-			'date', 
-			$this->getPath() ? "pagePath == {$this->getPath()}" : null,			
-			date('Y-m-d',$this->getStartDateStamp())
-		);    
+		try {
+			$this->api()->requestReportData(
+				self::$gapi_profile, 
+				array('date'),
+				array('pageviews'), 
+				'date', 
+				$this->getPath() ? "pagePath == {$this->getPath()}" : null,			
+				date('Y-m-d',$this->getStartDateStamp())
+			);
+		}
+		catch(Exception $e) {
+			return false;
+		}
 
 		$results = $this->api()->getResults();
 
@@ -314,14 +376,19 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 	 */
 	public function PageResults() {
 		if(!$this->isValid()) return false;
-		$this->api()->requestReportData(
-			$this->ProfileID, 
-			'pagePath', 
-			array('pageviews', 'uniquePageviews', 'exitRate', 'avgTimeOnPage', 'entranceBounceRate'), 
-			null, 
-			$this->getPath() ? "pagePath == {$this->getPath()}" : null,
-			date('Y-m-d',$this->getStartDateStamp())
-		);
+		try {
+			$this->api()->requestReportData(
+				self::$gapi_profile, 
+				'pagePath', 
+				array('pageviews', 'uniquePageviews', 'exitRate', 'avgTimeOnPage', 'entranceBounceRate'), 
+				null, 
+				$this->getPath() ? "pagePath == {$this->getPath()}" : null,
+				date('Y-m-d',$this->getStartDateStamp())
+			);
+		}
+		catch(Exception $e) {
+			return false;
+		}
 		$set = ArrayList::create(array());
 		if(!$this->getPath()) {
 			$metrics = $this->api()->getMetrics();

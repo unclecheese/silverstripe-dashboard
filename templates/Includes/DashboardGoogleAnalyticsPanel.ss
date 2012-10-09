@@ -1,3 +1,8 @@
+<% if not IsConfigured %>	
+	<% _t('Dashboard.NOGOOGLEACCOUNT','<p>You have not defined a Google Analytics account for this project. You can set this up by adding the following code to your project _config.php file:</p> <p><em><strong>DashboardGoogleAnalyticsPanel::set_account($email, $password, $profileID);</strong></em></p><p>Where $email is your Google email, $password is your password, and $profileID is the profile ID of the account, found on the "Profile Settings" tab of the Google Analytics profile for this project.</p>') %>
+<% else_if not IsConnected %>
+	<% _t('Dashboard.INVALIDGOOGLEACCOUNT','<p>The account information you have entered for Google Analytics appears to be invalid. Please check the email and password combination and try again.</p>') %>
+<% else %>
 <div class="dashboard-panel-google-analytics">
 	<% if ReportResults %>
 	<div class="dashboard-panel-google-analytics-chart" id="chart-$ID"></div>
@@ -22,3 +27,4 @@
 
 	<% end_if %>
 </div>
+<% end_if %>
