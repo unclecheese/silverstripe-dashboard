@@ -39,4 +39,4 @@
     width: 100%;
 }
 
-#SubjectPageID, #CustomPath {display:none;}
+.DashboardGoogleAnalyticsPanel #SubjectPageID, .DashboardGoogleAnalyticsPanel #CustomPath {display:none;}
