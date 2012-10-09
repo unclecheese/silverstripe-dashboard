@@ -21,7 +21,7 @@ de:
     APPLYTOALL: 'Dieses Dashboard für alle Mitglieder einrichten'
     APPLYTOALLSUCCESS: 'Erfolg! Die Dashboard Konfiguration wurde für alle Mitglieder mit Dashboard-Zugriff eingerichtet.'
     CANCEL: Abbrechen
-    CELCIUS: Celcius
+    CELCIUS: Celsius
     CHOOSEPANELTYPE: 'Wähle einen Feld-Typ'
     CONFIGUREANELS: 'Dashboard Felder konfigurieren'
     CREATENEW: 'Neues %s erstellen'
@@ -29,8 +29,8 @@ de:
     DATERANGE: 'Datumsbereich'
     DAY: Tag
     DELETEPANELS: 'Dashboard Felder entfernen'
-    ENTIRESITE: 'Gesammte Seite'
-    FARENHEIT: Farenheit
+    ENTIRESITE: 'Gesamte Seite'
+    FARENHEIT: Fahrenheit
     FILTERBYPAGE: Filter
     GAACCOUNTEMAIL: 'Google Konto E-Mail'
     GAACCOUNTPASSWORD: 'Google Konto Passwort'
@@ -45,7 +45,7 @@ de:
     MODELADMINPANELDESCRIPTION: 'Übersicht aller Model-Admin Objekte'
     MODELADMINPANELTITLE: 'Model Admin Editor'
     PANELSIZE: ''
-    NONESHOWALL: 'Nicht filtern. Zeige analytics für die gesammte Seite'
+    NONESHOWALL: 'Nicht filtern. Zeige Analytics für die gesamte Seite'
     NORECORDS: 'Keine Datensätze'
     PAGEINLIST: 'Nach bestimmter Seite im Seitenbaum filtern'
     PAGEVIEWS: Seitenzugriffe
@@ -57,7 +57,7 @@ de:
     QUICKLINKSLABEL: 'Quick Links'
     RSSFEED: 'RSS Feed'
     RSSFEEDDESCRIPTION: 'RSS feed einer öffentlichen URL hinzufügen'
-    SAVE: Save
+    SAVE: Speichern
     SECTIONEDTIORLABEL: 'Bereichs Editor'
     SELECTLOCATION: 'Bitte einen Ort zur Wetterdarstellung auswählen.'
     SETASDEFAULT: 'Zum Standard-Dashboard machen'
@@ -84,7 +84,7 @@ de:
     PLURALNAME: 'Dashboard Felder Data Objects'
     SINGULARNAME: 'Dashboard Feld Data Object'
   DashboardQuickLink:
-    LINK: 'Link (beinhaltet http://)'
+    LINK: 'Link (mit http://)'
     LINKTEXT: 'Link text'
     NEWWINDOW: 'Öffnet link in einem neuen Fenster'
     PLURALNAME: 'Dashboard Quick Links'
