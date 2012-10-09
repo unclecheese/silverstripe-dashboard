@@ -207,7 +207,7 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 	 * @return bool
 	 */
 	public function isValid() {
-		return self::$gapi_email && self::$gapi_password && self::$gapi_profile && $this->api();
+		return $this->IsConfigured() && $this->IsConnected();
 	}
 
 
