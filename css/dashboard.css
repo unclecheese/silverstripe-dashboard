@@ -1,6 +1,8 @@
-/* @override http://dos/dashboard/css/dashboard.css?m=1349719778 */
-
-
+/* @override 
+	http://dos/dashboard/css/dashboard.css?m=1349719778
+	http://dos/dashboard/css/dashboard.css?m=1349726313
+	http://dos/dashboard/css/dashboard.css?m=1350097133
+*/
 
 .dashboard-top-buttons {
 	position: absolute;
@@ -433,41 +435,42 @@
 }
 
 .dashboard-button-options-btn-group a{
-	width: 24px;
-	height: 16px;
+	width: 32px;
+	height: 17px;
 	display: block;
 	float: left;
-	margin-right: 5px;
 	cursor: pointer;
 }
+
 .dashboard-button-options-btn-group a.first {
-	background: url(../images/panel-grid.png) -68px 0;
+	background: url(../images/panel-grid.png) 0 0;
 }
 .dashboard-button-options-btn-group a.middle {
-	background: url(../images/panel-grid.png) -34px 0;
+	width: 26px;
+	background: url(../images/panel-grid.png) -32px 0;
 }
 .dashboard-button-options-btn-group a.last {
-	background: url(../images/panel-grid.png) 0 0;
+	background: url(../images/panel-grid.png) -58px 0;
 }
 
 .dashboard-button-options-btn-group a.first:hover {
-	background: url(../images/panel-grid.png) -68px -30px;
+	background: url(../images/panel-grid.png) 0 -66px;
 }
 .dashboard-button-options-btn-group a.middle:hover {
-	background: url(../images/panel-grid.png) -34px -30px;
+	background: url(../images/panel-grid.png) -32px -66px;
 }
 .dashboard-button-options-btn-group a.last:hover {
-	background: url(../images/panel-grid.png) 0 -30px;
+	background: url(../images/panel-grid.png) -58px -66px;
 }
 
 .dashboard-button-options-btn-group a.first.active {
-	background: url(../images/panel-grid.png) -68px -60px;
+	background: url(../images/panel-grid.png) 0 -66px;
 }
 .dashboard-button-options-btn-group a.middle.active {
-	background: url(../images/panel-grid.png) -34px -60px;
+	background: url(../images/panel-grid.png) -32px -66px;
 }
 .dashboard-button-options-btn-group a.last.active {
-	background: url(../images/panel-grid.png) 0 -60px;
+	background: url(../images/panel-grid.png) -58px -66px;
 }
 
 
