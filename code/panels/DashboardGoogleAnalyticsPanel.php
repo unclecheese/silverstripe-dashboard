@@ -344,7 +344,7 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 			);
 			$chart->Height = 160;
 			$datekey = $this->DateFormat == "mdy" ? "M j" : "j M";
-			if($this->PathType == "none") {				
+			if($this->PathType == "none") {
 				$map = array ();
 				foreach($results as $result) {
 					$date = date($datekey, strtotime($result->getDate()));
@@ -356,7 +356,7 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 			else {
 				foreach($results as $result) {	
 					$data = date($datekey, strtotime($result->getDate()));
-					$chart->addData($date, $result->getPageViews());			
+					$chart->addData($data, $result->getPageViews());
 				}
 			}
 			return $chart;
