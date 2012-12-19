@@ -61,6 +61,7 @@ class DashboardWeatherPanel extends DashboardPanel {
 
 			$days = ArrayList::create(array());	
 			$channel = isset($result["query"]["results"]["channel"][0]) ? $result["query"]["results"]["channel"][0] : $result["query"]["results"]["channel"];
+			if(!isset($channel["link"])) return false;
 			$label = $channel["title"];
 			$link = $channel["link"];
 
