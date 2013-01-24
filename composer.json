@@ -1,0 +1,18 @@
+{
+    "name": "silverstripe/dashboard",
+    "description": "Adds a dashboard to the SilverStripe CMS",
+    "type": "silverstripe-module",
+    "keywords": ["silverstripe", "dashboard", "module", "cms"],
+	"license": "BSD-3-Clause",
+    "authors": [
+    {
+        "name": "Uncle Cheese",
+        "email": "unclecheese@leftandmain.com"
+    }
+    ],
+    "require":
+    {
+        "silverstripe/framework": "3.*",
+	    "silverstripe/cms": "3.*"
+    }
+}
