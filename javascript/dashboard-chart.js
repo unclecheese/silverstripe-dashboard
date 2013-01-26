@@ -7,7 +7,6 @@ $('.dashboard-chart').entwine({
     data.addColumn('string', this.data('xlabel'));
     data.addColumn('number', this.data('ylabel'));            
     this.getData().each(function() {
-      console.log("adding", $(this).data('x'), $(this).data('y'));
       data.addRow([
         $(this).data('x'), $(this).data('y')
       ]);      
