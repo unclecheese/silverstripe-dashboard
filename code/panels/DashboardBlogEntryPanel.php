@@ -7,7 +7,7 @@
  * @package Dashboard
  * @author Howard Grigg <howard@gri.gg>
  */
-class BlogEntryPanel extends DashboardPanel {
+class DashboardBlogEntryPanel extends DashboardPanel {
 	
 	static $has_one = array (
 		'BlogHolder' => 'BlogHolder'
@@ -30,7 +30,9 @@ class BlogEntryPanel extends DashboardPanel {
 			return false;
 		}
 	}
-
+	
+	
+	
 	public function getLabel() {
 		return _t('Dashboard.BLOGENTRYLABEL','Blog Entry');
 	}
