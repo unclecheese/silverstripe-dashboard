@@ -225,7 +225,9 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 		foreach(SS_ClassLoader::instance()->getManifest()->getDescendantsOf("DashboardPanel") as $class) {
 			$SNG = Injector::inst()->get($class);
 			$SNG->Priority = Config::inst()->get($class, "priority", Config::INHERITED);
-			$set->push($SNG);
+			if($SNG->registered() == true){
+				$set->push($SNG);
+			}
 		}
 		return $set->sort("Priority");
 	}
