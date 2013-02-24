@@ -7,6 +7,7 @@ class DashboardWeatherPanel extends DashboardPanel {
 
 	static $db = array (
 		'Location' => 'Varchar',
+		'LocationType' => "Enum('city,code','city')",
 		'Units' => "Enum('c,f','c')",
 		'WeatherHTML' => 'HTMLText'
 	);
@@ -36,6 +37,11 @@ class DashboardWeatherPanel extends DashboardPanel {
 	public function getConfiguration() {
 		$fields = parent::getConfiguration();
 		$fields->push(TextField::create("Location", _t('Dashboard.LOCATION','Location')));
+		// Added support for fetching by citycode if the city is not found.
+		$fields->push(OptionsetField::create("LocationType", _t('Dashboard.TYPE','Location type'), array(
+			'city' => _t('Dashboard.CITY', 'City'),
+			'code' => _t('Dashboard.CODE', 'City code'),
+		)));
 		$fields->push(DropdownField::create("Units",_t('Dashboard.UNITS','Units'), array(
 				'c' => _t('Dashboard.CELCIUS','Celcius'),
 				'f' => _t('Dashboard.FARENHEIT','Farenheit')
@@ -51,7 +57,13 @@ class DashboardWeatherPanel extends DashboardPanel {
 		if(!$this->Location) return false;
 		$rnd = time();
 		$url = "http://query.yahooapis.com/v1/public/yql?format=json&rnd={$rnd}&diagnostics=true&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&q=";
-		$query = urlencode("select * from weather.forecast where location in (select id from weather.search where query=\"{$this->Location}\") and u=\"{$this->Units}\"");
+		// Added support for citycode if the city is not found.
+		if($this->LocationType == 'city'){
+			$query = urlencode("select * from weather.forecast where location in (select id from weather.search where query=\"{$this->Location}\") and u=\"{$this->Units}\"");
+		}
+		else{
+			$query = urlencode("select * from weather.forecast where location=\"{$this->Location}\" and u=\"{$this->Units}\"");
+		}
 		$response = file_get_contents($url.$query);
 		if($response) {
 			$result = Convert::json2array($response);			
