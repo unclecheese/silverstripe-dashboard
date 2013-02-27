@@ -1,5 +1,5 @@
 {
-    "name": "silverstripe/dashboard",
+    "name": "unclecheese/dashboard",
     "description": "Adds a dashboard to the SilverStripe CMS",
     "type": "silverstripe-module",
     "keywords": ["silverstripe", "dashboard", "module", "cms"],
@@ -15,6 +15,8 @@
         "silverstripe/framework": "3.*",
 	    "silverstripe/cms": "3.*"
     },
+    "replace": {"silverstripe/dashboard": "*"},
+
     "extra": {
 	"installer-name": "dashboard"
     }
