@@ -38,8 +38,17 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 		'' => 'index'
 	);
 
+	static $allowed_panels = array(
+		'DashboardGoogleAnalyticsPanel',
+		'DashboardQuickLinksPanel',
+		'DashboardRecentFilesPanel',
+		'DashboardRecentEditsPanel',
+		'DashboardRSSFeedPanel'
+	);
 
-
+	public static function set_allowed_panels(array $panels){
+		self::$allowed_panels = $panels;
+	}
 
 	public function init() {
 		parent::init();
@@ -207,6 +216,15 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 	 *
 	 * @return DataList
 	 */
+	public function BasePanels() {
+		return Member::currentUser()->DashboardPanels();
+	}
+	
+	/**
+	 * Gets the current user's dashboard configuration
+	 *
+	 * @return DataList
+	 */
 	public function Panels() {
 		return Member::currentUser()->DashboardPanels();
 	}
@@ -222,10 +240,14 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 	 */
 	public function AllPanels() {
 		$set = ArrayList::create(array());
-		foreach(SS_ClassLoader::instance()->getManifest()->getDescendantsOf("DashboardPanel") as $class) {
+		$panels = SS_ClassLoader::instance()->getManifest()->getDescendantsOf("DashboardPanel");
+		$panels = array_intersect($panels,self::$allowed_panels);
+		foreach($panels as $class) {
 			$SNG = Injector::inst()->get($class);
 			$SNG->Priority = Config::inst()->get($class, "priority", Config::INHERITED);
-			$set->push($SNG);
+			if($SNG->IsConfigured()){
+				$set->push($SNG);
+			}
 		}
 		return $set->sort("Priority");
 	}
