@@ -5,7 +5,7 @@ class DashboardWeatherPanel extends DashboardPanel {
 
 
 
-	static $db = array (
+	private static $db = array (
 		'Location' => 'Varchar',
 		'LocationType' => "Enum('city,code','city')",
 		'Units' => "Enum('c,f','c')",
@@ -14,11 +14,11 @@ class DashboardWeatherPanel extends DashboardPanel {
 
 
 
-	static $icon = "dashboard/images/weather.png";
+	private static $icon = "dashboard/images/weather.png";
 
 
 
-	static $configure_on_create = true;
+	private static $configure_on_create = true;
 
 
 

@@ -9,25 +9,25 @@
 
 class DashboardRSSFeedPanel extends DashboardPanel {
 	
-	static $db = array (
+	private static $db = array (
 		'FeedURL' => 'Text',
 		'Count' => 'Int'
 	);
 
 
-	static $defaults = array (
+	private static $defaults = array (
 		'Count' => 10,
 		'DateFormat' => '%B %e, %Y'
 	);
 
 
-	static $icon = "dashboard/images/rss-feed.png";
+	private static $icon = "dashboard/images/rss-feed.png";
 
 
-	static $priority = 30;
+	private static $priority = 30;
 
 
-	static $configure_on_create = true;
+	private static $configure_on_create = true;
 	
 
 

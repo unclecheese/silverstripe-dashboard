@@ -13,7 +13,7 @@ class DashboardChart extends ViewableData {
 	/**
 	 * @var int A count of the instances, used to create a unique ID for the chart
 	 */
-	static $instances = 0;
+	private static $instances = 0;
 
 
 

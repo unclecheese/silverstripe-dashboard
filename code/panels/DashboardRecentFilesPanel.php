@@ -10,21 +10,21 @@
 class DashboardRecentFilesPanel extends DashboardPanel {
 
 	
-	static $db = array (
+	private static $db = array (
 		'Count' => 'Int'
 	);
 
 
 
-	static $defaults = array (
+	private static $defaults = array (
 		'Count' => 10
 	);
 
 
-	static $icon = "dashboard/images/recent-files.png";
+	private static $icon = "dashboard/images/recent-files.png";
 
 
-	static $priority = 20;
+	private static $priority = 20;
 
 
 	public function getLabel() {
