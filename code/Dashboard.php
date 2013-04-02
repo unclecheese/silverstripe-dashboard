@@ -304,7 +304,7 @@ class Dashboard_PanelRequest extends RequestHandler {
 
 
 
-	static $url_handlers = array (
+	private static $url_handlers = array (
 		'$Action!' => '$Action',
 		'' => 'panel'
 
