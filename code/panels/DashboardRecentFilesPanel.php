@@ -54,7 +54,7 @@ class DashboardRecentFilesPanel extends DashboardPanel {
 	public function RecentFiles() {
 		$records = File::get()
 			->filter(array(
-				'ClassName:Negation' => 'Folder'
+				'ClassName:not' => 'Folder'
 			))
 			->sort("LastEdited DESC")
 			->limit($this->Count);
