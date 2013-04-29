@@ -1,0 +1,10 @@
+---
+Name: dashboard
+---
+Member:
+  extensions: 
+    [DashboardMember]
+
+SiteConfig:
+  extensions: 
+    [DashboardSiteConfig]

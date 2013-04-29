@@ -11,7 +11,7 @@ class DashboardQuickLink extends DashboardPanelDataObject {
 	
 
 
-	static $db = array (
+	private static $db = array (
 		'Link' => 'Varchar(255)',
 		'Text' => 'Varchar(50)',
 		'NewWindow' => 'Boolean'
@@ -20,7 +20,7 @@ class DashboardQuickLink extends DashboardPanelDataObject {
 
 
 	
-	static $label_field = "Text";
+	private static $label_field = "Text";
 
 
 	

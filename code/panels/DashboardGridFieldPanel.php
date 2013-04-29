@@ -13,26 +13,26 @@ class DashboardGridFieldPanel extends DashboardPanel {
 	
 
 
-	static $db = array (
+	private static $db = array (
 		'Count' => 'Int',		
 		'GridFieldName' => 'Varchar'
 	);
 
 
 
-	static $has_one = array (
+	private static $has_one = array (
 		'SubjectPage' => 'SiteTree'
 	);
 
 
 
-	static $defaults = array (
+	private static $defaults = array (
 		'Count' => 10
 	);
 
 
 
-	static $configure_on_create = true;
+	private static $configure_on_create = true;
 	
 
 

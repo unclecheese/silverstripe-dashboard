@@ -13,25 +13,25 @@ class DashboardPanelDataObject extends DataObject {
 
 
 
-	static $db = array (
+	private static $db = array (
 		'SortOrder' => 'Int'
 	);
 
 
 
-	static $has_one = array (
+	private static $has_one = array (
 		'DashboardPanel' => 'DashboardPanel'
 	);
 
 
-	static $default_sort = "SortOrder ASC";
+	private static $default_sort = "SortOrder ASC";
 
 	
 
 	/**
 	 * @var string Like $summary_fields, but these objects only render one field in list view.
 	 */
-	static $label_field = "ID";
+	private static $label_field = "ID";
 
 
 

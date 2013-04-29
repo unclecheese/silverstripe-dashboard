@@ -9,7 +9,7 @@
 class DashboardPanel extends DataObject {
 
 
-	static $db = array (
+	private static $db = array (
 		'Title' => 'Varchar(50)',
 		'PanelSize' => "Enum('small,normal,large','normal')",
 		'SortOrder' => 'Int'		
@@ -17,27 +17,27 @@ class DashboardPanel extends DataObject {
 
 
 
-	static $has_one = array (
+	private static $has_one = array (
 		'Member' => 'Member',
 		'SiteConfig' => 'SiteConfig'
 	);
 
 
 	
-	static $default_sort = "SortOrder ASC";
+	private static $default_sort = "SortOrder ASC";
 
 
 	/**
 	 * @var string The size of the dashboard panel. Options: "small", "normal", and "large"
 	 */
-	static $size = "normal";
+	private static $size = "normal";
 
 
 
 	/**
 	 * @var string The path to the icon image that represents this dashboard panel type
 	 */
-	static $icon = "dashboard/images/dashboard-panel-default.png";
+	private static $icon = "dashboard/images/dashboard-panel-default.png";
 
 
 
@@ -46,7 +46,7 @@ class DashboardPanel extends DataObject {
 	 * @var int The "weight" of the dashboard panel when listed in the available panels.
 	 *			Higher is lower in the list.
 	 */	
-	static $priority = 100;
+	private static $priority = 100;
 
 
 
@@ -55,7 +55,7 @@ class DashboardPanel extends DataObject {
 	 * @var bool Show the configure form after creating. Used for panels that require
 	 * configuration in order to show data
 	 */
-	static $configure_on_create = false;
+	private static $configure_on_create = false;
 
 	
 

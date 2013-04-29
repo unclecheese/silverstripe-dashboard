@@ -9,23 +9,23 @@
  */
 class DashboardQuickLinksPanel extends DashboardPanel {
 	
-	static $has_many = array (
+	private static $has_many = array (
 		'Links' => 'DashboardQuickLink'
 	);
 
 
 	
-	static $defaults = array (
+	private static $defaults = array (
 		'PanelSize' => "small"
 	);
 
 
 
-	static $icon = "dashboard/images/quick-links.png";
+	private static $icon = "dashboard/images/quick-links.png";
 
 
 
-	static $configure_on_create = true;
+	private static $configure_on_create = true;
 
 
 

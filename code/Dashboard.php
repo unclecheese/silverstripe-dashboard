@@ -11,27 +11,27 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 
 	
 
-	static $menu_title = "Dashboard";
+	private static $menu_title = "Dashboard";
 
 
 	
-	static $url_segment = "dashboard";
+	private static $url_segment = "dashboard";
 
 
 	
-	static $menu_priority = 100;
+	private static $menu_priority = 100;
 
 
 	
-	static $url_priority = 30;
+	private static $url_priority = 30;
 
 	
 	
-	static $menu_icon = "dashboard/images/dashboard.png";
+	private static $menu_icon = "dashboard/images/dashboard.png";
 
 
 	
-	static $url_handlers = array (
+	private static $url_handlers = array (
 		
 		'panel/$ID' => 'handlePanel',
 		'$Action!' => '$Action',
@@ -304,7 +304,7 @@ class Dashboard_PanelRequest extends RequestHandler {
 
 
 
-	static $url_handlers = array (
+	private static $url_handlers = array (
 		'$Action!' => '$Action',
 		'' => 'panel'
 

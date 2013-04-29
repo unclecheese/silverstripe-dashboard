@@ -10,21 +10,21 @@
 class DashboardRecentEditsPanel extends DashboardPanel {
 
 	
-	static $db = array (
+	private static $db = array (
 		'Count' => 'Int'
 	);
 
 
 
-	static $defaults = array (
+	private static $defaults = array (
 		'Count' => 10
 	);
 
 
-	static $icon = "dashboard/images/recent-edits.png";
+	private static $icon = "dashboard/images/recent-edits.png";
 
 
-	static $priority = 10;
+	private static $priority = 10;
 
 
 	public function getLabel() {
