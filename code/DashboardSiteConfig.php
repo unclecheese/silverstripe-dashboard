@@ -11,7 +11,7 @@
 class DashboardSiteConfig extends DataExtension {
 	
 
-	static $has_many = array (
+	private static $has_many = array (
 		'DashboardPanels' => 'DashboardPanel'
 	);
 

@@ -9,7 +9,7 @@
 class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 	
 
-	static $db = array (
+	private static $db = array (
 		'DateFormat' => "Enum('mdy,dmy','dmy')",
 		'DateRange' => "Enum('day,week,month,year','month')",
 		'PathType' => "Enum('none,list,custom','none')",
@@ -17,13 +17,13 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 	);
 
 
-	static $has_one = array (
+	private static $has_one = array (
 		'SubjectPage' => 'SiteTree'
 	);
 
 
 
-	static $icon = "dashboard/images/google-analytics.png";
+	private static $icon = "dashboard/images/google-analytics.png";
 
 
 

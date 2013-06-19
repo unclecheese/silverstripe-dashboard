@@ -9,7 +9,7 @@
 class DashboardSectionEditorPanel extends DashboardPanel {
 	
 
-	static $db = array (
+	private static $db = array (
 		'ParentID' => 'Int',
 		'Subject' => 'Varchar',
 		'Count' => 'Int'
@@ -17,13 +17,13 @@ class DashboardSectionEditorPanel extends DashboardPanel {
 
 
 
-	static $defaults = array (
+	private static $defaults = array (
 		'Count' => 10
 	);
 
 
 
-	static $configure_on_create = true;
+	private static $configure_on_create = true;
 	
 	
 

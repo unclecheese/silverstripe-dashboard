@@ -13,7 +13,7 @@ class DashboardHasManyRelationEditor extends FormField {
 
 
 
-	static $url_handlers = array (
+	private static $url_handlers = array (
 		'item/$ID' => 'handleItem',
 		'$Action!' => '$Action',
 	);
@@ -233,7 +233,7 @@ class DashboardHasManyRelationEditor_ItemRequest extends RequestHandler {
 
 
 
-	static $url_handlers = array (
+	private static $url_handlers = array (
 		'$Action!' => '$Action',
 		'' => 'edit'
 	);

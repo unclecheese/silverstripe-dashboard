@@ -12,7 +12,7 @@ class DashboardModelAdminPanel extends DashboardPanel {
 	
 
 
-	static $db = array (
+	private static $db = array (
 		'Count' => 'Int',
 		'ModelAdminClass' => 'Varchar',
 		'ModelAdminModel' => 'Varchar'
@@ -20,13 +20,13 @@ class DashboardModelAdminPanel extends DashboardPanel {
 
 
 
-	static $defaults = array (
+	private static $defaults = array (
 		'Count' => 10
 	);
 
 
 
-	static $configure_on_create = true;
+	private static $configure_on_create = true;
 	
 
 
