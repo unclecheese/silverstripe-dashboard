@@ -319,7 +319,10 @@ class DashboardGridFieldPanel extends DashboardPanel {
  * @package Dashbaord
  */
 class DashboardGridField_PanelRequest extends Dashboard_PanelRequest {
-
+	
+	private static $allowed_actions = array(
+		"gridsforpage"
+	);
 
 
 	/**

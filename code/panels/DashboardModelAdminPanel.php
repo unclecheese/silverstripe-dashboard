@@ -269,7 +269,9 @@ class DashboardModelAdminPanel extends DashboardPanel {
  */
 class DashboardModelAdmin_PanelRequest extends Dashboard_PanelRequest {
 
-
+	private static $allowed_actions = array(
+		"modelsforpanel"
+	);
 
 	/**
 	 * Given a requested ModelAdmin subclass, get the managed models and provide a JSON response
