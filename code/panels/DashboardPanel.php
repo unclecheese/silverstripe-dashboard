@@ -357,5 +357,8 @@ class DashboardPanel extends DataObject {
 		return Permission::check("CMS_ACCESS_Dashboard") && $this->MemberID == $m->ID;
 	}
 
+	public function IsConfigured() {
+		return true;
+	}
 
 }
