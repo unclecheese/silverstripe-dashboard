@@ -11,7 +11,9 @@
  */
 class DashboardHasManyRelationEditor extends FormField {
 
-
+	private static $allowed_actions = array(
+		"handleItem"
+	); 
 
 	private static $url_handlers = array (
 		'item/$ID' => 'handleItem',
@@ -201,7 +203,12 @@ class DashboardHasManyRelationEditor extends FormField {
  * @author Uncle Cheese <unclecheese@leftandmain.com>
  */
 class DashboardHasManyRelationEditor_ItemRequest extends RequestHandler {
-
+	
+	private static $allowed_actions = array(
+		"edit",
+		"delete",
+		"DetailForm"
+	); 
 
 
 	/**

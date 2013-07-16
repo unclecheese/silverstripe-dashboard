@@ -57,7 +57,12 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 		Requirements::javascript("dashboard/javascript/dashboard.js");
 	}
 
-
+	private static $allowed_actions = array(
+		"handlePanel",
+		"sort",
+		"setdefault",
+		"applytoall"
+	);
 
 	
 	/**
@@ -330,6 +335,13 @@ class Dashboard_PanelRequest extends RequestHandler {
 		'$Action!' => '$Action',
 		'' => 'panel'
 
+	);
+	
+	private static $allowed_actions = array(
+		"panel",
+		"delete",
+		"ConfigureForm",
+		"saveConfiguration"
 	);	
 
 
