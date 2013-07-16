@@ -82,6 +82,15 @@ class DashboardPanel extends DataObject {
 	protected $requestHandlerClass = "Dashboard_PanelRequest";
 
 
+	/**
+	 * Allows the panel to be added
+	 *
+	 * @return string
+	 */
+	public function registered() {
+		return true;
+	}
+	
 
 	
 	/**
