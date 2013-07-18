@@ -38,18 +38,6 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 		'' => 'index'
 	);
 
-	static $allowed_panels = array(
-		'DashboardGoogleAnalyticsPanel',
-		'DashboardQuickLinksPanel',
-		'DashboardRecentFilesPanel',
-		'DashboardRecentEditsPanel',
-		'DashboardRSSFeedPanel'
-	);
-
-	public static function set_allowed_panels(array $panels){
-		self::$allowed_panels = $panels;
-	}
-
 	public function init() {
 		parent::init();
 		Requirements::css("dashboard/css/dashboard.css");
@@ -246,7 +234,9 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 	public function AllPanels() {
 		$set = ArrayList::create(array());
 		$panels = SS_ClassLoader::instance()->getManifest()->getDescendantsOf("DashboardPanel");
-		$panels = array_intersect($panels,self::$allowed_panels);
+		if($this->config()->excluded_panels) {
+			$panels = array_diff($panels,$this->config()->excluded_panels);
+		}
 		foreach($panels as $class) {
 			$SNG = Injector::inst()->get($class);
 			$SNG->Priority = Config::inst()->get($class, "priority", Config::INHERITED);
