@@ -9,17 +9,17 @@
  */
 class DashboardBlogEntryPanel extends DashboardPanel {
 	
-	static $has_one = array (
+	private static $has_one = array (
 		'BlogHolder' => 'BlogHolder'
 	);
 
-	static $defaults = array (
+	private static $defaults = array (
 		'PanelSize' => "normal"
 	);
 	
-	static $icon = "dashboard/images/panel-blog.png";
+	private static $icon = "dashboard/images/panel-blog.png";
 	
-	static $configure_on_create = true;
+	private static $configure_on_create = true;
 
 	protected $requestHandlerClass = "BlogEntryPanel_RequestHandler";
 
