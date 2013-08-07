@@ -5,7 +5,7 @@ nl:
     TreeFilteredClear: 'Filter verwijderen'
   Dashbaord:
     QUICKLINKSDESCRIPTION: 'Sta management van willekeurige links op het dashboard toe'
-    SECTIONEDITORDESCRIPTION: 'Haalt paginas van een deel van de website voor bekijken en aanmaken'
+    SECTIONEDITORDESCRIPTION: 'Haalt pagina''s van een deel van de website voor bekijken en aanmaken'
   Dashboard_Content:
     ADMINISTRATION: Administratie
   DashboardModelAdmin:
@@ -96,7 +96,7 @@ nl:
     PLURALNAME: 'Dashboard R S S Feed Panelen'
     SINGULARNAME: 'Dashboard R S S Feed Panel'
   DashboardRecentEdits:
-    COUNT: 'Aantal paginas om te tonen'
+    COUNT: 'Aantal pagina''s om te tonen'
   DashboardRecentEditsPanel:
     PLURALNAME: 'Dashboard Recente Bewerkingen Panelen'
     SINGULARNAME: 'Dashboard Recente Bewerkingen Panel'
@@ -114,7 +114,7 @@ nl:
   Permission:
     CMS_ACCESS_CATEGORY: 'CMS Toegang'
   RecentEdits:
-    DESCRIPTION: 'Toon een gelinkte lijst van recent bewerkte paginas'
+    DESCRIPTION: 'Toon een gelinkte lijst van recent bewerkte pagina''s'
     LABEL: 'Recente bewerkingen'
   RecentFiles:
     DESCRIPTION: 'Toon een gelinkte lijst van recent bewerkte bestanden'
