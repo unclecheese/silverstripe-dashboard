@@ -13,17 +13,17 @@ nl:
     
   Dashboard:
     ACCESS: 'Toegang tot ''{title}'' onderdeel'
-    ACCESS_HELP: 'Laat gebruikers panels verwijderen van zijn/haar dashboard'
+    ACCESS_HELP: 'Laat gebruikers panelen verwijderen van zijn/haar dashboard'
     ACUSTOMPATH: 'Filter bij specifiek pad'
     ADD: Toevoegen
-    ADDPANEL: 'Nieuw Panel'
+    ADDPANEL: 'Nieuw Paneel'
     ADDPANELS: 'Nieuwe dashboardpanelen toevoegen'
     APPLYTOALL: 'Stel dit dashboard in voor alle gebruikers'
     APPLYTOALLSUCCESS: 'Succes! Deze dashboard configuratie is toegepast op alle gebruikers met dashboard toegang.'
     CANCEL: Annuleren
     CELCIUS: Celcius
-    CHOOSEPANELTYPE: 'Kies een paneltype'
-    CONFIGUREANELS: 'Configureer dashboard panelelen'
+    CHOOSEPANELTYPE: 'Kies een paneeltype'
+    CONFIGUREANELS: 'Configureer dashboard panelen'
     CREATENEW: 'Creeer nieuw %s'
     DATEFORMAT: 'Datum notatie'
     DATERANGE: 'Datum bereik'
@@ -72,17 +72,17 @@ nl:
     WEATHERDESCRIPTION: 'Toont het weer van de gekozen locatie.'
     WEATHERNORESPONSE: 'Weerserver reageerde niet. Probeer nogmaals over een paar minuten.'
   DashboardGoogleAnalyticsPanel:
-    PLURALNAME: 'Dashboard Google Analytics Panelen'
-    SINGULARNAME: 'Dashboard Google Analytics Panel'
+    PLURALNAME: 'Dashboard Google Analytics Paneelen'
+    SINGULARNAME: 'Dashboard Google Analytics Paneel'
   DashboardModelAdminPanel:
     PLURALNAME: 'Model Admins'
     SINGULARNAME: 'Model Admin'
   DashboardPanel:
     PLURALNAME: 'Dashboardpanelen'
-    SINGULARNAME: 'Dashboardpanel'
+    SINGULARNAME: 'Dashboardpaneel'
   DashboardPanelDataObject:
-    PLURALNAME: 'Dashboard Panel Data Objects'
-    SINGULARNAME: 'Dashboard Panel Data Object'
+    PLURALNAME: 'Dashboard Paneel Data Objects'
+    SINGULARNAME: 'Dashboard Paneel Data Object'
   DashboardQuickLink:
     LINK: 'Link (inclusief http://)'
     LINKTEXT: 'Link tekst'
@@ -90,27 +90,27 @@ nl:
     PLURALNAME: 'Dashboard snellinks'
     SINGULARNAME: 'Dashboard snellink'
   DashboardQuickLinksPanel:
-    PLURALNAME: 'Dashboard snellinks Panelen'
-    SINGULARNAME: 'Dashboard snellinks Panel'
+    PLURALNAME: 'Dashboard snellinks Paneelen'
+    SINGULARNAME: 'Dashboard snellinks Paneel'
   DashboardRSSFeedPanel:
-    PLURALNAME: 'Dashboard R S S Feed Panelen'
-    SINGULARNAME: 'Dashboard R S S Feed Panel'
+    PLURALNAME: 'Dashboard R S S Feed Paneelen'
+    SINGULARNAME: 'Dashboard R S S Feed Paneel'
   DashboardRecentEdits:
     COUNT: 'Aantal pagina''s om te tonen'
   DashboardRecentEditsPanel:
-    PLURALNAME: 'Dashboard Recente Bewerkingen Panelen'
-    SINGULARNAME: 'Dashboard Recente Bewerkingen Panel'
+    PLURALNAME: 'Dashboard Recente Bewerkingen Paneelen'
+    SINGULARNAME: 'Dashboard Recente Bewerkingen Paneel'
   DashboardRecentFile:
     COUNT: 'Aantal bestanden om te tonen'
   DashboardRecentFilesPanel:
-    PLURALNAME: 'Dashboard Recente Bestanden Panelen'
-    SINGULARNAME: 'Dashboard Recent Bestanden Panel'
+    PLURALNAME: 'Dashboard Recente Bestanden Paneelen'
+    SINGULARNAME: 'Dashboard Recent Bestanden Paneel'
   DashboardSectionEditorPanel:
-    PLURALNAME: 'Dashboard Sectiebewerker Panelen'
-    SINGULARNAME: 'Dashboard Sectiebewerker Panel'
+    PLURALNAME: 'Dashboard Sectiebewerker Paneelen'
+    SINGULARNAME: 'Dashboard Sectiebewerker Paneel'
   DashboardWeatherPanel:
-    PLURALNAME: 'Dashboard Weer Panelen'
-    SINGULARNAME: 'Dashboard Weer Panel'
+    PLURALNAME: 'Dashboard Weer Paneelen'
+    SINGULARNAME: 'Dashboard Weer Paneel'
   Permission:
     CMS_ACCESS_CATEGORY: 'CMS Toegang'
   RecentEdits:
