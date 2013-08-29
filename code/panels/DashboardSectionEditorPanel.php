@@ -25,8 +25,14 @@ class DashboardSectionEditorPanel extends DashboardPanel {
 
 	static $configure_on_create = true;
 	
-	
-
+	/**
+	 * @config Maximum number of records which should be displayed in this component.
+	 * If the number is too high, the dashboard can time out or run out of PHP memory.
+	 * @todo Temporary configuration value, to be replaced by a more flexible UI component
+	 * for viewing the hierarchy without preloading all of it.
+	 * @var integer
+	 */
+	static $record_limit = 250;
 
 	public function getLabel() {
 		return _t('Dashboard.SECTIONEDTIORLABEL','Section Editor');
@@ -38,7 +44,14 @@ class DashboardSectionEditorPanel extends DashboardPanel {
 		return _t('Dashbaord.SECTIONEDITORDESCRIPTION','Pulls pages from a section of the website for viewing and creation');
 	}
 
-
+	public function canCreate($member = null) {
+		$count = SiteTree::get()->Count();
+		if($count > $this->config()->record_limit) {
+			return false;
+		} else {
+			return parent::canCreate($member);
+		}
+	}
 
 	/**
 	 * Gets the icon for the panel. Use the icon of the subject page when possible, otherwise
