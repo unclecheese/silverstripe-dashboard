@@ -110,8 +110,10 @@ class DashboardSectionEditorPanel extends DashboardPanel {
 
 	public function getConfiguration() {
 		$fields = parent::getConfiguration();
-		$fields->push(DropdownField::create("ParentID","Section", $this->getHierarchy(0))
-			->addExtraClass("no-chzn")
+		$fields->push(TreeDropdownField::create("ParentID","Section","SiteTree")
+			->setFilterFunction(function($node){
+				return SiteTree::get()->filter("ParentID", $node->ID)->exists();
+			})
 		);
 		$fields->push(DropdownField::create("Subject", "Page type", $this->getPageTypes())
 			->addExtraClass("no-chzn")

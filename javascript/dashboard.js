@@ -14,8 +14,7 @@
 			})
 		},
 		
-		showConfigure: function() {
-			console.log("show");
+		showConfigure: function() {		
 			var $t = this;
 			this.flip({
 				direction: "rl",
@@ -31,10 +30,14 @@
 							$(this).html("<span class='ui-button-text'>"+text+"</span>");
 						}
 					});
+					$t.find(".TreeDropdownField").each(function() {
+						while($(this).find(".treedropdownfield-title").length > 1) {						
+							$(this).find(".treedropdownfield-title:last, .treedropdownfield-toggle-panel-link:last, .treedropdownfield-panel:last").remove()							
+						}
+					})
 
 				}
 			});
-			console.log("done");
 		},
 
 		hideConfigure: function() {
@@ -420,7 +423,6 @@
 
 	$('.configure-form .dashboard-button-options-btn-group > a').entwine({
 		onclick: function(e) {			
-			console.log(this.getButtonGroup().getValue());
 			this.closest(".dashboard-panel")
 				.removeClass(this.getButtonGroup().getValue())
 				.addClass(this.data('value'));
