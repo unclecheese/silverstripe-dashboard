@@ -10,11 +10,11 @@
  * @package Dashboard
  */
 class DashboardGridFieldPanel extends DashboardPanel {
-	
+
 
 
 	private static $db = array (
-		'Count' => 'Int',		
+		'Count' => 'Int',
 		'GridFieldName' => 'Varchar'
 	);
 
@@ -33,7 +33,7 @@ class DashboardGridFieldPanel extends DashboardPanel {
 
 
 	private static $configure_on_create = true;
-	
+
 
 
 
@@ -66,9 +66,9 @@ class DashboardGridFieldPanel extends DashboardPanel {
 	 */
 	public function getPrimaryActions() {
 		if(!$this->SubjectPageID || !$this->GridFieldName) return false;
-		$actions = parent::getPrimaryActions();		
+		$actions = parent::getPrimaryActions();
 		$actions->push(DashboardPanelAction::create(
-			$this->CreateModelLink(), 
+			$this->CreateModelLink(),
 			_t('Dashboard.CREATENEWGRIDFIELD','Create new'),
 			"good"
 		));
@@ -85,9 +85,9 @@ class DashboardGridFieldPanel extends DashboardPanel {
 	 */
 	public function getSecondaryActions() {
 		if(!$this->SubjectPageID || !$this->GridFieldName) return false;
-		$actions = parent::getPrimaryActions();		
+		$actions = parent::getPrimaryActions();
 		$actions->push(DashboardPanelAction::create(
-			$this->ViewAllLink(), 
+			$this->ViewAllLink(),
 			_t('Dashboard.VIEWALLGRIDFIELD','View all')
 		));
 		return $actions;
@@ -114,6 +114,7 @@ class DashboardGridFieldPanel extends DashboardPanel {
 			->addExtraClass('no-chzn')
 			->setAttribute('data-lookupurl', $this->Link("gridsforpage"))
 			->setEmptyString("--- "._t('Dashboard.PLEASESELECT','Please select')." ---")
+			->setTemplate("DashboardDropdownField")
 		);
 		$fields->push(DropdownField::create("GridFieldName", _t('Dashboard.GRIDFIELDNAME','GridField name'), $grids)
 			->addExtraClass('no-chzn')
@@ -141,7 +142,7 @@ class DashboardGridFieldPanel extends DashboardPanel {
 		if($children->exists()) {
 			foreach($children as $child) {
 				$indent="";
-				for($i=0;$i<$level;$i++) $indent .= "&nbsp;&nbsp;";				
+				for($i=0;$i<$level;$i++) $indent .= "&nbsp;&nbsp;";
 				$text = $child->Title;
 				$options[$child->ID] = empty($text) ? "<em>$indent Untitled</em>" : $indent.$text;
 				$options += $this->getHierarchy($child->ID, $level+1);
@@ -227,7 +228,7 @@ class DashboardGridFieldPanel extends DashboardPanel {
 	 */
 	protected function getGrid() {
 		if($this->SubjectPage()->exists() && $this->GridFieldName) {
-			if($grid = $this->SubjectPage()->getCMSFields()->dataFieldByName($this->GridFieldName)) {				
+			if($grid = $this->SubjectPage()->getCMSFields()->dataFieldByName($this->GridFieldName)) {
 				$grid->setForm($this->Form());
 				return $grid;
 			}
@@ -268,10 +269,10 @@ class DashboardGridFieldPanel extends DashboardPanel {
 	 * @return ArrayList
 	 */
 	public function GridFieldItems() {
-		if($grid = $this->getGrid()) {				
+		if($grid = $this->getGrid()) {
 			$list = $grid->getList()
 				->limit($this->Count)
-				->sort("LastEdited DESC");			
+				->sort("LastEdited DESC");
 			$ret = ArrayList::create(array());
 			foreach($list as $record) {
 				$ret->push(ArrayData::create(array(
@@ -288,7 +289,7 @@ class DashboardGridFieldPanel extends DashboardPanel {
 					'Title' => $record->getTitle()
 				)));
 			}
-			return $ret;	
+			return $ret;
 		}
 	}
 
@@ -319,7 +320,7 @@ class DashboardGridFieldPanel extends DashboardPanel {
  * @package Dashbaord
  */
 class DashboardGridField_PanelRequest extends Dashboard_PanelRequest {
-	
+
 	private static $allowed_actions = array(
 		"gridsforpage"
 	);
@@ -336,6 +337,6 @@ class DashboardGridField_PanelRequest extends Dashboard_PanelRequest {
 		return Convert::array2json($this->panel->getGridFieldsFor(SiteTree::get()->byID($pageid)));
 	}
 
-	
+
 
 }

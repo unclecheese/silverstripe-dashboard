@@ -2,9 +2,12 @@
 Name: dashboard
 ---
 Member:
-  extensions: 
+  extensions:
     [DashboardMember]
 
 SiteConfig:
-  extensions: 
+  extensions:
     [DashboardSiteConfig]
+GridFieldDetailForm_ItemRequest:
+  extensions:
+    [DashboardItemEditForm]
