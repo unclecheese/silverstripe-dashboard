@@ -16,9 +16,9 @@
 		
 		showConfigure: function() {		
 			var $t = this;
-			this.flip({
+			this.find('.dashboard-panel-inner').flip({
 				direction: "rl",
-				content: $(this).find('.dashboard-panel-configure').html(),
+				content: $($t).find('.dashboard-panel-configure').html(),
 				color: "#dfdfdf",
 				onEnd: function() {
 					if($t.hasClass("refreshable")) {
@@ -41,7 +41,7 @@
 		},
 
 		hideConfigure: function() {
-			this.revertFlip();
+			this.find('.dashboard-panel-inner').revertFlip();
 		},
 
 
@@ -70,6 +70,9 @@
 		},
 		getConfigurationActions: function() {
 			return this.getPanel().find('.dashboard-panel-configure-actions:first');
+		},
+		getPanelInner: function() {
+			return this.getPanel().find('.dashboard-panel-inner:first');
 		}
 	})
 
@@ -192,7 +195,7 @@
 				type: "POST",
 				success: function(data) {
 					$form.getPanel().addClass("refreshable");
-					$form.getPanel().revertFlip();
+					$form.getPanelInner().revertFlip();
 				}
 			})
 		}
