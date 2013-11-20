@@ -23,39 +23,41 @@
 	</div>
 	<div class="dashboard dashboard-sortable" data-sort-url="$Link(sort)">
 		<div id="dashboard-message"></div>		
-		<div class="dashboard-panel-list">
+		<div class="dashboard-panel-list"><!--
 		<% loop Panels %>
-			$PanelHolder
+		-->$PanelHolder<!--
 		<% end_loop %>
-		</div>
+	--></div>
 		<div class="dashboard-panel-selection dashboard-panel normal" id="dashboard-panel-0">
-			<div class="dashboard-panel-selection-inner">
-				<div class="dashboard-panel-header">
-					<div class="dashboard-panel-icon">
-						<img src="dashboard/images/dashboard-panel-default.png" width="24" height="24" />
-					</div>
-
-					<h3><% _t('Dashboard.CHOOSEPANELTYPE','Choose a panel type') %></h3>
-				</div>		
-				<div class="dashboard-panel-content">
-					<% loop AllPanels %>
-						<div class="available-panel $EvenOdd" data-type="$Class" data-create-url="$CreateLink" <% if ShowConfigure %>data-configure="true"<% end_if %>>
-							<div class="available-panel-icon">
-								<img src="$Icon" />
-							</div>
-							<div class="available-panel-content">
-								<h4>$Label</h4>
-								<p>$Description</p>
-							</div>
+			<div class="dashboard-panel-inner">
+				<div class="dashboard-panel-selection-inner">
+					<div class="dashboard-panel-header">
+						<div class="dashboard-panel-icon">
+							<img src="dashboard/images/dashboard-panel-default.png" width="24" height="24" />
 						</div>
-					<% end_loop %>				
+
+						<h3><% _t('Dashboard.CHOOSEPANELTYPE','Choose a panel type') %></h3>
+					</div>
+					<div class="dashboard-panel-content">
+						<% loop AllPanels %>
+							<div class="available-panel $EvenOdd" data-type="$Class" data-create-url="$CreateLink" <% if ShowConfigure %>data-configure="true"<% end_if %>>
+								<div class="available-panel-icon">
+									<img src="$Icon" />
+								</div>
+								<div class="available-panel-content">
+									<h4>$Label</h4>
+									<p>$Description</p>
+								</div>
+							</div>
+						<% end_loop %>
+					</div>
+					<div class="dashboard-panel-footer">
+						<div class="dashboard-panel-footer-actions">
+							<button class="ss-ui-button dashboard-create-cancel"><% _t('Dashboard.CANCEL','Cancel') %></button>
+						</div>
+					</div>
 				</div>
-				<div class="dashboard-panel-footer">				
-					<div class="dashboard-panel-footer-actions">			
-						<button class="ss-ui-button dashboard-create-cancel"><% _t('Dashboard.CANCEL','Cancel') %></button>				
-					</div>				
-				</div>
-			</div>
+            </div>
 		</div>
 	</div>
 
