@@ -28,6 +28,10 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 	
 	
 	private static $menu_icon = "dashboard/images/dashboard.png";
+	
+	
+	
+	private static $tree_class = 'DashboardPanel';
 
 
 	
