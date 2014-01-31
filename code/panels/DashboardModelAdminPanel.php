@@ -173,7 +173,9 @@ class DashboardModelAdminPanel extends DashboardPanel {
 
 		$m = Config::inst()->get($class, "managed_models", Config::INHERITED);
 		if(is_array($m)) {
-			foreach($m as $managed_model) {
+			foreach($m as $key => $managed_model) {
+				// this covers the case: 'ModelName' => array('title' => 'My Tab Title')
+				if (!is_numeric($key)) $managed_model = $key;
 				$models[$managed_model] = $managed_model;
 			}
 		}
