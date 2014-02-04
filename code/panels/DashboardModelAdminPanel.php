@@ -216,6 +216,10 @@ class DashboardModelAdminPanel extends DashboardPanel {
 	 */
 	public function ModelAdminItems() {
 		if($this->ModelAdminModel) {
+			$SNG= Injector::inst()->get($this->ModelAdminModel);
+			if($SNG->hasExtension("Versioned")) {
+				Versioned::reading_stage("Stage");
+			}
 			$records = DataList::create($this->ModelAdminModel)
 				->limit($this->Count)
 				->sort("LastEdited DESC");
