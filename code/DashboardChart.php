@@ -51,7 +51,7 @@ class DashboardChart extends ViewableData {
 	public $FontSize = 10;
 
 
-	
+
 
 	/**
 	 * @var string The position of the text on the chart
@@ -84,7 +84,7 @@ class DashboardChart extends ViewableData {
 	 * @param string The title of the chart
 	 * @param string The label of the X axis
 	 * @param string The label for the Y axis
-	 * @param array The chart data, in x/y pairs	 
+	 * @param array The chart data, in x/y pairs
 	 */
 	public function __construct($title = null, $x_label = null, $y_label = null, $chartData = array ()) {
 		if(!is_array($chartData)) {
@@ -162,11 +162,10 @@ class DashboardChart extends ViewableData {
 	 * @return SSViewer
 	 */
 	public function forTemplate() {
-		Requirements::javascript("https://www.google.com/jsapi");
-		Requirements::javascript("https://www.google.com/uds/api/visualization/1.0/31f9974bf1146091ae320c1219fdf695/format+en,default,corechart.I.js");		
+		Requirements::javascript("dashboard/javascript/thirdparty/google_jsapi_visualization.js");
 		Requirements::javascript("dashboard/javascript/dashboard-chart.js");
 		return $this->renderWith('DashboardChart');
 	}
 
-	
+
 }

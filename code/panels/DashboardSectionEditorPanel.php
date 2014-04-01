@@ -7,7 +7,7 @@
  * @author Uncle Cheese <unclecheese@leftandmain.com>
  */
 class DashboardSectionEditorPanel extends DashboardPanel {
-	
+
 
 	private static $db = array (
 		'ParentID' => 'Int',
@@ -24,8 +24,8 @@ class DashboardSectionEditorPanel extends DashboardPanel {
 
 
 	private static $configure_on_create = true;
-	
-	
+
+
 
 
 	public function getLabel() {
@@ -78,7 +78,7 @@ class DashboardSectionEditorPanel extends DashboardPanel {
 		if($children->exists()) {
 			foreach($children as $child) {
 				$indent="";
-				for($i=0;$i<$level;$i++) $indent .= "&nbsp;&nbsp;";				
+				for($i=0;$i<$level;$i++) $indent .= "&nbsp;&nbsp;";
 				if($child->AllChildren()->exists()) {
 					$text = $child->Title;
 					$options[$child->ID] = empty($text) ? "<em>$indent Untitled</em>" : $indent.$text;
@@ -110,13 +110,15 @@ class DashboardSectionEditorPanel extends DashboardPanel {
 
 	public function getConfiguration() {
 		$fields = parent::getConfiguration();
-		$fields->push(DropdownField::create("ParentID","Section", $this->getHierarchy(0))
-			->addExtraClass("no-chzn")
+		$fields->push(TreeDropdownField::create("ParentID","Section","SiteTree")
+			->setFilterFunction(function($node){
+				return SiteTree::get()->filter("ParentID", $node->ID)->exists();
+			})
 		);
 		$fields->push(DropdownField::create("Subject", "Page type", $this->getPageTypes())
 			->addExtraClass("no-chzn")
 		);
-		$fields->push(TextField::create("Count",_t('DashboardRecentEdits.COUNT','Number of pages to display')));		
+		$fields->push(TextField::create("Count",_t('DashboardRecentEdits.COUNT','Number of pages to display')));
 		return $fields;
 	}
 
@@ -124,10 +126,10 @@ class DashboardSectionEditorPanel extends DashboardPanel {
 
 	public function getPrimaryActions() {
 		if(!$this->Subject || !$this->ParentID) return false;
-		$actions = parent::getPrimaryActions();		
+		$actions = parent::getPrimaryActions();
 		$actions->push(DashboardPanelAction::create(
-			$this->CreatePageLink(), 
-			sprintf(_t('Dashboard.CREATENEW','Create new %s'),$this->SubjectSingularName()), 
+			$this->CreatePageLink(),
+			sprintf(_t('Dashboard.CREATENEW','Create new %s'),$this->SubjectSingularName()),
 			"good"
 		));
 		return $actions;
@@ -140,10 +142,10 @@ class DashboardSectionEditorPanel extends DashboardPanel {
 		$actions = parent::getSecondaryActions();
 		$actions->push(DashboardPanelAction::create(
 			$this->ViewAllLink(),
-			sprintf(_t('Dashboard.VIEWALL','View all %s'),$this->SubjectPluralName())			
+			sprintf(_t('Dashboard.VIEWALL','View all %s'),$this->SubjectPluralName())
 		));
 		return $actions;
-	
+
 	}
 
 
@@ -155,7 +157,7 @@ class DashboardSectionEditorPanel extends DashboardPanel {
 				'ClassName' => $this->Subject
 			))
 			->limit($this->Count)
-			->sort("LastEdited DESC");	
+			->sort("LastEdited DESC");
 		$ret = ArrayList::create(array());
 		foreach($set as $r) {
 			$ret->push(ArrayData::create(array(
@@ -163,7 +165,7 @@ class DashboardSectionEditorPanel extends DashboardPanel {
 				'EditLink' => Injector::inst()->get("CMSPagesController")->Link("edit/show/{$r->ID}")
 			)));
 		}
-		return $ret;		
+		return $ret;
 	}
 
 
@@ -174,7 +176,7 @@ class DashboardSectionEditorPanel extends DashboardPanel {
 
 
 	public function SubjectPluralName() {
-		return Injector::inst()->get($this->Subject)->i18n_plural_name();	
+		return Injector::inst()->get($this->Subject)->i18n_plural_name();
 	}
 
 

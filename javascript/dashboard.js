@@ -14,12 +14,11 @@
 			})
 		},
 		
-		showConfigure: function() {
-			console.log("show");
+		showConfigure: function() {		
 			var $t = this;
-			this.flip({
+			this.find('.dashboard-panel-inner').flip({
 				direction: "rl",
-				content: $(this).find('.dashboard-panel-configure').html(),
+				content: $($t).find('.dashboard-panel-configure').html(),
 				color: "#dfdfdf",
 				onEnd: function() {
 					if($t.hasClass("refreshable")) {
@@ -31,14 +30,18 @@
 							$(this).html("<span class='ui-button-text'>"+text+"</span>");
 						}
 					});
+					$t.find(".TreeDropdownField").each(function() {
+						while($(this).find(".treedropdownfield-title").length > 1) {						
+							$(this).find(".treedropdownfield-title:last, .treedropdownfield-toggle-panel-link:last, .treedropdownfield-panel:last").remove()							
+						}
+					})
 
 				}
 			});
-			console.log("done");
 		},
 
 		hideConfigure: function() {
-			this.revertFlip();
+			this.find('.dashboard-panel-inner').revertFlip();
 		},
 
 
@@ -67,6 +70,9 @@
 		},
 		getConfigurationActions: function() {
 			return this.getPanel().find('.dashboard-panel-configure-actions:first');
+		},
+		getPanelInner: function() {
+			return this.getPanel().find('.dashboard-panel-inner:first');
 		}
 	})
 
@@ -189,7 +195,7 @@
 				type: "POST",
 				success: function(data) {
 					$form.getPanel().addClass("refreshable");
-					$form.getPanel().revertFlip();
+					$form.getPanelInner().revertFlip();
 				}
 			})
 		}
@@ -420,7 +426,6 @@
 
 	$('.configure-form .dashboard-button-options-btn-group > a').entwine({
 		onclick: function(e) {			
-			console.log(this.getButtonGroup().getValue());
 			this.closest(".dashboard-panel")
 				.removeClass(this.getButtonGroup().getValue())
 				.addClass(this.data('value'));
