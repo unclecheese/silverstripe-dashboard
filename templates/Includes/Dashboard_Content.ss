@@ -1,9 +1,7 @@
 <div id="pages-controller-cms-content" class="cms-content center " data-layout-type="border" data-pjax-fragment="Content">
 	<div class="cms-content-header north">
 		<div class="cms-content-header-info">
-			<h2>
-				<% include CMSBreadcrumbs %>
-			</h2>
+			<% include CMSBreadcrumbs %>
 		</div>	
 		<div class="dashboard-top-buttons">
 		<% if CanAddPanels %>
