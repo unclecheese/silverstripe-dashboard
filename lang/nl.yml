@@ -1,0 +1,121 @@
+nl:
+  CMSMain:
+    AddNew: 'Nieuwe pagina'
+    ListFiltered: 'Gefilterde lijst'
+    TreeFilteredClear: 'Filter verwijderen'
+  Dashbaord:
+    QUICKLINKSDESCRIPTION: 'Sta management van willekeurige links op het dashboard toe'
+    SECTIONEDITORDESCRIPTION: 'Haalt pagina''s van een deel van de website voor bekijken en aanmaken'
+  Dashboard_Content:
+    ADMINISTRATION: Administratie
+  DashboardModelAdmin:
+    COUNT: 'Aantal items om te tonen'
+    
+  Dashboard:
+    ACCESS: 'Toegang tot ''{title}'' onderdeel'
+    ACCESS_HELP: 'Laat gebruikers panelen verwijderen van zijn/haar dashboard'
+    ACUSTOMPATH: 'Filter bij specifiek pad'
+    ADD: Toevoegen
+    ADDPANEL: 'Nieuw Paneel'
+    ADDPANELS: 'Nieuwe dashboardpanelen toevoegen'
+    APPLYTOALL: 'Stel dit dashboard in voor alle gebruikers'
+    APPLYTOALLSUCCESS: 'Succes! Deze dashboard configuratie is toegepast op alle gebruikers met dashboard toegang.'
+    CANCEL: Annuleren
+    CELCIUS: Celcius
+    CHOOSEPANELTYPE: 'Kies een paneeltype'
+    CONFIGUREANELS: 'Configureer dashboard panelen'
+    CREATENEW: 'Creeer nieuw %s'
+    DATEFORMAT: 'Datum notatie'
+    DATERANGE: 'Datum bereik'
+    DAY: Dag
+    DELETEPANELS: 'Verwijder dashboardpanelen'
+    ENTIRESITE: 'Gehele site'
+    FARENHEIT: Fahrenheit
+    FILTERBYPAGE: Filter
+    GAACCOUNTEMAIL: 'Google account e-mailadres'
+    GAACCOUNTPASSWORD: 'Google account wachtwoord'
+    GAACCOUNTPROFILE: 'Profiel ID (te vinden in "Profiel instellingen" van Google Analytics)'
+    GOOGLEDESCRIPTION: 'Toon Google Analytics grafiek voor gekozen pagina'
+    GRIDFIELDPANELTITLE: 'Grid Field Editor'
+    GRIDFIELDPANELDESCRIPTION: 'Voegt een samenvatting van een GridField onderdeel van een gekozen pagina'
+    LOCATION: Locatie
+    MENUTITLE: Dashboard
+    MODELADMINCLASS: 'Model admin tab'
+    MODELADMINMODEL: Model
+    MODELADMINPANELDESCRIPTION: 'Voegt een overzicht van een Model Admin deel van het CMS'
+    MODELADMINPANELTITLE: 'Model Admin Editor'
+    PANELSIZE: ''
+    NONESHOWALL: 'Geen filter. Toon analytics voor de gehele site'
+    NORECORDS: 'Geen items'
+    PAGEINLIST: 'Filter op een specifieke pagina in de sitetree'
+    PAGEVIEWS: Paginaviews
+    PATH: Pad
+    PLEASESELECT: 'Maak een keuze'
+    PREVIOUSSEVENDAYS: '7 dagen'
+    PREVIOUSTHIRTYDAYS: '30 dagen'
+    PREVIOUSYEAR: '365 dagen'
+    QUICKLINKSLABEL: 'Snellinks'
+    RSSFEED: 'RSS Feed'
+    RSSFEEDDESCRIPTION: 'Voegt een RSS feed van een publieke URL toe'
+    SAVE: Opslaan
+    SECTIONEDTIORLABEL: 'Sectie Editor'
+    SELECTLOCATION: 'Kies een locatie waar je het weerbericht van wilt tonen.'
+    SETASDEFAULT: 'Maak dit het standaard dashboard'
+    SETASDEFAULTSUCCESS: 'Succes! Deze dashboard configuratie is nu standaard voor alle gebruikers met dashboard toegang.'
+    TITLE: Titel
+    TODAY: Vandaag
+    TOMORROW: Morgen
+    UNITS: Units
+    VIEWALL: 'Bekijk alle %s'
+    VIEWFORECAST: 'Bekijk gehele verwachting'
+    WEATHER: Weer
+    WEATHERDESCRIPTION: 'Toont het weer van de gekozen locatie.'
+    WEATHERNORESPONSE: 'Weerserver reageerde niet. Probeer nogmaals over een paar minuten.'
+  DashboardGoogleAnalyticsPanel:
+    PLURALNAME: 'Dashboard Google Analytics Paneelen'
+    SINGULARNAME: 'Dashboard Google Analytics Paneel'
+  DashboardModelAdminPanel:
+    PLURALNAME: 'Model Admins'
+    SINGULARNAME: 'Model Admin'
+  DashboardPanel:
+    PLURALNAME: 'Dashboardpanelen'
+    SINGULARNAME: 'Dashboardpaneel'
+  DashboardPanelDataObject:
+    PLURALNAME: 'Dashboard Paneel Data Objects'
+    SINGULARNAME: 'Dashboard Paneel Data Object'
+  DashboardQuickLink:
+    LINK: 'Link (inclusief http://)'
+    LINKTEXT: 'Link tekst'
+    NEWWINDOW: 'Open link in nieuw scherm'
+    PLURALNAME: 'Dashboard snellinks'
+    SINGULARNAME: 'Dashboard snellink'
+  DashboardQuickLinksPanel:
+    PLURALNAME: 'Dashboard snellinks Paneelen'
+    SINGULARNAME: 'Dashboard snellinks Paneel'
+  DashboardRSSFeedPanel:
+    PLURALNAME: 'Dashboard R S S Feed Paneelen'
+    SINGULARNAME: 'Dashboard R S S Feed Paneel'
+  DashboardRecentEdits:
+    COUNT: 'Aantal pagina''s om te tonen'
+  DashboardRecentEditsPanel:
+    PLURALNAME: 'Dashboard Recente Bewerkingen Paneelen'
+    SINGULARNAME: 'Dashboard Recente Bewerkingen Paneel'
+  DashboardRecentFile:
+    COUNT: 'Aantal bestanden om te tonen'
+  DashboardRecentFilesPanel:
+    PLURALNAME: 'Dashboard Recente Bestanden Paneelen'
+    SINGULARNAME: 'Dashboard Recent Bestanden Paneel'
+  DashboardSectionEditorPanel:
+    PLURALNAME: 'Dashboard Sectiebewerker Paneelen'
+    SINGULARNAME: 'Dashboard Sectiebewerker Paneel'
+  DashboardWeatherPanel:
+    PLURALNAME: 'Dashboard Weer Paneelen'
+    SINGULARNAME: 'Dashboard Weer Paneel'
+  Permission:
+    CMS_ACCESS_CATEGORY: 'CMS Toegang'
+  RecentEdits:
+    DESCRIPTION: 'Toon een gelinkte lijst van recent bewerkte pagina''s'
+    LABEL: 'Recente bewerkingen'
+  RecentFiles:
+    DESCRIPTION: 'Toon een gelinkte lijst van recent bewerkte bestanden'
+    LABEL: 'Recente bestanden'

@@ -13,7 +13,7 @@ en:
     
   Dashboard:
     ACCESS: 'Access to ''{title}'' section'
-    ACCESS_HELP: 'Allow user to remove panels from his/her dashbaord'
+    ACCESS_HELP: 'Allow user to remove panels from his/her dashboard'
     ACUSTOMPATH: 'Filter by a specific path'
     ADD: Add
     ADDPANEL: 'New Panel'
