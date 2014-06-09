@@ -45,9 +45,9 @@ class DashboardMember extends DataExtension {
 				$clone->MemberID = $this->owner->ID;
 				$clone->write();
 			}
-			$this->owner->HasConfiguredDashboard = 1;
-			// Get a fresh record, so we don't run in to recursive writes.
-			Member::get()->byID($this->owner->ID)->write();
+
+			DB::query("UPDATE Member SET HasConfiguredDashboard = 1 WHERE ID = {$this->owner->ID}");			
+			$this->owner->flushCache();
 		}
 	}
 }
