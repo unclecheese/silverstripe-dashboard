@@ -190,17 +190,16 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 	 * @return SS_HTTPResponse
 	 */
 	public function applytoall(SS_HTTPRequest $r) {
-		foreach(Member::get()->exclude(array('ID' => Member::currentUserID())) as $member) {
-			if(Permission::check("CMS_ACCESS_Dashboard","any",$member)) {
-				foreach($member->DashboardPanels() as $p) {
-					$p->delete();
-				}
-				foreach(Member::currentUser()->DashboardPanels() as $panel) {
-					$clone = $panel->duplicate();					
-					$clone->MemberID = $member->ID;
-					$clone->write();
-				}
-			}
+		$members = Permission::get_members_by_permission("CMS_ACCESS_Dashboard");
+		foreach($members as $member) {
+			if($member->ID == Member::currentUserID()) continue;
+			
+			$member->DashboardPanels()->removeAll();
+			foreach(Member::currentUser()->DashboardPanels() as $panel) {
+				$clone = $panel->duplicate();					
+				$clone->MemberID = $member->ID;
+				$clone->write();
+			}			
 		}
 		return new SS_HTTPResponse(_t('Dashboard.APPLYTOALLSUCCESS','Success! This dashboard configuration has been applied to all members who have dashboard access.'));
 	}
