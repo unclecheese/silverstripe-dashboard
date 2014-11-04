@@ -38,6 +38,22 @@ class DashboardGridFieldPanel extends DashboardPanel {
 
 
 	/**
+	 * Override to check if there is a custom template for this panel, otherwise fall back.
+	 *
+	 * @return string
+	 */
+	protected function getTemplate() {
+		$templateName = get_class($this) . '_' . $this->SubjectPage()->ClassName . '_' . $this->GridFieldName;
+		if(SS_TemplateLoader::instance()->findTemplates($templateName)) {
+			return $templateName;
+		}
+		return parent::getTemplate();
+	}
+
+
+
+
+	/**
 	 * @var string Overrides the standard request handler to provide custom controller actions
 	 */
 	protected $requestHandlerClass = "DashboardGridField_PanelRequest";
@@ -275,19 +291,17 @@ class DashboardGridFieldPanel extends DashboardPanel {
 				->sort("LastEdited DESC");
 			$ret = ArrayList::create(array());
 			foreach($list as $record) {
-				$ret->push(ArrayData::create(array(
-					'EditLink' => Controller::join_links(
-										Injector::inst()->get("CMSMain")->Link("edit"),
-										"EditForm",
-										"field",
-										$this->GridFieldName,
-										"item",
-										$record->ID,
-										"edit",
-										"?ID={$this->SubjectPageID}"
-									),
-					'Title' => $record->getTitle()
-				)));
+				$record->EditLink = Controller::join_links(
+					Injector::inst()->get("CMSMain")->Link("edit"),
+					"EditForm",
+					"field",
+					$this->GridFieldName,
+					"item",
+					$record->ID,
+					"edit",
+					"?ID={$this->SubjectPageID}"
+				);
+				$ret->push($record);
 			}
 			return $ret;
 		}
