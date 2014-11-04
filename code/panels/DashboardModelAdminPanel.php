@@ -39,6 +39,21 @@ class DashboardModelAdminPanel extends DashboardPanel {
 
 
 
+	/**
+	 * Override to check if there is a custom template for this panel, otherwise fall back
+	 *
+	 * @return string
+	 */
+	protected function getTemplate() {
+		$templateName = get_class($this) . '_' . $this->ModelAdminClass . '_' . $this->ModelAdminModel;
+		if(SS_TemplateLoader::instance()->findTemplates($templateName)) {
+			return $templateName;
+		}
+		return parent::getTemplate();
+	}
+
+
+
 	public function getLabel() {
 		return _t('Dashboard.MODELADMINPANELTITLE','Model Admin Editor');
 	}
@@ -228,20 +243,17 @@ class DashboardModelAdminPanel extends DashboardPanel {
 			$url_segment = Injector::inst()->get($this->ModelAdminClass)->Link();
 			$ret = ArrayList::create(array());
 			foreach($records as $rec) {
-				$ret->push(ArrayData::create(array(
-					'EditLink' => Controller::join_links(
-									$url_segment, 
-									$this->ModelAdminModel,
-									"EditForm",
-									"field",
-									$this->ModelAdminModel,
-									"item",
-									$rec->ID,
-									"edit"
-								),
-					'Title' => $rec->getTitle()
-
-				)));
+				$rec->EditLink = Controller::join_links(
+					$url_segment,
+					$this->ModelAdminModel,
+					"EditForm",
+					"field",
+					$this->ModelAdminModel,
+					"item",
+					$rec->ID,
+					"edit"
+				);
+				$ret->push($rec);
 			}
 			return $ret;
 		}

@@ -2,10 +2,9 @@
 
 The Dashboard module provides a splash page for the CMS in SilverStripe 3 with configurable widgets that display relevant information. Panels can be created and extended easily. The goal of the Dashboard module is to provide users with a launchpad for common CMS actions such as creating specific page types or browsing new content.
 
-Videos can also be found at [in this blog post.](http://www.leftandmain.com/silverstripe-screencasts/2012/10/03/dashboard-module-for-silverstripe-3/)
 
-## Screenshot
-![Screenshot](http://www.leftandmain.com/wp-content/themes/bueno/thumb.php?src=wp-content/uploads/2012/10/screenshot.png&w=640&zc=1&q=90)
+## Screenshot & Videos
+Images and videos about this module can be found [in this blog post.](http://www.leftandmain.com/silverstripe-screencasts/2012/10/03/dashboard-module-for-silverstripe-3/)
 
 
 ## Included panels
@@ -104,6 +103,8 @@ public function PanelHolder() {
 }
 ```
 
+
+
 ### Adding a chart to visualize data
 
 The Dashboard module comes with an API for creating charts using the Google API.
@@ -129,5 +130,21 @@ The Dashboard module comes with an API for creating charts using the Google API.
 ```html
 $Chart
 ```
+
+### Custom templates for ModelAdmin / GridField panels
+
+You can create your own templates for either of these panel types which will override the default templates. Due to the naming structure the custom templates will be specific to that partiular panel, thus you can have a seperate template for each ModelAdmin / GridField panel.
+
+You can access all the properties of your model in the template as normal along with a EditLink method which will contain the CMS edit link for that item.
+
+
+For model admin panels, create a templated called DashboardModelAdminPanel\_**ModelAdminClass**\_**ModelAdminModel**.ss and place it in your _mysite/templates/Includes folder_. 
+eg;
+**DashboardModelAdminPanel\_MyAdmin\_Product.ss**
+
+A gridfield panel uses a similar convention, DashboardGridFieldPanel\_**PageClassName**\_**GridFieldName**.ss
+
+eg;
+**DashboardGridFieldPanel\_ContactPage\_Submissions.ss**
 
 
