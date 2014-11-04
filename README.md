@@ -2,8 +2,10 @@
 
 The Dashboard module provides a splash page for the CMS in SilverStripe 3 with configurable widgets that display relevant information. Panels can be created and extended easily. The goal of the Dashboard module is to provide users with a launchpad for common CMS actions such as creating specific page types or browsing new content.
 
+Videos can also be found at [in this blog post.](http://www.leftandmain.com/silverstripe-screencasts/2012/10/03/dashboard-module-for-silverstripe-3/)
+
 ## Screenshot
-![Screenshot](http://dashboard.unclecheeseproductions.com/mysite/images/screenshot.png)
+![Screenshot](http://www.leftandmain.com/wp-content/themes/bueno/thumb.php?src=wp-content/uploads/2012/10/screenshot.png&w=640&zc=1&q=90)
 
 
 ## Included panels
@@ -36,13 +38,13 @@ First, create a class for the panel as a descendant of DashboardPanel. We'll inc
 
 class DashboardRecentOrdersPanel extends DashboardPanel {
 
-  static $db = array (
+  private static $db = array (
     'Count' => 'Int',
     'OnlyShowShipped' => 'Boolean'
   );
   
   
-  static $icon = "mysite/images/dashboard-recent-orders.png";
+  private static $icon = "mysite/images/dashboard-recent-orders.png";
   
   
   public function getLabel() {
@@ -81,7 +83,7 @@ The panel object will look for a template that matches its class name.
 <div class="dashboard-recent-orders">
   <ul>
     <% loop Orders %>
-    <li><a href="$Link">$OrderNumber ($Customer.Name)</a></li>
+      <li><a href="$Link">$OrderNumber ($Customer.Name)</a></li>
     <% end_loop %>
   </ul>
 </div>
@@ -128,14 +130,4 @@ The Dashboard module comes with an API for creating charts using the Google API.
 $Chart
 ```
 
-![Screenshot](http://dashboard.unclecheeseproductions.com/mysite/images/screenshot2.png)
 
-
-
-## Try a demo
-
-http://dashboard.unclecheeseproductions.com/admin
-
-## Known issues
-
-Has not been tested in Internet Explorer.
