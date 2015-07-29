@@ -1,5 +1,5 @@
 <% if not IsConfigured %>	
-	<% _t('Dashboard.NOGOOGLEACCOUNT','<p>You have not defined a Google Analytics account for this project. You can set this up by adding the following code to your project _config.php file:</p> <p><em><strong>DashboardGoogleAnalyticsPanel::set_account($email, $password, $profileID);</strong></em></p><p>Where $email is your Google email, $password is your password, and $profileID is the profile ID of the account, found on the "Profile Settings" tab of the Google Analytics profile for this project.</p>') %>
+	<% _t('Dashboard.NOGOOGLEACCOUNT','<p>You have not defined a Google Analytics account for this project. You can set this up by setting the config settings <strong>email</strong>, <strong>profile</strong>, and <strong>key_file_path</strong> on <strong>DashboardGoogleAnalyticsPanel</strong>.</p><p><a target="_blank" href="https://github.com/erebusnz/gapi-google-analytics-php-interface#instructions-for-setting-up-a-google-service-account-for-use-with-gapi">More information on key files</a></p>') %>
 <% else_if not IsConnected %>
 	<% _t('Dashboard.INVALIDGOOGLEACCOUNT','<p>The account information you have entered for Google Analytics appears to be invalid. Please check the email and password combination and try again.</p>') %>
 <% else %>
@@ -17,4 +17,8 @@
 		</div>
 	<% end_if %>
 </div>
+<% end_if %>
+
+<% if $Error %>
+	<p>$Error</p>
 <% end_if %>

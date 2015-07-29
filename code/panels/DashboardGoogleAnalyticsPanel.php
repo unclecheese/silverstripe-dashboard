@@ -27,24 +27,17 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 
 
 
-	protected static $gapi_email;
-
-
-
-	protected static $gapi_password;
-
-
-
-	protected static $gapi_profile;
-
-
-
 	/**
 	 * @var gapi A stored instantiation of the Google Analytics API object
 	 */
 	protected $gapi;
 
 
+	/** 
+	 * Stores any exceptions coming from GAPI for easy rendering on the template
+	 * @var string
+	 */
+	protected $error;
 
 
 	/**
@@ -67,17 +60,10 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 
 
 	/**
-	 * Sets the username and password for the Google Analytics account
-	 *
-	 * @param string The email address of the account
-	 * @param string The password of the account
-	 * @param string The profile ID of the account
-	 *
+	 * DEPRECATED: Sets the username and password for the Google Analytics account
 	 */
 	public static function set_account($email, $password, $profile) {
-		self::$gapi_email = $email;
-		self::$gapi_password = $password;
-		self::$gapi_profile = $profile;
+		throw new Exception("DashboardGoogleAnalyticsPanel::set_account() is no longer supported. Use the config settings 'email', 'profile', and 'key_file_path' in the DashboardGoogleAnalyticsPanel config. More info on oauth key: https://github.com/erebusnz/gapi-google-analytics-php-interface#instructions-for-setting-up-a-google-service-account-for-use-with-gapi");
 	}
 
 
@@ -93,6 +79,10 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 		return "Google Analytics";
 	}
 
+
+	public function getError() {
+		return $this->error;
+	}
 
 
 	/**
@@ -112,12 +102,17 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 	 *
 	 * @return gapi
 	 */
-	public function api() {
+	public function api() {		
 		if(!$this->gapi) {
 			try {
-				$this->gapi = new gapi(self::$gapi_email, self::$gapi_password);
+				$this->gapi = new gapi(
+					self::config()->email,
+					Director::getAbsFile(self::config()->key_file_path)
+				);
 			}
 			catch(Exception $e) {
+				$this->error = $e->getMessage();
+
 				return $this->gapi;			
 			}
 		}
@@ -231,7 +226,14 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 	 * @return bool
 	 */
 	public function IsConfigured() {
-		return self::$gapi_email && self::$gapi_password && self::$gapi_profile;
+		$c = self::config();
+		
+		return (
+			$c->email && 
+			$c->key_file_path && 
+			$c->profile &&
+			Director::fileExists($c->key_file_path)
+		);
 	}
 
 
@@ -322,7 +324,7 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 		if(!$this->isValid()) return false;
 		try {
 			$this->api()->requestReportData(
-				self::$gapi_profile, 
+				self::config()->profile, 
 				array('date'),
 				array('pageviews'), 
 				'date', 
@@ -331,6 +333,8 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 			);
 		}
 		catch(Exception $e) {
+			$this->error = $e->getMessage();
+
 			return false;
 		}
 
@@ -375,7 +379,7 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 		if(!$this->isValid()) return false;
 		try {
 			$this->api()->requestReportData(
-				self::$gapi_profile, 
+				self::config()->profile, 
 				'pagePath', 
 				array('pageviews', 'uniquePageviews', 'exitRate', 'avgTimeOnPage', 'entranceBounceRate'), 
 				null, 
@@ -384,6 +388,8 @@ class DashboardGoogleAnalyticsPanel extends DashboardPanel {
 			);
 		}
 		catch(Exception $e) {
+			$this->error = $e->getMessage();
+			
 			return false;
 		}
 		$set = ArrayList::create(array());

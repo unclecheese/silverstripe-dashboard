@@ -11,3 +11,7 @@ SiteConfig:
 GridFieldDetailForm_ItemRequest:
   extensions:
     [DashboardItemEditForm]
+DashboardGoogleAnalyticsPanel:
+  email: ''
+  profile: ''
+  key_file_path: google_oauth.p12

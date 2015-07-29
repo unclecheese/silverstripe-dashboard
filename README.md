@@ -149,9 +149,12 @@ eg;
 
 ## Note on Google Analytics Panel
 
-You need to add your Google Analytics config information to the project _config.php:
-```php
-DashboardGoogleAnalyticsPanel::set_account($email, $password, $profileID);
+You need to add your Google Analytics config information to the project config.php:
+```yaml
+DashboardGoogleAnalyticsPanel:
+  email: [XXXXX]@developer.gserviceaccount.com
+  profile: 123456
+  key_file_path: google_oauth.p12  
 ```
 To locate your profile ID, visit the Google Analytics website, login and select the website. At the end of the URL will be fragment similar to this:
 ```
@@ -161,3 +164,5 @@ To locate your profile ID, visit the Google Analytics website, login and select 
 The 8 digits that follow the "p" are your profile ID. In the example above, this would be 12345678.
 
 NOTE: To use the Google Analytics panel, you have to enable access for less secure apps in the account permissions section of [https://www.google.com/settings/security](https://www.google.com/settings/security).
+
+For more information about settting up a developer account and obtaining a key file, visit https://github.com/erebusnz/gapi-google-analytics-php-interface#instructions-for-setting-up-a-google-service-account-for-use-with-gapi
