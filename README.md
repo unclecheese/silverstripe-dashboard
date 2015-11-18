@@ -149,7 +149,7 @@ eg;
 
 ## Note on Google Analytics Panel
 
-You need to add your Google Analytics config information to the project config.php:
+You need to add your Google Analytics config information to the project config.yml:
 ```yaml
 DashboardGoogleAnalyticsPanel:
   email: [XXXXX]@developer.gserviceaccount.com
