@@ -4,7 +4,7 @@ The Dashboard module provides a splash page for the CMS in SilverStripe 3 with c
 
 
 ## Screenshot & Videos
-Images and videos about this module can be found [in this blog post.](http://www.leftandmain.com/silverstripe-screencasts/2012/10/03/dashboard-module-for-silverstripe-3/)
+Images and videos about this module can be found [in this blog post.](https://www.silverstripe.org/blog/the-dashboard-module-make-a-splash-in-silverstripe-3/)
 
 
 ## Included panels
