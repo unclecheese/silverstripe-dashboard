@@ -1,0 +1,121 @@
+fi:
+  CMSMain:
+    AddNew: 'Lisää uusi sivu'
+    ListFiltered: 'Suodatettu lista.'
+    TreeFilteredClear: 'Puhdista lista'
+  Dashbaord:
+    QUICKLINKSDESCRIPTION: 'Antaa ylläpidon hallita satunnaisia linkkejä etusivulta'
+    SECTIONEDITORDESCRIPTION: 'Vetää sivuja webbisivun alueelta katselua ja luontia varten'
+  Dashboard_Content:
+    ADMINISTRATION: Ylläpito
+  DashboardModelAdmin:
+    COUNT: 'Näytettävien tietueiden määrä'
+    
+  Dashboard:
+    ACCESS: 'Käyttöoikeus osioon ''{title}'''
+    ACCESS_HELP: 'Oikeuta käyttäjä poistamaan paneeleita hänen etusivultaan'
+    ACUSTOMPATH: 'Filter by a specific path'
+    ADD: Lisää
+    ADDPANEL: 'Uusi paneeli'
+    ADDPANELS: 'Lisää etusivun paneeleita'
+    APPLYTOALL: 'Aseta tämä etusivu kaikille käyttäjille'
+    APPLYTOALLSUCCESS: 'Onnittelut! Tämä etusivun muokkaus on hyväksytty kaikille käyttäjille.'
+    CANCEL: Peruuta
+    CELCIUS: Celcius
+    CHOOSEPANELTYPE: 'Valitse paneelin tyyppi'
+    CONFIGUREANELS: 'Muokkaa etusivun paneeleita'
+    CREATENEW: 'Luo uusi %s'
+    DATEFORMAT: 'Päivä formaatti'
+    DATERANGE: 'Päivämäärä väli'
+    DAY: Päivä
+    DELETEPANELS: 'Poista etusivun paneelit'
+    ENTIRESITE: 'Koko sivusto'
+    FARENHEIT: Fahrenheit
+    FILTERBYPAGE: Suodatin
+    GAACCOUNTEMAIL: 'Google tilin sähköpostiosoite'
+    GAACCOUNTPASSWORD: 'Google tilin salasana'
+    GAACCOUNTPROFILE: 'Profiilin ID (löytyy "Profilin asetukset" kohdasta Google Analytic:stä)'
+    GOOGLEDESCRIPTION: 'Näyttää Google Analyticsin kaavion määrätyllä sivulla'
+    GRIDFIELDPANELTITLE: 'GridField-editori'
+    GRIDFIELDPANELDESCRIPTION: 'Lisää yhteenvetonäkymän GridFieldiin annetulle sivulle'
+    LOCATION: Sijainti
+    MENUTITLE: Etusivu
+    MODELADMINCLASS: 'ModelAdmin välilehti'
+    MODELADMINMODEL: Model
+    MODELADMINPANELDESCRIPTION: 'Lisää yhteenvetonäkymän ModelAdminiin CMS:stä'
+    MODELADMINPANELTITLE: 'ModelAdmin-editori'
+    PANELSIZE: ''
+    NONESHOWALL: 'Ei suodatusta. Näytä analytiikka koko sivustolta'
+    NORECORDS: 'Ei tuloksia'
+    PAGEINLIST: 'Filter by a specific page in the tree'
+    PAGEVIEWS: Näyttökertaa
+    PATH: Polku
+    PLEASESELECT: 'Valitse'
+    PREVIOUSSEVENDAYS: '7 päivää'
+    PREVIOUSTHIRTYDAYS: '30 päivää'
+    PREVIOUSYEAR: '365 päivää'
+    QUICKLINKSLABEL: 'Pika Linkit'
+    RSSFEED: 'Syötteet'
+    RSSFEEDDESCRIPTION: 'Lisää syötteen mistä tahansa julkisesta URL:sta'
+    SAVE: Tallenna
+    SECTIONEDTIORLABEL: 'Osioeditori'
+    SELECTLOCATION: 'Valitse sijainti kenen sään haluat näyttää.'
+    SETASDEFAULT: 'Tee tästä oletusetusivu'
+    SETASDEFAULTSUCCESS: 'Onnittelut! Tämä etusivun muokkaus on asetettu oletukseksi kaikille uusille käyttäjille.'
+    TITLE: Otsikko
+    TODAY: Tänään
+    TOMORROW: Huomenna
+    UNITS: Yksiköt
+    VIEWALL: 'Näytä kaikki %s'
+    VIEWFORECAST: 'Näytä koko säätiedotus'
+    WEATHER: Sää
+    WEATHERDESCRIPTION: 'Näyttää sään annetussa sijainnissa.'
+    WEATHERNORESPONSE: 'Sää palvelin ei vastaa. Kokeile muutaman minuutin kuluttua uudelleen.'
+  DashboardGoogleAnalyticsPanel:
+    PLURALNAME: 'Dashboard Google Analytics Panels'
+    SINGULARNAME: 'Dashboard Google Analytics Panel'
+  DashboardModelAdminPanel:
+    PLURALNAME: 'ModelAdmins'
+    SINGULARNAME: 'ModelAdmin'
+  DashboardPanel:
+    PLURALNAME: 'Etusivun Paneelit'
+    SINGULARNAME: 'Etusivun Paneeli'
+  DashboardPanelDataObject:
+    PLURALNAME: 'Etusivu Paneelin Data Objektit'
+    SINGULARNAME: 'Etusivu Paneelin Data Objekti'
+  DashboardQuickLink:
+    LINK: 'Linkki (sisältäen alussa http://)'
+    LINKTEXT: 'Linkin teksti'
+    NEWWINDOW: 'Avaa linkki uuteen ikkunaan'
+    PLURALNAME: 'Etusivun Pika Linkit'
+    SINGULARNAME: 'Etusivun Pika Linkki'
+  DashboardQuickLinksPanel:
+    PLURALNAME: 'Etusivun Pika Linkki Paneelit'
+    SINGULARNAME: 'Etusivun Pika Linkki Paneeli'
+  DashboardRSSFeedPanel:
+    PLURALNAME: 'Etusivun Syötteen Paneelit'
+    SINGULARNAME: 'Etusivun Syötteen Paneeli'
+  DashboardRecentEdits:
+    COUNT: 'Näytettävä sivumäärä'
+  DashboardRecentEditsPanel:
+    PLURALNAME: 'Etusivun Viimeaikaiset muutokset Paneelit'
+    SINGULARNAME: 'Etusivun Viimeaikaiset muutokset Paneeli'
+  DashboardRecentFile:
+    COUNT: 'Näytettävät tiedostot'
+  DashboardRecentFilesPanel:
+    PLURALNAME: 'Etusivun Viimeaikaiset Tiedostot Paneelit'
+    SINGULARNAME: 'Etusivun Viimeaikaiset Tiedostot Paneeli'
+  DashboardSectionEditorPanel:
+    PLURALNAME: 'Etusivun Editori Paneelit'
+    SINGULARNAME: 'Etusivun Editori Paneeli'
+  DashboardWeatherPanel:
+    PLURALNAME: 'Etusivun Sää Paneelit'
+    SINGULARNAME: 'Etusivun Sää Paneeli'
+  Permission:
+    CMS_ACCESS_CATEGORY: 'CMS Access'
+  RecentEdits:
+    DESCRIPTION: 'Näyttää linkitetyn listan äskettäin editoiduista sivuista'
+    LABEL: 'Tuoreet muutokset'
+  RecentFiles:
+    DESCRIPTION: 'Näyttää linkitetyn listan äskettäin editoiduista tiedostoista'
+    LABEL: 'Tuoreet tiedostot'
