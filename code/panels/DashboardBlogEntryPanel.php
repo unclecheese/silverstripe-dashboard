@@ -23,10 +23,13 @@ class DashboardBlogEntryPanel extends DashboardPanel {
 
 	protected $requestHandlerClass = "BlogEntryPanel_RequestHandler";
 
-	public function registered(){
-		if(class_exists('BlogEntry')){
+	public function registered() {
+		if (class_exists('BlogEntry')) {
+			if (is_bool(self::config()->enabled)) {
+				return self::config()->enabled;
+			}
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}
