@@ -86,7 +86,7 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 				'category' => _t('Permission.CMS_ACCESS_CATEGORY', 'CMS Access'),
 				'help' => _t(
 					'Dashboard.ACCESS_HELP',
-					'Allow user to configure his/her dashbaord panels'
+					'Allow user to configure his/her dashboard panels'
 				),
 			),
 			"CMS_ACCESS_DashboardDeletePanels" => array(
@@ -94,7 +94,7 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 				'category' => _t('Permission.CMS_ACCESS_CATEGORY', 'CMS Access'),
 				'help' => _t(
 					'Dashboard.ACCESS_HELP',
-					'Allow user to remove panels from his/her dashbaord'
+					'Allow user to remove panels from his/her dashboard'
 				)
 			)
 		);
