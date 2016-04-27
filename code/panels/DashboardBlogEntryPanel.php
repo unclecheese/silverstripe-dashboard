@@ -29,9 +29,8 @@ class DashboardBlogEntryPanel extends DashboardPanel {
 				return self::config()->enabled;
 			}
 			return true;
-		} else {
-			return false;
 		}
+		return false;
 	}
 	
 	
