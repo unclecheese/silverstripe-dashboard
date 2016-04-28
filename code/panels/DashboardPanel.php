@@ -12,7 +12,7 @@ class DashboardPanel extends DataObject {
 	private static $db = array (
 		'Title' => 'Varchar(50)',
 		'PanelSize' => "Enum('small,normal,large','normal')",
-		'SortOrder' => 'Int'		
+		'SortOrder' => 'Int'
 	);
 
 
@@ -45,7 +45,7 @@ class DashboardPanel extends DataObject {
 	/**
 	 * @var int The "weight" of the dashboard panel when listed in the available panels.
 	 *			Higher is lower in the list.
-	 */	
+	 */
 	private static $priority = 100;
 
 
@@ -88,6 +88,9 @@ class DashboardPanel extends DataObject {
 	 * @return string
 	 */
 	public function registered() {
+		if (is_bool(self::config()->enabled)) {
+			return self::config()->enabled;
+		}
 		return true;
 	}
 	
@@ -198,7 +201,7 @@ class DashboardPanel extends DataObject {
 
 	/**
 	 * The link to this panel through the Dashboard controller
-	 *	 
+	 *
 	 * @return string
 	 */
 	public function Link($action = null) {
@@ -326,7 +329,7 @@ class DashboardPanel extends DataObject {
 	 * @return DashboardPanel
 	 */
 	public function duplicate($dowrite = true) {
-		$clone = parent::duplicate(true);		
+		$clone = parent::duplicate(true);
 		foreach($this->has_many() as $relationName => $relationClass) {
 			foreach($this->$relationName() as $relObject) {
 				$relClone = $relObject->duplicate(false);
