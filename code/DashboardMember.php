@@ -46,7 +46,7 @@ class DashboardMember extends DataExtension {
 				$clone->write();
 			}
 
-			DB::query("UPDATE Member SET HasConfiguredDashboard = 1 WHERE ID = {$this->owner->ID}");			
+			DB::query("UPDATE \"Member\" SET \"HasConfiguredDashboard\" = 1 WHERE \"ID\" = {$this->owner->ID}");
 			$this->owner->flushCache();
 		}
 	}
