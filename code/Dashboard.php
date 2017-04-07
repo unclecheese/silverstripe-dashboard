@@ -190,7 +190,7 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 	 * @return SS_HTTPResponse
 	 */
 	public function applytoall(SS_HTTPRequest $r) {
-		$members = Permission::get_members_by_permission("CMS_ACCESS_Dashboard");
+		$members = Permission::get_members_by_permission(array("CMS_ACCESS_Dashboard","ADMIN"));
 		foreach($members as $member) {
 			if($member->ID == Member::currentUserID()) continue;
 			
