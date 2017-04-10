@@ -2,7 +2,7 @@
 		
 <div id="$ID" class="dashboard-button-options-btn-group $Size" data-toggle="buttons-radio">
 	<a class="<% if isChecked %>active<% end_if %> first" data-value="small" data-name="$Name" title="Small"></a>
-	<a class="<% if isChecked %>active<% end_if %> middle" data-value="medium" data-name="$Name" title="Medium"></a>
+	<a class="<% if isChecked %>active<% end_if %> middle" data-value="normal" data-name="$Name" title="Medium"></a>
 	<a class="<% if isChecked %>active<% end_if %> last" data-value="large" data-name="$Name" title="Large"></a>
 	<input type="hidden" name="$Name" value="$Value" />
 </div>
