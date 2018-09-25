@@ -1,7 +1,7 @@
 <?php
 
 
-/** 
+/**
  * A custom FormField object used to manage has_many relations to a DashboardPanel.
  *
  * Note: All has_many relations must be descendants of {@link DashboardPanelDataObject}
@@ -13,7 +13,7 @@ class DashboardHasManyRelationEditor extends FormField {
 
 	private static $allowed_actions = array(
 		"handleItem"
-	); 
+	);
 
 	private static $url_handlers = array (
 		'item/$ID' => 'handleItem',
@@ -23,13 +23,13 @@ class DashboardHasManyRelationEditor extends FormField {
 
 
 	/**
-	 * @var DashboardPanel The {@link DashboardPanel} that owns this editor	 
+	 * @var DashboardPanel The {@link DashboardPanel} that owns this editor
 	 */
 	protected $controller;
 
 
 
-	/** 
+	/**
 	 * @var string The name of the relationship that is managed by this editor
 	 */
 	protected $relationName;
@@ -39,17 +39,17 @@ class DashboardHasManyRelationEditor extends FormField {
 	/**
 	 * @var string The class of the related object
 	 */
-	protected $relationClass;	
+	protected $relationClass;
 
 
 
 	/**
-	 * @var DataList The current list of records in the relation	 
+	 * @var DataList The current list of records in the relation
 	 */
 	protected $records;
 
 
-	
+
 	/**
 	 * @var string The template that renders the editor
 	 */
@@ -57,7 +57,7 @@ class DashboardHasManyRelationEditor extends FormField {
 
 
 
-	
+
 	/**
 	 * The contructor for the editor. Sets member properties and checks for major errors.
 	 *
@@ -84,7 +84,7 @@ class DashboardHasManyRelationEditor extends FormField {
 
 		$this->records = $this->controller->$relationName();
 
-		parent::__construct($relationName, $title);	
+		parent::__construct($relationName, $title);
 
 	}
 
@@ -93,7 +93,7 @@ class DashboardHasManyRelationEditor extends FormField {
 
 	/**
 	 * Sets the template of the editor
-	 * 
+	 *
 	 * @param string The name of the template
 	 */
 	public function setTemplate($template) {
@@ -129,7 +129,7 @@ class DashboardHasManyRelationEditor extends FormField {
 	 *
 	 * @return SSViewer
 	 */
-	public function FieldHolder($attributes = array ()) {		
+	public function FieldHolder($attributes = array ()) {
 		return $this->renderWith($this->template);
 	}
 
@@ -144,7 +144,7 @@ class DashboardHasManyRelationEditor extends FormField {
 	 */
 	public function handleItem(SS_HTTPRequest $r) {
 		if($r->param('ID') == "new") {
-			$item = Object::create($this->relationClass);
+			$item = SS_Object::create($this->relationClass);
 		}
 		else {
 			$item = DataList::create($this->relationClass)->byID((int) $r->param('ID'));
@@ -152,13 +152,13 @@ class DashboardHasManyRelationEditor extends FormField {
 		if($item) {
 			$handler = DashboardHasManyRelationEditor_ItemRequest::create($this->controller->getDashboard(), $this->controller, $this, $item);
 			return $handler->handleRequest($r, DataModel::inst());
-		}		
+		}
 		return $this->httpError(404);
 	}
 
 
 
-	
+
 	/**
 	 * A default controller action that renders the editor
 	 *
@@ -172,7 +172,7 @@ class DashboardHasManyRelationEditor extends FormField {
 
 
 
-	/** 
+	/**
 	 * A controller action that handles the reordering of the list
 	 *
 	 * @param SS_HTTPRequest
@@ -203,12 +203,12 @@ class DashboardHasManyRelationEditor extends FormField {
  * @author Uncle Cheese <unclecheese@leftandmain.com>
  */
 class DashboardHasManyRelationEditor_ItemRequest extends RequestHandler {
-	
+
 	private static $allowed_actions = array(
 		"edit",
 		"delete",
 		"DetailForm"
-	); 
+	);
 
 
 	/**
@@ -218,7 +218,7 @@ class DashboardHasManyRelationEditor_ItemRequest extends RequestHandler {
 
 
 
-	/** 
+	/**
 	 * @var DashboardPanel The dashboard panel that owns the editor that is running the request
 	 */
 	protected $panel;
@@ -297,7 +297,7 @@ class DashboardHasManyRelationEditor_ItemRequest extends RequestHandler {
 
 
 
-	/** 
+	/**
 	 * A link to refresh the editor
 	 *
 	 * @return string
@@ -326,7 +326,7 @@ class DashboardHasManyRelationEditor_ItemRequest extends RequestHandler {
 				FormAction::create('cancel',_t('Dashboard.CANCEL','Cancel'))
 					->setUseButtonTag(true)
 					->addExtraClass('small')
-			)		
+			)
 		);
 		$form->setHTMLID("Form_DetailForm_".$this->panel->ID."_".$this->item->ID);
 		$form->loadDataFrom($this->item);
