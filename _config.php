@@ -6,3 +6,7 @@ if($dir != "dashboard") {
 }
 
 LeftAndMain::require_css("dashboard/css/dashboard_icon.css");
+
+if (!class_exists('SS_Object')) {
+    class_alias('Object', 'SS_Object');
+}

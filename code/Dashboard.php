@@ -1,7 +1,7 @@
 <?php
 
 
-/** 
+/**
  * Defines the Dashboard interface for the CMS
  *
  * @package Dashboard
@@ -9,34 +9,34 @@
  */
 class Dashboard extends LeftAndMain implements PermissionProvider {
 
-	
+
 
 	private static $menu_title = "Dashboard";
 
 
-	
+
 	private static $url_segment = "dashboard";
 
 
-	
+
 	private static $menu_priority = 100;
 
 
-	
+
 	private static $url_priority = 30;
 
-	
-	
+
+
 	private static $menu_icon = "dashboard/images/dashboard.png";
-	
-	
-	
+
+
+
 	private static $tree_class = 'DashboardPanel';
 
 
-	
+
 	private static $url_handlers = array (
-		
+
 		'panel/$ID' => 'handlePanel',
 		'$Action!' => '$Action',
 		'' => 'index'
@@ -56,7 +56,7 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 		"applytoall"
 	);
 
-	
+
 	/**
 	 * Provides custom permissions to the Security section
 	 *
@@ -71,7 +71,7 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 				'help' => _t(
 					'Dashboard.ACCESS_HELP',
 					'Allow use of the CMS Dashboard'
-				)				
+				)
 			),
 			"CMS_ACCESS_DashboardAddPanels" => array(
 				'name' => _t('Dashboard.ADDPANELS', "Add dashboard panels"),
@@ -101,9 +101,9 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 	}
 
 
-	
 
-	/** 
+
+	/**
 	 * Handles a request for a {@link DashboardPanel} object. Can be a new record or existing
 	 *
 	 * @param SS_HTTPRequest The current request
@@ -129,7 +129,7 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 		}
 		if($panel && ($panel->canEdit() || $panel->canView())) {
 			$requestClass = $panel->getRequestHandlerClass();
-			$handler = Object::create($requestClass, $this, $panel);				
+			$handler = SS_Object::create($requestClass, $this, $panel);
 			return $handler->handleRequest($r, DataModel::inst());
 
 		}
@@ -152,8 +152,8 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 					if($panel->MemberID == Member::currentUserID()) {
 						$panel->SortOrder = $index;
 						$panel->write();
-					}					
-				}				
+					}
+				}
 			}
 		}
 	}
@@ -193,13 +193,13 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 		$members = Permission::get_members_by_permission(array("CMS_ACCESS_Dashboard","ADMIN"));
 		foreach($members as $member) {
 			if($member->ID == Member::currentUserID()) continue;
-			
+
 			$member->DashboardPanels()->removeAll();
 			foreach(Member::currentUser()->DashboardPanels() as $panel) {
-				$clone = $panel->duplicate();					
+				$clone = $panel->duplicate();
 				$clone->MemberID = $member->ID;
 				$clone->write();
-			}			
+			}
 		}
 		return new SS_HTTPResponse(_t('Dashboard.APPLYTOALLSUCCESS','Success! This dashboard configuration has been applied to all members who have dashboard access.'));
 	}
@@ -215,7 +215,7 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 	public function BasePanels() {
 		return Member::currentUser()->DashboardPanels();
 	}
-	
+
 	/**
 	 * Gets the current user's dashboard configuration
 	 *
@@ -275,7 +275,7 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 
 
 
-	/** 
+	/**
 	 * Check if the current user can add panels to the dashboard
 	 *
 	 * @return bool
@@ -286,7 +286,7 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 
 
 
-	/** 
+	/**
 	 * Check if the current user can delete panels from the dashboard
 	 *
 	 * @return bool
@@ -297,7 +297,7 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 
 
 
-	/** 
+	/**
 	 * Check if the current user can configure panels on the dashboard
 	 *
 	 * @return bool
@@ -329,13 +329,13 @@ class Dashboard_PanelRequest extends RequestHandler {
 		'' => 'panel'
 
 	);
-	
+
 	private static $allowed_actions = array(
 		"panel",
 		"delete",
 		"ConfigureForm",
 		"saveConfiguration"
-	);	
+	);
 
 
 
@@ -345,10 +345,10 @@ class Dashboard_PanelRequest extends RequestHandler {
 
 	protected $panel;
 
-	
+
 
 	public function __construct(Dashboard $dashboard, DashboardPanel $panel) {
-		$this->dashboard = $dashboard;		
+		$this->dashboard = $dashboard;
 		$this->panel = $panel;
 		parent::__construct();
 	}
@@ -367,7 +367,7 @@ class Dashboard_PanelRequest extends RequestHandler {
 
 
 
-	/** 
+	/**
 	 * Renders the panel in this request
 	 *
 	 * @param SS_HTTPRequest
@@ -423,8 +423,8 @@ class Dashboard_PanelRequest extends RequestHandler {
 
 
 
-	
-	/** 
+
+	/**
 	 * Processes the form input and writes the panel
 	 *
 	 * @param array The raw POST data from the form
