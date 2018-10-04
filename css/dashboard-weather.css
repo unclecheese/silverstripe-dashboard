@@ -1,7 +1,0 @@
-.dashboard-panel-weather {}
-.dashboard-weather-temperature {font-size: 26px;text-align: center;display: block;}
-.dashboard-weather-image {display: block;text-align: center;}
-.dashboard-panel-weather h4 {text-align:center;margin:0;}
-.dashboard-weather-day {width: 48%;float: left;height:149px;}
-.dashboard-weather-day.first {border-right:1px solid #ddd;}
-.dashboard-panel-weather p {clear:both;margin:0;}
