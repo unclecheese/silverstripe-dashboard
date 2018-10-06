@@ -1,6 +1,6 @@
 <div class="dashboard-chart"
-	data-title="$Title" 
-	data-xlabel="$XAxisLabel" 
+	data-title="$Title"
+	data-xlabel="$XAxisLabel"
 	data-ylabel="$YAxisLabel"
 	data-textinterval="$TextInterval"
 	data-height="$Height"
@@ -9,11 +9,11 @@
 	data-textposition="$TextPosition"
 >
 
-<div id="$ChartID" class="dashboard-chart-canvas"></div>
+	<div id="$ChartID" class="dashboard-chart-canvas"></div>
 
-<% loop ChartData %>
-<div class="dashboard-chart-data" data-x="$XValue" data-y="$YValue"></div>
-<% end_loop %>
+	<% loop $ChartData %>
+		<div class="dashboard-chart-data" data-x="$XValue" data-y="$YValue"></div>
+	<% end_loop %>
 
 
 </div>

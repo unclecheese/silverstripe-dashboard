@@ -55,10 +55,10 @@ class DashboardPanelAction extends ViewableData {
 	public function getUIClass() {
 		switch($this->Type) {
 			case "good":
-				return "ss-ui-action-constructive";
+				return "btn-primary";
 
-			return "";
 		}
+		return "";
 	}
 
 
@@ -69,7 +69,7 @@ class DashboardPanelAction extends ViewableData {
 	 * @return string
 	 */
 	public function forTemplate() {
-		return "<a href='$this->Link' class='dashboard-panel-action ss-ui-button {$this->getUIClass()}'>$this->Title</a>";
+		return "<a href='$this->Link' class='dashboard-panel-action btn {$this->getUIClass()}'>$this->Title</a>";
 	}
 
 
