@@ -1,5 +1,8 @@
 <?php
 
+namespace UncleCheese\Dashboard;
+
+use SilverStripe\ORM\DataExtension;
 
 /**
  * Decorates the {@link SiteConfig} object to work with the Dashboard CMS interface
@@ -11,9 +14,9 @@
 class DashboardSiteConfig extends DataExtension {
 	
 
-	private static $has_many = array (
-		'DashboardPanels' => 'DashboardPanel'
-	);
+	private static $has_many = [
+		'DashboardPanels' => DashboardPanel::class,
+	];
 
 
 }

@@ -1,7 +1,29 @@
 <?php
 
+namespace UncleCheese\Dashboard;
 
-/** 
+
+use SilverStripe\Admin\LeftAndMain;
+use SilverStripe\Control\HTTPRequest;
+use SilverStripe\Control\HTTPResponse;
+use SilverStripe\Control\RequestHandler;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Core\Injector\Injector;
+use SilverStripe\Core\Manifest\ClassLoader;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\Form;
+use SilverStripe\Forms\FormAction;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\ORM\DataList;
+use SilverStripe\Security\Member;
+use SilverStripe\Security\Permission;
+use SilverStripe\Security\PermissionProvider;
+use SilverStripe\Security\Security;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\View\Requirements;
+use SilverStripe\View\SSViewer;
+
+/**
  * Defines the Dashboard interface for the CMS
  *
  * @package Dashboard
@@ -27,7 +49,7 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 
 	
 	
-	private static $menu_icon = "dashboard/images/dashboard.png";
+	private static $menu_icon = "unclecheese/dashboard:images/dashboard.png";
 	
 	
 	
@@ -35,12 +57,11 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 
 
 	
-	private static $url_handlers = array (
-		
+	private static $url_handlers = [
 		'panel/$ID' => 'handlePanel',
 		'$Action!' => '$Action',
 		'' => 'index'
-	);
+	];
 
 	public function init() {
 		parent::init();
@@ -49,12 +70,12 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 		Requirements::javascript("dashboard/javascript/dashboard.js");
 	}
 
-	private static $allowed_actions = array(
+	private static $allowed_actions = [
 		"handlePanel",
 		"sort",
 		"setdefault",
 		"applytoall"
-	);
+	];
 
 	
 	/**
@@ -64,55 +85,56 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 	 */
 	public function providePermissions() {
 		$title = _t("Dashboard.MENUTITLE", LeftAndMain::menu_title_for_class('Dashboard'));
-		return array(
-			"CMS_ACCESS_Dashboard" => array(
-				'name' => _t('Dashboard.ACCESS', "Access to '{title}' section", array('title' => $title)),
+		return [
+			"CMS_ACCESS_Dashboard" => [
+				'name' => _t('Dashboard.ACCESS', "Access to '{title}' section", ['title' => $title]),
 				'category' => _t('Permission.CMS_ACCESS_CATEGORY', 'CMS Access'),
 				'help' => _t(
 					'Dashboard.ACCESS_HELP',
 					'Allow use of the CMS Dashboard'
-				)				
-			),
-			"CMS_ACCESS_DashboardAddPanels" => array(
+				)
+			],
+			"CMS_ACCESS_DashboardAddPanels" => [
 				'name' => _t('Dashboard.ADDPANELS', "Add dashboard panels"),
 				'category' => _t('Permission.CMS_ACCESS_CATEGORY', 'CMS Access'),
 				'help' => _t(
 					'Dashboard.ACCESS_HELP',
 					'Allow user to add panels to his/her dashboard'
 				)
-			),
-			"CMS_ACCESS_DashboardConfigurePanels" => array(
+			],
+			"CMS_ACCESS_DashboardConfigurePanels" => [
 				'name' => _t('Dashboard.CONFIGUREANELS', "Configure dashboard panels"),
 				'category' => _t('Permission.CMS_ACCESS_CATEGORY', 'CMS Access'),
 				'help' => _t(
 					'Dashboard.ACCESS_HELP',
 					'Allow user to configure his/her dashboard panels'
 				),
-			),
-			"CMS_ACCESS_DashboardDeletePanels" => array(
+			],
+			"CMS_ACCESS_DashboardDeletePanels" => [
 				'name' => _t('Dashboard.DELETEPANELS', "Remove dashboard panels"),
 				'category' => _t('Permission.CMS_ACCESS_CATEGORY', 'CMS Access'),
 				'help' => _t(
 					'Dashboard.ACCESS_HELP',
 					'Allow user to remove panels from his/her dashboard'
 				)
-			)
-		);
+			]
+		];
 	}
-
-
 	
-
-	/** 
+	
+	/**
 	 * Handles a request for a {@link DashboardPanel} object. Can be a new record or existing
 	 *
-	 * @param SS_HTTPRequest The current request
-	 * @return SS_HTTPResponse
+	 * @param HTTPRequest $r
+	 * @return HTTPResponse
+	 * @throws \SilverStripe\Control\HTTPResponse_Exception
+	 * @throws \SilverStripe\ORM\ValidationException
 	 */
-	public function handlePanel(SS_HTTPRequest $r) {
+	public function handlePanel(HTTPRequest $r) {
 		if($r->param('ID') == "new") {
 			$class = $r->getVar('type');
-			if($class && class_exists($class) && is_subclass_of($class, "DashboardPanel")) {
+			if($class && class_exists($class) && is_subclass_of($class, DashboardPanel::class)) {
+				/** @var DashboardPanel $panel */
 				$panel = new $class();
 				if($panel->canCreate()) {
 					$panel->MemberID = Member::currentUserID();
@@ -127,25 +149,25 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 		else {
 			$panel = DashboardPanel::get()->byID((int) $r->param('ID'));
 		}
-		if($panel && ($panel->canEdit() || $panel->canView())) {
+		if(isset($panel) && ($panel->canEdit() || $panel->canView())) {
 			$requestClass = $panel->getRequestHandlerClass();
-			$handler = Object::create($requestClass, $this, $panel);				
-			return $handler->handleRequest($r, DataModel::inst());
+			/** @var RequestHandler $handler */
+			$handler = Injector::inst()->create($requestClass, $this, $panel);
+			return $handler->handleRequest($r);
 
 		}
 		return $this->httpError(404);
 	}
-
-
-
-
+	
+	
 	/**
 	 * A controller action that handles the reordering of the panels
 	 *
-	 * @param SS_HTTPRequest The current request
-	 * @return SS_HTTPResponse
+	 * @param HTTPRequest $r
+	 * @return void
+	 * @throws \SilverStripe\ORM\ValidationException
 	 */
-	public function sort(SS_HTTPRequest $r) {
+	public function sort(HTTPRequest $r) {
 		if($sort = $r->requestVar('dashboard-panel')) {
 			foreach($sort as $index => $id) {
 				if($panel = DashboardPanel::get()->byID((int) $id)) {
@@ -157,51 +179,51 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 			}
 		}
 	}
-
-
-
-
+	
+	
 	/**
 	 * A controller action that handles setting the default dashboard configuration
 	 *
-	 * @param SS_HTTPRequest The current request
-	 * @return SS_HTTPResponse
+	 * @param HTTPRequest The current request
+	 * @return HTTPResponse
+	 * @throws \SilverStripe\ORM\ValidationException
 	 */
-	public function setdefault(SS_HTTPRequest $r) {
+	public function setdefault(HTTPRequest $r) {
+		/** @var DashboardPanel $panel */
 		foreach(SiteConfig::current_site_config()->DashboardPanels() as $panel) {
 			$panel->delete();
 		}
-		foreach(Member::currentUser()->DashboardPanels() as $panel) {
+		foreach(Security::getCurrentUser()->DashboardPanels() as $panel) {
 			$clone = $panel->duplicate();
 			$clone->MemberID = 0;
 			$clone->SiteConfigID = SiteConfig::current_site_config()->ID;
 			$clone->write();
 		}
-		return new SS_HTTPResponse(_t('Dashboard.SETASDEFAULTSUCCESS','Success! This dashboard configuration has been set as the default for all new members.'));
+		return new HTTPResponse(_t('Dashboard.SETASDEFAULTSUCCESS','Success! This dashboard configuration has been set as the default for all new members.'));
 	}
-
-
-
-
+	
+	
 	/**
 	 * A controller action that handles the application of a dashboard configuration to all members
 	 *
-	 * @param SS_HTTPRequest The current request
-	 * @return SS_HTTPResponse
+	 * @param HTTPRequest The current request
+	 * @return HTTPResponse
+	 * @throws \SilverStripe\ORM\ValidationException
 	 */
-	public function applytoall(SS_HTTPRequest $r) {
-		$members = Permission::get_members_by_permission(array("CMS_ACCESS_Dashboard","ADMIN"));
+	public function applytoall(HTTPRequest $r) {
+		$members = Permission::get_members_by_permission(["CMS_ACCESS_Dashboard", "ADMIN"]);
 		foreach($members as $member) {
 			if($member->ID == Member::currentUserID()) continue;
 			
 			$member->DashboardPanels()->removeAll();
-			foreach(Member::currentUser()->DashboardPanels() as $panel) {
+			/** @var DashboardPanel $panel */
+			foreach(Security::getCurrentUser()->DashboardPanels() as $panel) {
 				$clone = $panel->duplicate();					
 				$clone->MemberID = $member->ID;
 				$clone->write();
 			}			
 		}
-		return new SS_HTTPResponse(_t('Dashboard.APPLYTOALLSUCCESS','Success! This dashboard configuration has been applied to all members who have dashboard access.'));
+		return new HTTPResponse(_t('Dashboard.APPLYTOALLSUCCESS','Success! This dashboard configuration has been applied to all members who have dashboard access.'));
 	}
 
 
@@ -213,7 +235,7 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 	 * @return DataList
 	 */
 	public function BasePanels() {
-		return Member::currentUser()->DashboardPanels();
+		return Security::getCurrentUser()->DashboardPanels();
 	}
 	
 	/**
@@ -222,7 +244,7 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 	 * @return DataList
 	 */
 	public function Panels() {
-		return Member::currentUser()->DashboardPanels();
+		return Security::getCurrentUser()->DashboardPanels();
 	}
 
 
@@ -235,14 +257,14 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 	 * @return ArrayList
 	 */
 	public function AllPanels() {
-		$set = ArrayList::create(array());
-		$panels = SS_ClassLoader::instance()->getManifest()->getDescendantsOf("DashboardPanel");
+		$set = ArrayList::create([]);
+		$panels = ClassLoader::inst()->getManifest()->getDescendantsOf(DashboardPanel::class);
 		if($this->config()->excluded_panels) {
 			$panels = array_diff($panels,$this->config()->excluded_panels);
 		}
 		foreach($panels as $class) {
 			$SNG = Injector::inst()->get($class);
-			$SNG->Priority = Config::inst()->get($class, "priority", Config::INHERITED);
+			$SNG->Priority = Config::inst()->get($class, "priority");
 			if($SNG->registered() == true){
 				$set->push($SNG);
 			}
@@ -320,22 +342,21 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
  * @package Dashboard
  * @author Uncle Cheese <unclecheese@leftandmain.com>
  */
-class Dashboard_PanelRequest extends RequestHandler {
+class DashboardPanelRequest extends RequestHandler {
 
 
 
-	private static $url_handlers = array (
+	private static $url_handlers = [
 		'$Action!' => '$Action',
 		'' => 'panel'
-
-	);
+	];
 	
-	private static $allowed_actions = array(
+	private static $allowed_actions = [
 		"panel",
 		"delete",
 		"ConfigureForm",
 		"saveConfiguration"
-	);	
+	];
 
 
 
@@ -359,21 +380,22 @@ class Dashboard_PanelRequest extends RequestHandler {
 	 * Gets the link to this request. Useful for rendering the nested Form. Also provides an easy
 	 * "refresh" link to the panel that is managed by this request
 	 *
+	 * @param null $action Not in use
 	 * @return string
 	 */
-	public function Link() {
+	public function Link($action=null) {
 		return $this->dashboard->Link("panel/{$this->panel->ID}");
 	}
-
-
-
-	/** 
+	
+	
+	/**
 	 * Renders the panel in this request
 	 *
-	 * @param SS_HTTPRequest
-	 * @return SSViewer
+	 * @param HTTPRequest
+	 * @return \SilverStripe\ORM\FieldType\DBHTMLText
+	 * @throws \SilverStripe\Control\HTTPResponse_Exception
 	 */
-	public function panel(SS_HTTPRequest $r) {
+	public function panel(HTTPRequest $r) {
 		if($this->panel->canView()) {
 			return $this->panel->PanelHolder();
 		}
@@ -385,13 +407,13 @@ class Dashboard_PanelRequest extends RequestHandler {
 	/**
 	 * Delets the panel in this request
 	 *
-	 * @param SS_HTTPRequest
-	 * @return SS_HTTPResponse
+	 * @param HTTPRequest
+	 * @return HTTPResponse
 	 */
-	public function delete(SS_HTTPRequest $r) {
+	public function delete(HTTPRequest $r) {
 		if($this->panel->canDelete()) {
 			$this->panel->delete();
-			return new SS_HTTPResponse("OK");
+			return new HTTPResponse("OK");
 		}
 	}
 
@@ -410,9 +432,10 @@ class Dashboard_PanelRequest extends RequestHandler {
 			FieldList::create(
 				FormAction::create("saveConfiguration",_t('Dashboard.SAVE','Save'))
 					->setUseButtonTag(true)
-					->addExtraClass('ss-ui-action-constructive'),
+					->addExtraClass('btn btn-primary'),
 				FormAction::create("cancel",_t('Dashboard.CANCEL','Cancel'))
 					->setUseButtonTag(true)
+					->addExtraClass('btn btn-secondary')
 			)
 		);
 		$form->loadDataFrom($this->panel);
@@ -424,12 +447,13 @@ class Dashboard_PanelRequest extends RequestHandler {
 
 
 	
-	/** 
+	/**
 	 * Processes the form input and writes the panel
 	 *
-	 * @param array The raw POST data from the form
-	 * @param Form The ConfigurationForm
-	 * @return SS_HTTPResponse
+	 * @param array $data The raw POST data from the form
+	 * @param Form $form The ConfigurationForm
+	 * @return HTTPResponse
+	 * @throws \SilverStripe\ORM\ValidationException
 	 */
 	public function saveConfiguration($data, $form) {
 		$panel = $this->panel;

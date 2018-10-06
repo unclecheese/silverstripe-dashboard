@@ -1,5 +1,8 @@
 <?php
 
+namespace UncleCheese\Dashboard;
+
+use SilverStripe\View\ViewableData;
 
 /**
  * Defines the object that renders as a button in a dashboard panel

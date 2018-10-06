@@ -1,5 +1,9 @@
 <?php
 
+namespace UncleCheese\Dashboard;
+
+use SilverStripe\Forms\OptionsetField;
+use SilverStripe\View\Requirements;
 
 class DashboardButtonOptionsField extends OptionsetField {
 
@@ -7,8 +11,7 @@ class DashboardButtonOptionsField extends OptionsetField {
 	protected $Size;
 
 
-
-	public function FieldHolder($attributes = array ()) {		
+	public function FieldHolder($attributes = []) {
 //		Requirements::css("dashboard/css/dashboard-button-options.css");
 		Requirements::javascript("dashboard/javascript/dashboard-button-options.js");
 		return parent::FieldHolder($attributes);

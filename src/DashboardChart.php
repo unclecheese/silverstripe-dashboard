@@ -1,11 +1,18 @@
 <?php
 
+namespace UncleCheese\Dashboard;
+
+
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\View\ArrayData;
+use SilverStripe\View\Requirements;
+use SilverStripe\View\ViewableData;
 
 /**
  * An API for creating a Google chart in a dashboard panel
  *
  * @author Uncle Cheese <unclecheese@leftandmain.com>
- * @package Dashbaord
+ * @package Dashboard
  */
 class DashboardChart extends ViewableData {
 
@@ -20,7 +27,7 @@ class DashboardChart extends ViewableData {
 	/**
 	 * @var array The chart data, in x/y pairs. The Y value must be an integer
 	 */
-	protected $chartData = array ();
+	protected $chartData = [];
 
 
 
@@ -86,7 +93,7 @@ class DashboardChart extends ViewableData {
 	 * @param string The label for the Y axis
 	 * @param array The chart data, in x/y pairs
 	 */
-	public function __construct($title = null, $x_label = null, $y_label = null, $chartData = array ()) {
+	public function __construct($title = null, $x_label = null, $y_label = null, $chartData = []) {
 		if(!is_array($chartData)) {
 			user_error("DashboardChart: \$chartData must be an array", E_USER_ERROR);
 		}
@@ -115,15 +122,15 @@ class DashboardChart extends ViewableData {
 	/**
 	 * Gets a list of x/y pairs for the template
 	 *
-	 * @return ArrayData
+	 * @return ArrayList
 	 */
 	public function getChartData() {
-		$list = ArrayList::create(array());
+		$list = ArrayList::create([]);
 		foreach($this->chartData as $x => $y) {
-			$list->push(ArrayData::create(array(
+			$list->push(ArrayData::create([
 				'XValue' => $x,
 				'YValue' => $y
-			)));
+			]));
 		}
 		return $list;
 	}
@@ -159,7 +166,7 @@ class DashboardChart extends ViewableData {
 	/**
 	 * Renders the chart and loads the dependencies
 	 *
-	 * @return SSViewer
+	 * @return \SilverStripe\ORM\FieldType\DBHTMLText
 	 */
 	public function forTemplate() {
 		Requirements::javascript("dashboard/javascript/thirdparty/google_jsapi_visualization.js");

@@ -1,6 +1,11 @@
 <?php
 
+namespace UncleCheese\Dashboard;
 
+use SilverStripe\Core\Injector\Injector;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\Form;
+use SilverStripe\ORM\DataObject;
 
 /** 
  * A {@link DataObject} subclass that is required for use on a has_many relationship
@@ -11,17 +16,17 @@
  */
 class DashboardPanelDataObject extends DataObject {
 
+	private static $table_name = 'DashboardPanelDataObject';
 
-
-	private static $db = array (
+	private static $db = [
 		'SortOrder' => 'Int'
-	);
+	];
 
 
 
-	private static $has_one = array (
+	private static $has_one = [
 		'DashboardPanel' => 'DashboardPanel'
-	);
+	];
 
 
 	private static $default_sort = "SortOrder ASC";
@@ -47,10 +52,11 @@ class DashboardPanelDataObject extends DataObject {
 	/**
 	 * Gets a form for editing or creating this object
 	 *
+	 * TODO: Is this used? Seems to be broken but dunno if it affects anything.
 	 * @return Form
 	 */
 	public function getConfigFields() {
-		$form = Form::create(Injector::inst()->get("Dashboard"), "Form", $this->getConfiguration());
+		$form = Form::create(Injector::inst()->get(Dashboard::class), "Form", $this->getConfiguration());
 	}
 
 

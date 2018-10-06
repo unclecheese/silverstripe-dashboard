@@ -1,7 +1,23 @@
 <?php
 
+namespace UncleCheese\Dashboard;
 
-/** 
+use SilverStripe\Control\Controller;
+use SilverStripe\Control\HTTPRequest;
+use SilverStripe\Control\HTTPResponse;
+use SilverStripe\Control\RequestHandler;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Core\Injector\Injector;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\Form;
+use SilverStripe\Forms\FormAction;
+use SilverStripe\Forms\FormField;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\ORM\DataList;
+use SilverStripe\ORM\DataObject;
+use SilverStripe\View\ArrayData;
+
+/**
  * A custom FormField object used to manage has_many relations to a DashboardPanel.
  *
  * Note: All has_many relations must be descendants of {@link DashboardPanelDataObject}
@@ -11,14 +27,14 @@
  */
 class DashboardHasManyRelationEditor extends FormField {
 
-	private static $allowed_actions = array(
+	private static $allowed_actions = [
 		"handleItem"
-	); 
+	];
 
-	private static $url_handlers = array (
+	private static $url_handlers = [
 		'item/$ID' => 'handleItem',
 		'$Action!' => '$Action',
-	);
+	];
 
 
 
@@ -53,7 +69,7 @@ class DashboardHasManyRelationEditor extends FormField {
 	/**
 	 * @var string The template that renders the editor
 	 */
-	protected $template = "DashboardHasManyRelationEditor";
+	protected $template = "UncleCheese\Dashboard\DashboardHasManyRelationEditor";
 
 
 
@@ -78,7 +94,7 @@ class DashboardHasManyRelationEditor extends FormField {
 		if(!$this->controller->has_many($this->relationName)) {
 			user_error("DashboardHasManyRelationEditor must be passed a valid has_many relation for the panel. $relationName is not in the has_many array.", E_USER_ERROR);
 		}
-		if(!is_subclass_of($relationClass, "DashboardPanelDataObject")) {
+		if(!is_subclass_of($relationClass, DashboardPanelDataObject::class)) {
 			user_error("DashbordHasManyRelationEditor can only manage subclasses of DashboardPanelDataObject", E_USER_ERROR);
 		}
 
@@ -108,15 +124,15 @@ class DashboardHasManyRelationEditor extends FormField {
 	 * @return ArrayList
 	 */
 	public function Items() {
-		$items = ArrayList::create(array());
-		$labelField = Config::inst()->get($this->relationClass, "label_field", Config::INHERITED);
+		$items = ArrayList::create([]);
+		$labelField = Config::inst()->get($this->relationClass, "label_field");
 		foreach($this->records as $record) {
-			$items->push(ArrayData::create(array(
+			$items->push(ArrayData::create([
 				'Label' => $record->$labelField,
 				'DeleteLink' => Controller::join_links($this->Link("item"),$record->ID,"delete"),
 				'EditLink' => $this->Link("item/{$record->ID}"),
 				'ID' => $record->ID
-			)));
+			]));
 		}
 		return $items;
 	}
@@ -127,9 +143,9 @@ class DashboardHasManyRelationEditor extends FormField {
 	/**
 	 * Renders the form field
 	 *
-	 * @return SSViewer
+	 * @return \SilverStripe\ORM\FieldType\DBHTMLText
 	 */
-	public function FieldHolder($attributes = array ()) {		
+	public function FieldHolder($attributes = []) {
 		return $this->renderWith($this->template);
 	}
 
@@ -139,19 +155,20 @@ class DashboardHasManyRelationEditor extends FormField {
 	/**
 	 * Handles a request for a record in the table
 	 *
-	 * @param SS_HTTPRequest
-	 * @return SS_HTTPResponse
+	 * @param HTTPRequest
+	 * @return HTTPResponse
+	 * @throws \SilverStripe\Control\HTTPResponse_Exception
 	 */
-	public function handleItem(SS_HTTPRequest $r) {
+	public function handleItem(HTTPRequest $r) {
 		if($r->param('ID') == "new") {
-			$item = Object::create($this->relationClass);
+			$item = Injector::inst()->create($this->relationClass);
 		}
 		else {
 			$item = DataList::create($this->relationClass)->byID((int) $r->param('ID'));
 		}
 		if($item) {
-			$handler = DashboardHasManyRelationEditor_ItemRequest::create($this->controller->getDashboard(), $this->controller, $this, $item);
-			return $handler->handleRequest($r, DataModel::inst());
+			$handler = DashboardHasManyRelationEditorItemRequest::create($this->controller->getDashboard(), $this->controller, $this, $item);
+			return $handler->handleRequest($r);
 		}		
 		return $this->httpError(404);
 	}
@@ -162,23 +179,22 @@ class DashboardHasManyRelationEditor extends FormField {
 	/**
 	 * A default controller action that renders the editor
 	 *
-	 * @param SS_HTTPRequest
-	 * @return SSViewer
+	 * @param HTTPRequest
+	 * @return \SilverStripe\ORM\FieldType\DBHTMLText
 	 */
-	public function index(SS_HTTPRequest $r) {
+	public function index(HTTPRequest $r) {
 		return $this->FieldHolder();
 	}
-
-
-
-
-	/** 
+	
+	
+	/**
 	 * A controller action that handles the reordering of the list
 	 *
-	 * @param SS_HTTPRequest
-	 * @return SS_HTTPResponse
+	 * @param HTTPRequest
+	 * @return HTTPResponse
+	 * @throws \SilverStripe\ORM\ValidationException
 	 */
-	public function sort(SS_HTTPRequest $r) {
+	public function sort(HTTPRequest $r) {
 		if($items = $r->getVar('item')) {
 			foreach($items as $position => $id) {
 				if($item = DataList::create($this->relationClass)->byID((int) $id)) {
@@ -186,7 +202,7 @@ class DashboardHasManyRelationEditor extends FormField {
 					$item->write();
 				}
 			}
-			return new SS_HTTPResponse("OK");
+			return new HTTPResponse("OK");
 		}
 	}
 
@@ -202,13 +218,13 @@ class DashboardHasManyRelationEditor extends FormField {
  * @package Dashboard
  * @author Uncle Cheese <unclecheese@leftandmain.com>
  */
-class DashboardHasManyRelationEditor_ItemRequest extends RequestHandler {
+class DashboardHasManyRelationEditorItemRequest extends RequestHandler {
 	
-	private static $allowed_actions = array(
+	private static $allowed_actions = [
 		"edit",
 		"delete",
 		"DetailForm"
-	); 
+	];
 
 
 	/**
@@ -240,10 +256,10 @@ class DashboardHasManyRelationEditor_ItemRequest extends RequestHandler {
 
 
 
-	private static $url_handlers = array (
+	private static $url_handlers = [
 		'$Action!' => '$Action',
 		'' => 'edit'
-	);
+	];
 
 
 
@@ -262,10 +278,10 @@ class DashboardHasManyRelationEditor_ItemRequest extends RequestHandler {
 	/**
 	 * An action that handles the edit of an object managed by the editor
 	 *
-	 * @param SS_HTTPRequest
-	 * @return SSViewer
+	 * @param HTTPRequest
+	 * @return \SilverStripe\ORM\FieldType\DBHTMLText
 	 */
-	public function edit(SS_HTTPRequest $r) {
+	public function edit(HTTPRequest $r) {
 		return $this->renderWith('DashboardHasManyRelationEditorDetailForm');
 	}
 
@@ -275,19 +291,19 @@ class DashboardHasManyRelationEditor_ItemRequest extends RequestHandler {
 	/**
 	 * An action that handles the deletion of an object managed by the editor
 	 *
-	 * @param SS_HTTPRequest
-	 * @return SSViewer
+	 * @param HTTPRequest
+	 * @return HTTPResponse
 	 */
-	public function delete(SS_HTTPRequest $r) {
+	public function delete(HTTPRequest $r) {
 		$this->item->delete();
-		return new SS_HTTPResponse("OK");
+		return new HTTPResponse("OK");
 	}
 
 
 
 
 	/**
-	 * A link to this item as managed by the editor belonging to a dashbaord panel
+	 * A link to this item as managed by the editor belonging to a dashboard panel
 	 *
 	 * @return string
 	 */
@@ -340,20 +356,22 @@ class DashboardHasManyRelationEditor_ItemRequest extends RequestHandler {
 	/**
 	 * Saves the DetailForm and writes or creates a new object managed by the editor
 	 *
-	 * @param array The raw POST data from the form
-	 * @param Form The DetailForm object
+	 * @param array $data The raw POST data from the form
+	 * @param Form $form The DetailForm object
+	 * @return HTTPResponse
+	 * @throws \SilverStripe\ORM\ValidationException
 	 */
 	public function saveDetail($data, $form) {
 		$item = $this->item;
 		if(!$item->exists()) {
 			$item->DashboardPanelID = $this->panel->ID;
-			$sort = DataList::create($item->class)->max("SortOrder");
+			$sort = DataList::create($item->ClassName)->max("SortOrder");
 			$item->SortOrder = $sort+1;
 			$item->write();
 		}
 		$form->saveInto($item);
 		$item->write();
-		return new SS_HTTPResponse("OK");
+		return new HTTPResponse("OK");
 	}
 
 

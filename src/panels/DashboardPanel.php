@@ -1,5 +1,18 @@
 <?php
 
+namespace UncleCheese\Dashboard;
+
+use SilverStripe\Control\Controller;
+use SilverStripe\Core\Injector\Injector;
+use SilverStripe\Core\Manifest\ModuleResourceLoader;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\Form;
+use SilverStripe\Forms\TextField;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\ORM\DataObject;
+use SilverStripe\Security\Permission;
+use SilverStripe\Security\Security;
+
 /**
  * Defines the DashboardPanel dataobject. All dashboard panels must descend from this class.
  *
@@ -8,19 +21,20 @@
  */
 class DashboardPanel extends DataObject {
 
+	private static $table_name = 'DashboardPanel';
 
-	private static $db = array (
+	private static $db = [
 		'Title' => 'Varchar(50)',
 		'PanelSize' => "Enum('small,normal,large','normal')",
 		'SortOrder' => 'Int'
-	);
+	];
 
 
 
-	private static $has_one = array (
-		'Member' => 'Member',
-		'SiteConfig' => 'SiteConfig'
-	);
+	private static $has_one = [
+		'Member' => 'SilverStripe\Security\Member',
+		'SiteConfig' => 'SilverStripe\SiteConfig\SiteConfig'
+	];
 
 
 	
@@ -37,7 +51,7 @@ class DashboardPanel extends DataObject {
 	/**
 	 * @var string The path to the icon image that represents this dashboard panel type
 	 */
-	private static $icon = "dashboard/images/dashboard-panel-default.png";
+	private static $icon = "unclecheese/dashboard:images/dashboard-panel-default.png";
 
 
 
@@ -70,16 +84,16 @@ class DashboardPanel extends DataObject {
 	/**
 	 * @var string the name of the template used for the wrapper of this panel
 	 */
-	protected $holderTemplate = "DashboardPanel";
+	protected $holderTemplate = "UncleCheese\Dashboard\Includes\DashboardPanel";
 
 
 
 
 	/**
-	 * @var string The name of the request handler class that the Dashbaord controller
+	 * @var string The name of the request handler class that the Dashboard controller
 	 * will use to communicate with a given panel
 	 */
-	protected $requestHandlerClass = "Dashboard_PanelRequest";
+	protected $requestHandlerClass = DashboardPanelRequest::class;
 
 
 	/**
@@ -102,7 +116,7 @@ class DashboardPanel extends DataObject {
 	 * @return string
 	 */
 	protected function getTemplate() {
-		return $this->template ? $this->template : $this->class;
+		return $this->template ? $this->template : static::class;
 	}
 
 
@@ -160,7 +174,7 @@ class DashboardPanel extends DataObject {
 	 * @return Dashboard
 	 */
 	public function getDashboard() {
-		return Injector::inst()->get("Dashboard");
+		return Injector::inst()->get(Dashboard::class);
 	}
 
 
@@ -168,7 +182,7 @@ class DashboardPanel extends DataObject {
 	/**
 	 * Renders the panel to its template
 	 *
-	 * @return SSViewer
+	 * @return \SilverStripe\ORM\FieldType\DBHTMLText
 	 */
 	public function render() {
 		return $this->renderWith($this->holderTemplate);
@@ -182,7 +196,7 @@ class DashboardPanel extends DataObject {
 	 * @return string
 	 */
 	public function Icon() {
-		return Config::inst()->get($this->class, "icon", Config::INHERITED);
+		return ModuleResourceLoader::resourceURL(static::config()->icon);
 	}
 
 
@@ -190,7 +204,7 @@ class DashboardPanel extends DataObject {
 	/**
 	 * Renders the inner contents of the panel. Similar to $Layout in pages.
 	 *
-	 * @return SSViewer
+	 * @return \SilverStripe\ORM\FieldType\DBHTMLText
 	 */
 	public function Content() {
 		return $this->renderWith($this->getTemplate());
@@ -229,7 +243,7 @@ class DashboardPanel extends DataObject {
 	 * @return string
 	 */
 	public function CreateLink() {
-		return Controller::join_links($this->getDashboard()->Link("panel/new"),"?type={$this->class}");
+		return Controller::join_links($this->getDashboard()->Link("panel/new"), "?type=" . static::class); //TODO: Should the class name be escaped? At least Convert::raw2url() is not suitable because it removes backslashes completely, not escaping them.
 	}
 
 
@@ -241,7 +255,7 @@ class DashboardPanel extends DataObject {
 	 * @return boolean
 	 */
 	public function ShowConfigure() {
-		return $this->stat('configure_on_create');
+		return $this->config()->get('configure_on_create');
 	}
 
 
@@ -254,12 +268,13 @@ class DashboardPanel extends DataObject {
 	 * @return FieldList
 	 */
 	public function getConfiguration() {
+		$default_size_title = ' '; //Cannot be an empty string because SilverStripe\i18n\i18n::_t() would yell that a default should be defined. So use a space as a workaround.
 		return FieldList::create(
-			DashboardButtonOptionsField::create("PanelSize",_t('Dashboard.PANELSIZE',''), array(
+			DashboardButtonOptionsField::create("PanelSize",_t('UncleCheese\Dashboard\Dashboard.PANELSIZE', $default_size_title), [
 				'small' => '',
 				'normal' => '',
 				'large' => ''
-			))->setSize("small"),
+			])->setSize("small"),
 
 			TextField::create("Title", _t('Dashboard.TITLE','Title'))
 		);
@@ -273,7 +288,7 @@ class DashboardPanel extends DataObject {
 	 * @return ArrayList
 	 */
 	public function getPrimaryActions() {
-		return ArrayList::create(array());
+		return ArrayList::create([]);
 	}
 
 
@@ -285,7 +300,7 @@ class DashboardPanel extends DataObject {
 	 * @return ArrayList
 	 */
 	public function getSecondaryActions() {
-		return ArrayList::create(array());
+		return ArrayList::create([]);
 	}
 
 
@@ -293,7 +308,7 @@ class DashboardPanel extends DataObject {
 	/**
 	 * Renders the entire panel. Similar to {@link FormField::FieldHolder()}
 	 *
-	 * @return SSViewer
+	 * @return \SilverStripe\ORM\FieldType\DBHTMLText
 	 */
 	public function PanelHolder() {
 		return $this->renderWith($this->holderTemplate);
@@ -318,54 +333,54 @@ class DashboardPanel extends DataObject {
 	 * @return Form
 	 */
 	public function Form() {
-		return Dashboard_PanelRequest::create($this->getDashboard(), $this)->ConfigureForm();
+		return DashboardPanelRequest::create($this->getDashboard(), $this)->ConfigureForm();
 	}
+	
+	
+	// /**
+	//  * Duplicates this panel. Drills down into the has_many relations
+	//  *
+	//  * We don't need this method anymore after upgrading to SS4. If any relations need to be duplicated, a DashboardPanel subclass should define a private static $cascade_duplicates config variable which should contain the relation names that should be duplicated.
+	//  *
+	//  * @return DashboardPanel
+	//  */
+	// public function duplicate($dowrite = true) {
+	// 	$clone = parent::duplicate(true);
+	// 	foreach($this->has_many() as $relationName => $relationClass) {
+	// 		foreach($this->$relationName() as $relObject) {
+	// 			$relClone = $relObject->duplicate(false);
+	// 			$relClone->DashboardPanelID = $clone->ID;
+	// 			$relClone->write();
+	// 		}
+	// 	}
+	// 	return $clone;
+	// }
 
 
 
-	/**
-	 * Duplicates this panel. Drills down into the has_many relations
-	 *
-	 * @return DashboardPanel
-	 */
-	public function duplicate($dowrite = true) {
-		$clone = parent::duplicate(true);
-		foreach($this->has_many() as $relationName => $relationClass) {
-			foreach($this->$relationName() as $relObject) {
-				$relClone = $relObject->duplicate(false);
-				$relClone->DashboardPanelID = $clone->ID;
-				$relClone->write();
-			}
-		}
-		return $clone;
-	}
 
-
-
-
-	public function canCreate($member = null) {
-		$m = $member ? $member : Member::currentUser();
+	public function canCreate($member = null, $context = []) {
 		return Permission::check("CMS_ACCESS_DashboardAddPanels");
 	}
 	
 
 
 	public function canDelete($member = null) {
-		$m = $member ? $member : Member::currentUser();
+		$m = $member ? $member : Security::getCurrentUser();
 		return Permission::check("CMS_ACCESS_DashboardDeletePanels") && $this->MemberID == $m->ID;
 	}
 
 	
 
 	public function canEdit($member = null) {
-		$m = $member ? $member : Member::currentUser();
+		$m = $member ? $member : Security::getCurrentUser();
 		return Permission::check("CMS_ACCESS_DashboardConfigurePanels") && $this->MemberID == $m->ID;
 	}
 
 	
 
 	public function canView($member = null) {
-		$m = $member ? $member : Member::currentUser();
+		$m = $member ? $member : Security::getCurrentUser();
 		return Permission::check("CMS_ACCESS_Dashboard") && $this->MemberID == $m->ID;
 	}
 
