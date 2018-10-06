@@ -1,17 +1,15 @@
 en:
-  CMSMain:
+  SilverStripe\CMS\Controllers\CMSMain:
     AddNew: 'Add new page'
     ListFiltered: 'Filtered list.'
     TreeFilteredClear: 'Clear filter'
-  Dashbaord:
+  UncleCheese\Dashboard\Dashboard_Content:
+    ADMINISTRATION: Administration
+  UncleCheese\Dashboard\DashboardModelAdmin:
+    COUNT: 'Number of records to display'
+  UncleCheese\Dashboard\Dashboard:
     QUICKLINKSDESCRIPTION: 'Allows management of arbitrary links from the dashboard'
     SECTIONEDITORDESCRIPTION: 'Pulls pages from a section of the website for viewing and creation'
-  Dashboard_Content:
-    ADMINISTRATION: Administration
-  DashboardModelAdmin:
-    COUNT: 'Number of records to display'
-    
-  Dashboard:
     ACCESS: 'Access to ''{title}'' section'
     ACCESS_HELP: 'Allow user to remove panels from his/her dashboard'
     ACUSTOMPATH: 'Filter by a specific path'
@@ -71,47 +69,47 @@ en:
     WEATHER: Weather
     WEATHERDESCRIPTION: 'Shows the weather for a given location.'
     WEATHERNORESPONSE: 'The weather server did not respond. Try again in a few minutes.'
-  DashboardGoogleAnalyticsPanel:
+  UncleCheese\Dashboard\DashboardGoogleAnalyticsPanel:
     PLURALNAME: 'Dashboard Google Analytics Panels'
     SINGULARNAME: 'Dashboard Google Analytics Panel'
-  DashboardModelAdminPanel:
+  UncleCheese\Dashboard\DashboardModelAdminPanel:
     PLURALNAME: 'Model Admins'
     SINGULARNAME: 'Model Admin'
-  DashboardPanel:
+  UncleCheese\Dashboard\DashboardPanel:
     PLURALNAME: 'Dashboard Panels'
     SINGULARNAME: 'Dashboard Panel'
-  DashboardPanelDataObject:
+  UncleCheese\Dashboard\DashboardPanelDataObject:
     PLURALNAME: 'Dashboard Panel Data Objects'
     SINGULARNAME: 'Dashboard Panel Data Object'
-  DashboardQuickLink:
+  UncleCheese\Dashboard\DashboardQuickLink:
     LINK: 'Link (include http://)'
     LINKTEXT: 'Link text'
     NEWWINDOW: 'Open link in new window'
     PLURALNAME: 'Dashboard Quick Links'
     SINGULARNAME: 'Dashboard Quick Link'
-  DashboardQuickLinksPanel:
+  UncleCheese\Dashboard\DashboardQuickLinksPanel:
     PLURALNAME: 'Dashboard Quick Links Panels'
     SINGULARNAME: 'Dashboard Quick Links Panel'
-  DashboardRSSFeedPanel:
+  UncleCheese\Dashboard\DashboardRSSFeedPanel:
     PLURALNAME: 'Dashboard R S S Feed Panels'
     SINGULARNAME: 'Dashboard R S S Feed Panel'
-  DashboardRecentEdits:
+  UncleCheese\Dashboard\DashboardRecentEdits:
     COUNT: 'Number of pages to display'
-  DashboardRecentEditsPanel:
+  UncleCheese\Dashboard\DashboardRecentEditsPanel:
     PLURALNAME: 'Dashboard Recent Edits Panels'
     SINGULARNAME: 'Dashboard Recent Edits Panel'
-  DashboardRecentFile:
+  UncleCheese\Dashboard\DashboardRecentFile:
     COUNT: 'Number of files to display'
-  DashboardRecentFilesPanel:
+  UncleCheese\Dashboard\DashboardRecentFilesPanel:
     PLURALNAME: 'Dashboard Recent Files Panels'
     SINGULARNAME: 'Dashboard Recent Files Panel'
-  DashboardSectionEditorPanel:
+  UncleCheese\Dashboard\DashboardSectionEditorPanel:
     PLURALNAME: 'Dashboard Section Editor Panels'
     SINGULARNAME: 'Dashboard Section Editor Panel'
-  DashboardWeatherPanel:
+  UncleCheese\Dashboard\DashboardWeatherPanel:
     PLURALNAME: 'Dashboard Weather Panels'
     SINGULARNAME: 'Dashboard Weather Panel'
-  Permission:
+  SilverStripe\Security\Permission:
     CMS_ACCESS_CATEGORY: 'CMS Access'
   RecentEdits:
     DESCRIPTION: 'Shows a linked list of recently edited pages'
