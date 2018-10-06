@@ -99,6 +99,7 @@
 	height: 213px;
 	overflow: auto;
 	padding: 10px;
+	box-sizing: content-box;
 }
 
 .dashboard-panel.hasActions .dashboard-panel-content {
@@ -112,11 +113,12 @@
 	background-image: -webkit-gradient(linear,0% 0,0% 100%,from(#f8f8f8),to(#f1eaea));
 	background-image: -moz-linear-gradient(0% 100% 90deg,#f8f8f8,#f1eaea);
 	border-bottom: 1px solid #dad8d8;
+	box-sizing: content-box;
 }
 
 .dashboard-panel-footer .dashboard-panel-toolbar {
 	position: absolute;
-	top: 12px;
+	top: 7px;
 	right: 10px;
 	z-index: 999;
 }
@@ -133,6 +135,7 @@
 	height: 237px;
 	overflow: auto;
 	padding: 10px;
+	box-sizing: content-box;
 }
 
 .dashboard-panel-inner .dashboard-panel-configure-actions {
@@ -147,6 +150,7 @@
 	box-shadow: inset 0 1px 0 #f0f0f0;
 	z-index: 1!important;
 	padding: 8px 0;
+	box-sizing: content-box;
 }
 
 .dashboard-panel-inner .middleColumn {
