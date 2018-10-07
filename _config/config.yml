@@ -14,4 +14,4 @@ SilverStripe\Forms\GridField\GridFieldDetailForm_ItemRequest:
 
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
-    [dashboard/css/dashboard_icon.css]
+    [unclecheese/dashboard:css/dashboard_icon.css]
