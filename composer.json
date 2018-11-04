@@ -17,9 +17,9 @@
     "replace": {"silverstripe/dashboard": "*"},
     "extra": {
         "expose": [
-            "dashboard/css",
-            "dashboard/images",
-            "dashboard/javascript"
+            "css",
+            "images",
+            "javascript"
         ]
     }
 }
