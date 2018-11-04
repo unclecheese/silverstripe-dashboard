@@ -77,7 +77,9 @@ class DashboardChart extends ViewableData {
 	 * @param array The chart data, in x/y pairs
 	 * @return DashboardChart
 	 */
-	public static function create($title = null, $x_label = null, $y_label = null, $chartData = array ()) {
+	public static function create(...$args) {
+		[$title, $x_label, $y_label, $chartData] = $args;
+		if ($chartData === null) $chartData = [];
 		self::$instances++;
 		return new DashboardChart($title, $x_label, $y_label, $chartData);
 	}
