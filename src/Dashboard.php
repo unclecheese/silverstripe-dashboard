@@ -10,6 +10,7 @@ use SilverStripe\Control\RequestHandler;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Core\Manifest\ClassLoader;
+use SilverStripe\Core\Manifest\ModuleResourceLoader;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\Form;
 use SilverStripe\Forms\FormAction;
@@ -65,9 +66,9 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 
 	public function init() {
 		parent::init();
-		Requirements::css("dashboard/css/dashboard.css");
-		Requirements::javascript("dashboard/javascript/jquery.flip.js");
-		Requirements::javascript("dashboard/javascript/dashboard.js");
+		Requirements::css("unclecheese/dashboard:css/dashboard.css");
+		Requirements::javascript("unclecheese/dashboard:javascript/jquery.flip.js");
+		Requirements::javascript("unclecheese/dashboard:javascript/dashboard.js");
 	}
 
 	private static $allowed_actions = [

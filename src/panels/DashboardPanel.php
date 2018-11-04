@@ -25,7 +25,7 @@ class DashboardPanel extends DataObject {
 
 	private static $db = [
 		'Title' => 'Varchar(50)',
-		'PanelSize' => "Enum('small,normal,large','normal')",
+		'PanelSize' => "Enum(array('small','normal','large'),'normal')",
 		'SortOrder' => 'Int'
 	];
 
