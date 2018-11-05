@@ -31,7 +31,7 @@
 				<div class="dashboard-panel-selection-inner">
 					<div class="dashboard-panel-header">
 						<div class="dashboard-panel-icon">
-							<img src="resources/dashboard/images/dashboard-panel-default.png" width="24" height="24"/>
+							<img src="$resourceURL('unclecheese/dashboard:images/dashboard-panel-default.png')" width="24" height="24"/>
 						</div>
 
 						<h3><%t UncleCheese\Dashboard\Dashboard.CHOOSEPANELTYPE 'Choose a panel type' %></h3>
