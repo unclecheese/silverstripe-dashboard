@@ -37,10 +37,11 @@ class DashboardPanelDataObject extends DataObject {
 	 * @var string Like $summary_fields, but these objects only render one field in list view.
 	 */
 	private static $label_field = "ID";
-
-
-
-
+	
+	
+	/**
+	 * @return FieldList
+	 */
 	public function getConfiguration() {
 		$fields = FieldList::create();	
 		return $fields;
