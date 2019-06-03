@@ -21,6 +21,9 @@ class DashboardQuickLink extends DashboardPanelDataObject {
 		'NewWindow' => 'Boolean'
 	);
 
+	private static $has_one = [
+		'Panel' => DashboardQuickLinksPanel::class,
+	];
 
 
 	
