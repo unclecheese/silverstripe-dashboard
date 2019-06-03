@@ -15,11 +15,11 @@ class DashboardQuickLink extends DashboardPanelDataObject {
 	
 	private static $table_name = 'DashboardQuickLink';
 
-	private static $db = array (
+	private static $db = [
 		'Link' => 'Varchar(255)',
 		'Text' => 'Varchar(50)',
 		'NewWindow' => 'Boolean'
-	);
+	];
 
 	private static $has_one = [
 		'Panel' => DashboardQuickLinksPanel::class,

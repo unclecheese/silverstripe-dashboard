@@ -41,10 +41,10 @@ use SilverStripe\Forms\CheckboxField;
 
 class DashboardRecentOrdersPanel extends UncleCheese\Dashboard\DashboardPanel {
 
-  private static $db = array (
+  private static $db = [
     'Count' => 'Int',
     'OnlyShowShipped' => 'Boolean'
-  );
+  ];
   
   
   private static $icon = "mysite/images/dashboard-recent-orders.png";
@@ -71,7 +71,7 @@ class DashboardRecentOrdersPanel extends UncleCheese\Dashboard\DashboardPanel {
   
   public function Orders() {
     $orders = Order::get()->sort("Created DESC")->limit($this->Count);
-    return $this->OnlyShowShipped ? $orders->filter(array('Shipped' => true)) : $orders;
+    return $this->OnlyShowShipped ? $orders->filter(['Shipped' => true]) : $orders;
   }
 }
 

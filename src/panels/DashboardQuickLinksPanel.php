@@ -12,15 +12,15 @@ class DashboardQuickLinksPanel extends DashboardPanel {
 	
 	private static $table_name = 'DashboardQuickLinksPanel';
 	
-	private static $has_many = array (
+	private static $has_many = [
 		'Links' => DashboardQuickLink::class
-	);
+	];
 
 
 	
-	private static $defaults = array (
+	private static $defaults = [
 		'PanelSize' => "small"
-	);
+	];
 
 
 
