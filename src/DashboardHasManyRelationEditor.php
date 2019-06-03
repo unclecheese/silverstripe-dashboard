@@ -91,7 +91,7 @@ class DashboardHasManyRelationEditor extends FormField {
 		if(!$this->controller instanceof DashboardPanel) {
 			user_error("DashboardHasManyRelationEditor must be passed an instance of DashboardPanel", E_USER_ERROR);
 		}
-		if(!$this->controller->has_many($this->relationName)) {
+		if (!isset($this->controller->hasMany()[$this->relationName])) {
 			user_error("DashboardHasManyRelationEditor must be passed a valid has_many relation for the panel. $relationName is not in the has_many array.", E_USER_ERROR);
 		}
 		if(!is_subclass_of($relationClass, DashboardPanelDataObject::class)) {
