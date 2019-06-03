@@ -84,7 +84,7 @@ class DashboardPanel extends DataObject {
 	/**
 	 * @var string the name of the template used for the wrapper of this panel
 	 */
-	protected $holderTemplate = "UncleCheese\Dashboard\Includes\DashboardPanel";
+	protected $holderTemplate = "UncleCheese\Dashboard\DashboardPanel";
 
 
 
