@@ -1,5 +1,6 @@
 <?php
 
+namespace UncleCheese\Dashboard;
 
 /**
  * Defines the "Quick Links" dashboard panel type
@@ -9,8 +10,10 @@
  */
 class DashboardQuickLinksPanel extends DashboardPanel {
 	
+	private static $table_name = 'DashboardQuickLinksPanel';
+	
 	private static $has_many = array (
-		'Links' => 'DashboardQuickLink'
+		'Links' => DashboardQuickLink::class
 	);
 
 
@@ -21,7 +24,7 @@ class DashboardQuickLinksPanel extends DashboardPanel {
 
 
 
-	private static $icon = "dashboard/images/quick-links.png";
+	private static $icon = "unclecheese/dashboard:images/quick-links.png";
 
 
 
@@ -30,19 +33,19 @@ class DashboardQuickLinksPanel extends DashboardPanel {
 
 
 	public function getLabel() {
-		return _t('Dashboard.QUICKLINKSLABEL','Quick Links');
+		return _t('UncleCheese\Dashboard\Dashboard.QUICKLINKSLABEL','Quick Links');
 	}
 
 
 
 	public function getDescription() {
-		return _t('Dashbaord.QUICKLINKSDESCRIPTION','Allows management of arbitrary links from the dashboard');
+		return _t('UncleCheese\Dashboard\Dashbaord.QUICKLINKSDESCRIPTION','Allows management of arbitrary links from the dashboard');
 	}
 
 
 	public function getConfiguration() {
 		$fields = parent::getConfiguration();
-		$fields->push(DashboardHasManyRelationEditor::create($this, "Links", "DashboardQuickLink"));
+		$fields->push(DashboardHasManyRelationEditor::create($this, "Links", DashboardQuickLink::class));
 		return $fields;
 	}
 
