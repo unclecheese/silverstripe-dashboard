@@ -21,5 +21,8 @@
             "images",
             "javascript"
         ]
+    },
+    "branch-alias": {
+    	"5.x-dev": "dev-master"
     }
 }
