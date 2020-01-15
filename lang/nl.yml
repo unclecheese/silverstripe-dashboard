@@ -1,17 +1,15 @@
 nl:
-  CMSMain:
+  SilverStripe\CMS\Controllers\CMSMain:
     AddNew: 'Nieuwe pagina'
     ListFiltered: 'Gefilterde lijst'
     TreeFilteredClear: 'Filter verwijderen'
-  Dashbaord:
+  UncleCheese\Dashboard\Dashboard_Content:
+    ADMINISTRATION: Administratie
+  UncleCheese\Dashboard\DashboardModelAdmin:
+    COUNT: 'Aantal items om te tonen'
+  UncleCheese\Dashboard\Dashboard:
     QUICKLINKSDESCRIPTION: 'Sta management van willekeurige links op het dashboard toe'
     SECTIONEDITORDESCRIPTION: 'Haalt pagina''s van een deel van de website voor bekijken en aanmaken'
-  Dashboard_Content:
-    ADMINISTRATION: Administratie
-  DashboardModelAdmin:
-    COUNT: 'Aantal items om te tonen'
-    
-  Dashboard:
     ACCESS: 'Toegang tot ''{title}'' onderdeel'
     ACCESS_HELP: 'Laat gebruikers panelen verwijderen van zijn/haar dashboard'
     ACUSTOMPATH: 'Filter bij specifiek pad'
@@ -71,47 +69,47 @@ nl:
     WEATHER: Weer
     WEATHERDESCRIPTION: 'Toont het weer van de gekozen locatie.'
     WEATHERNORESPONSE: 'Weerserver reageerde niet. Probeer nogmaals over een paar minuten.'
-  DashboardGoogleAnalyticsPanel:
+  UncleCheese\Dashboard\DashboardGoogleAnalyticsPanel:
     PLURALNAME: 'Dashboard Google Analytics Paneelen'
     SINGULARNAME: 'Dashboard Google Analytics Paneel'
-  DashboardModelAdminPanel:
+  UncleCheese\Dashboard\DashboardModelAdminPanel:
     PLURALNAME: 'Model Admins'
     SINGULARNAME: 'Model Admin'
-  DashboardPanel:
+  UncleCheese\Dashboard\DashboardPanel:
     PLURALNAME: 'Dashboardpanelen'
     SINGULARNAME: 'Dashboardpaneel'
-  DashboardPanelDataObject:
+  UncleCheese\Dashboard\DashboardPanelDataObject:
     PLURALNAME: 'Dashboard Paneel Data Objects'
     SINGULARNAME: 'Dashboard Paneel Data Object'
-  DashboardQuickLink:
+  UncleCheese\Dashboard\DashboardQuickLink:
     LINK: 'Link (inclusief http://)'
     LINKTEXT: 'Link tekst'
     NEWWINDOW: 'Open link in nieuw scherm'
     PLURALNAME: 'Dashboard snellinks'
     SINGULARNAME: 'Dashboard snellink'
-  DashboardQuickLinksPanel:
+  UncleCheese\Dashboard\DashboardQuickLinksPanel:
     PLURALNAME: 'Dashboard snellinks Paneelen'
     SINGULARNAME: 'Dashboard snellinks Paneel'
-  DashboardRSSFeedPanel:
+  UncleCheese\Dashboard\DashboardRSSFeedPanel:
     PLURALNAME: 'Dashboard R S S Feed Paneelen'
     SINGULARNAME: 'Dashboard R S S Feed Paneel'
-  DashboardRecentEdits:
+  UncleCheese\Dashboard\DashboardRecentEdits:
     COUNT: 'Aantal pagina''s om te tonen'
-  DashboardRecentEditsPanel:
+  UncleCheese\Dashboard\DashboardRecentEditsPanel:
     PLURALNAME: 'Dashboard Recente Bewerkingen Paneelen'
     SINGULARNAME: 'Dashboard Recente Bewerkingen Paneel'
-  DashboardRecentFile:
+  UncleCheese\Dashboard\DashboardRecentFile:
     COUNT: 'Aantal bestanden om te tonen'
-  DashboardRecentFilesPanel:
+  UncleCheese\Dashboard\DashboardRecentFilesPanel:
     PLURALNAME: 'Dashboard Recente Bestanden Paneelen'
     SINGULARNAME: 'Dashboard Recent Bestanden Paneel'
-  DashboardSectionEditorPanel:
+  UncleCheese\Dashboard\DashboardSectionEditorPanel:
     PLURALNAME: 'Dashboard Sectiebewerker Paneelen'
     SINGULARNAME: 'Dashboard Sectiebewerker Paneel'
-  DashboardWeatherPanel:
+  UncleCheese\Dashboard\DashboardWeatherPanel:
     PLURALNAME: 'Dashboard Weer Paneelen'
     SINGULARNAME: 'Dashboard Weer Paneel'
-  Permission:
+  SilverStripe\Security\Permission:
     CMS_ACCESS_CATEGORY: 'CMS Toegang'
   RecentEdits:
     DESCRIPTION: 'Toon een gelinkte lijst van recent bewerkte pagina''s'

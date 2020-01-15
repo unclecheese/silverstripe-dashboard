@@ -1,0 +1,7 @@
+---
+Name: dashboardlegacy
+---
+SilverStripe\ORM\DatabaseAdmin:
+  classname_value_remapping:
+    DashboardPanel: 'UncleCheese\Dashboard\DashboardPanel'
+    DashboardPanelDataObject: 'UncleCheese\Dashboard\DashboardPanelDataObject'

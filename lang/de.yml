@@ -1,17 +1,15 @@
 de:
-  CMSMain:
+  SilverStripe\CMS\Controllers\CMSMain:
     AddNew: 'Neue Seite hinzufügen'
     ListFiltered: 'Gefilterte Liste.'
     TreeFilteredClear: 'Filter leeren'
-  Dashbaord:
+  UncleCheese\Dashboard\Dashboard_Content:
+    ADMINISTRATION: Administration
+  UncleCheese\Dashboard\DashboardModelAdmin:
+    COUNT: 'Anzahl der Objekte zur Anzeige'
+  UncleCheese\Dashboard\Dashboard:
     QUICKLINKSDESCRIPTION: 'Ermöglicht die Verwaltung von beliebigen Links aus dem Dashboard heraus'
     SECTIONEDITORDESCRIPTION: 'Holt Seiten aus einem Bereich der Website zur Anzeige und Erstellung'
-  Dashboard_Content:
-    ADMINISTRATION: Administration
-  DashboardModelAdmin:
-    COUNT: 'Anzahl der Objekte zur Anzeige'
-    
-  Dashboard:
     ACCESS: 'Zugriff zum ''{title}'' Bereich'
     ACCESS_HELP: 'Erlaubt Benutzern das Entfernen von Feldern aus dem Dashboard'
     ACUSTOMPATH: 'Nach einem bestimmten Pfad filtern'
@@ -71,47 +69,47 @@ de:
     WEATHER: Wetter
     WEATHERDESCRIPTION: 'Zeigt das Wetter für den angegebenen Ort.'
     WEATHERNORESPONSE: 'Der Wetter-Server antwortet nicht. Versuchen Sie es in wenigen Minuten erneut.'
-  DashboardGoogleAnalyticsPanel:
+  UncleCheese\Dashboard\DashboardGoogleAnalyticsPanel:
     PLURALNAME: 'Dashboard Google Analytics Felder'
     SINGULARNAME: 'Dashboard Google Analytics Feld'
-  DashboardModelAdminPanel:
+  UncleCheese\Dashboard\DashboardModelAdminPanel:
     PLURALNAME: 'Model Admins'
     SINGULARNAME: 'Model Admin'
-  DashboardPanel:
+  UncleCheese\Dashboard\DashboardPanel:
     PLURALNAME: 'Dashboard Felder'
     SINGULARNAME: 'Dashboard Feld'
-  DashboardPanelDataObject:
+  UncleCheese\Dashboard\DashboardPanelDataObject:
     PLURALNAME: 'Dashboard Felder Data Objects'
     SINGULARNAME: 'Dashboard Feld Data Object'
-  DashboardQuickLink:
+  UncleCheese\Dashboard\DashboardQuickLink:
     LINK: 'Link (mit http://)'
     LINKTEXT: 'Link text'
     NEWWINDOW: 'Öffnet link in einem neuen Fenster'
     PLURALNAME: 'Dashboard Quick Links'
     SINGULARNAME: 'Dashboard Quick Link'
-  DashboardQuickLinksPanel:
+  UncleCheese\Dashboard\DashboardQuickLinksPanel:
     PLURALNAME: 'Dashboard Quick Links Felder'
     SINGULARNAME: 'Dashboard Quick Links Feld'
-  DashboardRSSFeedPanel:
+  UncleCheese\Dashboard\DashboardRSSFeedPanel:
     PLURALNAME: 'Dashboard R S S Feed Felder'
     SINGULARNAME: 'Dashboard R S S Feed Feld'
-  DashboardRecentEdits:
+  UncleCheese\Dashboard\DashboardRecentEdits:
     COUNT: 'Anzahl der Seiten zur Anzeige'
-  DashboardRecentEditsPanel:
+  UncleCheese\Dashboard\DashboardRecentEditsPanel:
     PLURALNAME: 'Dashboard Zuletzt Editiert Felder'
     SINGULARNAME: 'Dashboard Zuletzt Editiert Felder'
-  DashboardRecentFile:
+  UncleCheese\Dashboard\DashboardRecentFile:
     COUNT: 'Anzahl der Dateien zur Anzeige'
-  DashboardRecentFilesPanel:
+  UncleCheese\Dashboard\DashboardRecentFilesPanel:
     PLURALNAME: 'Dashboard Letzte Dateien Felder'
     SINGULARNAME: 'Dashboard Letzte Dateien Felde'
-  DashboardSectionEditorPanel:
+  UncleCheese\Dashboard\DashboardSectionEditorPanel:
     PLURALNAME: 'Dashboard Bereichs-Editor Felder'
     SINGULARNAME: 'Dashboard Bereichs-Editor Felde'
-  DashboardWeatherPanel:
+  UncleCheese\Dashboard\DashboardWeatherPanel:
     PLURALNAME: 'Dashboard Wetter Felder'
     SINGULARNAME: 'Dashboard Wetter Feld'
-  Permission:
+  SilverStripe\Security\Permission:
     CMS_ACCESS_CATEGORY: 'CMS Zugriff'
   RecentEdits:
     DESCRIPTION: 'Zeigt eine verlinkte Liste der zuletzt bearbeiteten Seiten'

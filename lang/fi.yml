@@ -1,17 +1,15 @@
 fi:
-  CMSMain:
+  SilverStripe\CMS\Controllers\CMSMain:
     AddNew: 'Lisää uusi sivu'
     ListFiltered: 'Suodatettu lista.'
     TreeFilteredClear: 'Puhdista lista'
-  Dashbaord:
+  UncleCheese\Dashboard\Dashboard_Content:
+    ADMINISTRATION: Ylläpito
+  UncleCheese\Dashboard\DashboardModelAdmin:
+    COUNT: 'Näytettävien tietueiden määrä'
+  UncleCheese\Dashboard\Dashboard:
     QUICKLINKSDESCRIPTION: 'Antaa ylläpidon hallita satunnaisia linkkejä etusivulta'
     SECTIONEDITORDESCRIPTION: 'Vetää sivuja webbisivun alueelta katselua ja luontia varten'
-  Dashboard_Content:
-    ADMINISTRATION: Ylläpito
-  DashboardModelAdmin:
-    COUNT: 'Näytettävien tietueiden määrä'
-    
-  Dashboard:
     ACCESS: 'Käyttöoikeus osioon ''{title}'''
     ACCESS_HELP: 'Oikeuta käyttäjä poistamaan paneeleita hänen etusivultaan'
     ACUSTOMPATH: 'Filter by a specific path'
@@ -71,47 +69,47 @@ fi:
     WEATHER: Sää
     WEATHERDESCRIPTION: 'Näyttää sään annetussa sijainnissa.'
     WEATHERNORESPONSE: 'Sää palvelin ei vastaa. Kokeile muutaman minuutin kuluttua uudelleen.'
-  DashboardGoogleAnalyticsPanel:
+  UncleCheese\Dashboard\DashboardGoogleAnalyticsPanel:
     PLURALNAME: 'Dashboard Google Analytics Panels'
     SINGULARNAME: 'Dashboard Google Analytics Panel'
-  DashboardModelAdminPanel:
+  UncleCheese\Dashboard\DashboardModelAdminPanel:
     PLURALNAME: 'ModelAdmins'
     SINGULARNAME: 'ModelAdmin'
-  DashboardPanel:
+  UncleCheese\Dashboard\DashboardPanel:
     PLURALNAME: 'Etusivun Paneelit'
     SINGULARNAME: 'Etusivun Paneeli'
-  DashboardPanelDataObject:
+  UncleCheese\Dashboard\DashboardPanelDataObject:
     PLURALNAME: 'Etusivu Paneelin Data Objektit'
     SINGULARNAME: 'Etusivu Paneelin Data Objekti'
-  DashboardQuickLink:
+  UncleCheese\Dashboard\DashboardQuickLink:
     LINK: 'Linkki (sisältäen alussa http://)'
     LINKTEXT: 'Linkin teksti'
     NEWWINDOW: 'Avaa linkki uuteen ikkunaan'
     PLURALNAME: 'Etusivun Pika Linkit'
     SINGULARNAME: 'Etusivun Pika Linkki'
-  DashboardQuickLinksPanel:
+  UncleCheese\Dashboard\DashboardQuickLinksPanel:
     PLURALNAME: 'Etusivun Pika Linkki Paneelit'
     SINGULARNAME: 'Etusivun Pika Linkki Paneeli'
-  DashboardRSSFeedPanel:
+  UncleCheese\Dashboard\DashboardRSSFeedPanel:
     PLURALNAME: 'Etusivun Syötteen Paneelit'
     SINGULARNAME: 'Etusivun Syötteen Paneeli'
-  DashboardRecentEdits:
+  UncleCheese\Dashboard\DashboardRecentEdits:
     COUNT: 'Näytettävä sivumäärä'
-  DashboardRecentEditsPanel:
+  UncleCheese\Dashboard\DashboardRecentEditsPanel:
     PLURALNAME: 'Etusivun Viimeaikaiset muutokset Paneelit'
     SINGULARNAME: 'Etusivun Viimeaikaiset muutokset Paneeli'
-  DashboardRecentFile:
+  UncleCheese\Dashboard\DashboardRecentFile:
     COUNT: 'Näytettävät tiedostot'
-  DashboardRecentFilesPanel:
+  UncleCheese\Dashboard\DashboardRecentFilesPanel:
     PLURALNAME: 'Etusivun Viimeaikaiset Tiedostot Paneelit'
     SINGULARNAME: 'Etusivun Viimeaikaiset Tiedostot Paneeli'
-  DashboardSectionEditorPanel:
+  UncleCheese\Dashboard\DashboardSectionEditorPanel:
     PLURALNAME: 'Etusivun Editori Paneelit'
     SINGULARNAME: 'Etusivun Editori Paneeli'
-  DashboardWeatherPanel:
+  UncleCheese\Dashboard\DashboardWeatherPanel:
     PLURALNAME: 'Etusivun Sää Paneelit'
     SINGULARNAME: 'Etusivun Sää Paneeli'
-  Permission:
+  SilverStripe\Security\Permission:
     CMS_ACCESS_CATEGORY: 'CMS Access'
   RecentEdits:
     DESCRIPTION: 'Näyttää linkitetyn listan äskettäin editoiduista sivuista'

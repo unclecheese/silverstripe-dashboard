@@ -1,6 +1,6 @@
-# The Dashboard Module for SilverStripe 3
+# The Dashboard Module for SilverStripe 4
 
-The Dashboard module provides a splash page for the CMS in SilverStripe 3 with configurable widgets that display relevant information. Panels can be created and extended easily. The goal of the Dashboard module is to provide users with a launchpad for common CMS actions such as creating specific page types or browsing new content.
+The Dashboard module provides a splash page for the CMS in SilverStripe 4 with configurable widgets that display relevant information. Panels can be created and extended easily. The goal of the Dashboard module is to provide users with a launchpad for common CMS actions such as creating specific page types or browsing new content.
 
 
 ## Screenshot & Videos
@@ -8,6 +8,7 @@ Images and videos about this module can be found [in this blog post.](https://ww
 
 
 ## Included panels
+**No included panels at the moment. These could be upgraded and brought back from the SS3 version of this module:**
 * Recently edited pages
 * Recently uploaded files
 * RSS Feed
@@ -35,12 +36,15 @@ First, create a class for the panel as a descendant of DashboardPanel. We'll inc
 ```php
 <?php
 
-class DashboardRecentOrdersPanel extends DashboardPanel {
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\CheckboxField;
 
-  private static $db = array (
+class DashboardRecentOrdersPanel extends UncleCheese\Dashboard\DashboardPanel {
+
+  private static $db = [
     'Count' => 'Int',
     'OnlyShowShipped' => 'Boolean'
-  );
+  ];
   
   
   private static $icon = "mysite/images/dashboard-recent-orders.png";
@@ -67,7 +71,7 @@ class DashboardRecentOrdersPanel extends DashboardPanel {
   
   public function Orders() {
     $orders = Order::get()->sort("Created DESC")->limit($this->Count);
-    return $this->OnlyShowShipped ? $orders->filter(array('Shipped' => true)) : $orders;
+    return $this->OnlyShowShipped ? $orders->filter(['Shipped' => true]) : $orders;
   }
 }
 
