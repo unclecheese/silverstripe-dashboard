@@ -3,6 +3,7 @@
 namespace UncleCheese\Dashboard;
 
 use SilverStripe\View\ViewableData;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 
 /**
  * Defines the object that renders as a button in a dashboard panel
@@ -81,7 +82,7 @@ class DashboardPanelAction extends ViewableData {
 	 * @return string
 	 */
 	public function Action() {
-		return $this->forTemplate();
+		return DBHTMLText::create()->setValue($this->forTemplate());
 	}
 
 

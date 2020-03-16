@@ -171,9 +171,9 @@ class DashboardChart extends ViewableData {
 	 * @return \SilverStripe\ORM\FieldType\DBHTMLText
 	 */
 	public function forTemplate() {
-		Requirements::javascript("dashboard/javascript/thirdparty/google_jsapi_visualization.js");
-		Requirements::javascript("dashboard/javascript/dashboard-chart.js");
-		return $this->renderWith('DashboardChart');
+		Requirements::javascript("unclecheese/dashboard:javascript/thirdparty/google_jsapi_visualization.js");
+		Requirements::javascript("unclecheese/dashboard:javascript/dashboard-chart.js");
+		return $this->renderWith(self::class);
 	}
 
 
