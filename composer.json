@@ -21,5 +21,10 @@
             "images",
             "javascript"
         ]
+    },
+    "autoload": {
+        "psr-4": {
+            "UncleCheese\\Dashboard\\": "src/"
+        }
     }
 }
