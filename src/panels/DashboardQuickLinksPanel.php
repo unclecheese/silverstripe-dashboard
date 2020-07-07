@@ -1,6 +1,6 @@
 <?php
 
-namespace UncleCheese\Dashboard;
+namespace UncleCheese\Dashboard\Panels;
 
 /**
  * Defines the "Quick Links" dashboard panel type
