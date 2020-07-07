@@ -1,6 +1,6 @@
 <?php
 
-namespace UncleCheese\Dashboard;
+namespace UncleCheese\Dashboard\Panels;
 
 use SilverStripe\Control\Controller;
 use SilverStripe\Core\Injector\Injector;
