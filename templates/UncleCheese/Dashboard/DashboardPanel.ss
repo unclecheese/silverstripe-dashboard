@@ -4,7 +4,7 @@
 			<% if $PrimaryActions %>
 				<div class="dashboard-panel-header-actions">
 					<% loop $PrimaryActions %>
-						$Action
+						$Action.RAW <%-- $Action contains HTML, do not escape it. --%>
 					<% end_loop %>
 				</div>
 			<% end_if %>
@@ -24,7 +24,7 @@
 			<% if $SecondaryActions %>
 				<div class="dashboard-panel-footer-actions">
 					<% loop $SecondaryActions %>
-						$Action
+						$Action.RAW <%-- $Action contains HTML, do not escape it. --%>
 					<% end_loop %>
 				</div>
 			<% end_if %>
