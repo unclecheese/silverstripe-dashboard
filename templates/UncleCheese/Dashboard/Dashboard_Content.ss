@@ -21,11 +21,9 @@
 	</div>
 	<div class="dashboard dashboard-sortable" data-sort-url="$Link('sort')">
 		<div id="dashboard-message"></div>
-		<div class="dashboard-panel-list"><!--
-		<% loop $Panels %>
-		-->$PanelHolder<!--
-		<% end_loop %>
-	--></div>
+		<div class="dashboard-panel-list">
+			$PanelHolder
+		</div>
 		<div class="dashboard-panel-selection dashboard-panel normal" id="dashboard-panel-0">
 			<div class="dashboard-panel-inner">
 				<div class="dashboard-panel-selection-inner">
