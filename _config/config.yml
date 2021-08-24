@@ -1,17 +1,19 @@
 ---
 Name: dashboard
 ---
+
 SilverStripe\Security\Member:
   extensions:
-    [UncleCheese\Dashboard\DashboardMember]
+    - UncleCheese\Dashboard\DashboardMember
 
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
-    [UncleCheese\Dashboard\DashboardSiteConfig]
+    - UncleCheese\Dashboard\DashboardSiteConfig
+
 SilverStripe\Forms\GridField\GridFieldDetailForm_ItemRequest:
   extensions:
-    [UncleCheese\Dashboard\DashboardItemEditForm]
+    - UncleCheese\Dashboard\DashboardItemEditForm
 
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
-    [unclecheese/dashboard:css/dashboard_icon.css]
+    - unclecheese/dashboard:css/dashboard_icon.css
