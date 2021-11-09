@@ -199,11 +199,11 @@ class DashboardGridFieldPanel extends DashboardPanel {
 			return Controller::join_links(
 				Injector::inst()->get("CMSMain")->Link("edit"),
 				"EditForm",
+				$this->SubjectPageID,
 				"field",
 				$this->GridFieldName,
 				"item",
-				"new",
-				"?ID={$this->SubjectPageID}"
+				"new"
 			);
 		}
 	}
