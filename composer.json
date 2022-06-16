@@ -1,5 +1,5 @@
 {
-    "name": "i-lateral/dashboard",
+    "name": "i-lateral/silverstripe-dashboard",
     "description": "Adds a customisable dashboard to the SilverStripe CMS (fork of Unclecheese's module)",
     "type": "silverstripe-vendormodule",
     "keywords": ["silverstripe", "dashboard", "module", "cms"],
