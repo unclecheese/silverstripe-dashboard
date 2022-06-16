@@ -1,7 +1,7 @@
 <div class="field dashboard-has-many-editor" data-refresh-url="$Link">
 	<div class="dashboard-has-many-editor-header">
 		<label class="left">$Title</label>
-		<a class="ss-ui-button ss-ui-action-constructive small" href="$AddLink"><%t UncleCheese\Dashboard\Dashboard.ADD 'Add' %></a>
+		<a class="ss-ui-button ss-ui-action-constructive small" href="$AddLink"><%t ilateral\SilverStripe\Dashboard\Dashboard.ADD 'Add' %></a>
 	</div>
 	<% if $Items %>
 		<ul class="dashboard-has-many-list dashboard-sortable" data-sort-url="$Link('sort')">
@@ -13,7 +13,7 @@
 			<% end_loop %>
 		</ul>
 	<% else %>
-		<div class="dashboard-has-many-norecords"><%t UncleCheese\Dashboard\Dashboard.NORECORDS 'No records' %></div>
+		<div class="dashboard-has-many-norecords"><%t ilateral\SilverStripe\Dashboard\Dashboard.NORECORDS 'No records' %></div>
 	<% end_if %>
 
 	<div class="dashboard-has-many-editor-form" data-url="$Link('item/new')">

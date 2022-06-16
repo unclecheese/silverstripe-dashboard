@@ -3,11 +3,11 @@ en:
     AddNew: 'Add new page'
     ListFiltered: 'Filtered list.'
     TreeFilteredClear: 'Clear filter'
-  UncleCheese\Dashboard\Dashboard_Content:
+  ilateral\SilverStripe\Dashboard\Dashboard_Content:
     ADMINISTRATION: Administration
-  UncleCheese\Dashboard\DashboardModelAdmin:
+  ilateral\SilverStripe\Dashboard\DashboardModelAdmin:
     COUNT: 'Number of records to display'
-  UncleCheese\Dashboard\Dashboard:
+  ilateral\SilverStripe\Dashboard\Dashboard:
     QUICKLINKSDESCRIPTION: 'Allows management of arbitrary links from the dashboard'
     SECTIONEDITORDESCRIPTION: 'Pulls pages from a section of the website for viewing and creation'
     ACCESS: 'Access to ''{title}'' section'
@@ -69,44 +69,44 @@ en:
     WEATHER: Weather
     WEATHERDESCRIPTION: 'Shows the weather for a given location.'
     WEATHERNORESPONSE: 'The weather server did not respond. Try again in a few minutes.'
-  UncleCheese\Dashboard\DashboardGoogleAnalyticsPanel:
+  ilateral\SilverStripe\Dashboard\DashboardGoogleAnalyticsPanel:
     PLURALNAME: 'Dashboard Google Analytics Panels'
     SINGULARNAME: 'Dashboard Google Analytics Panel'
-  UncleCheese\Dashboard\DashboardModelAdminPanel:
+  ilateral\SilverStripe\Dashboard\DashboardModelAdminPanel:
     PLURALNAME: 'Model Admins'
     SINGULARNAME: 'Model Admin'
-  UncleCheese\Dashboard\DashboardPanel:
+  ilateral\SilverStripe\Dashboard\DashboardPanel:
     PLURALNAME: 'Dashboard Panels'
     SINGULARNAME: 'Dashboard Panel'
-  UncleCheese\Dashboard\DashboardPanelDataObject:
+  ilateral\SilverStripe\Dashboard\DashboardPanelDataObject:
     PLURALNAME: 'Dashboard Panel Data Objects'
     SINGULARNAME: 'Dashboard Panel Data Object'
-  UncleCheese\Dashboard\DashboardQuickLink:
+  ilateral\SilverStripe\Dashboard\DashboardQuickLink:
     LINK: 'Link (include http://)'
     LINKTEXT: 'Link text'
     NEWWINDOW: 'Open link in new window'
     PLURALNAME: 'Dashboard Quick Links'
     SINGULARNAME: 'Dashboard Quick Link'
-  UncleCheese\Dashboard\DashboardQuickLinksPanel:
+  ilateral\SilverStripe\Dashboard\DashboardQuickLinksPanel:
     PLURALNAME: 'Dashboard Quick Links Panels'
     SINGULARNAME: 'Dashboard Quick Links Panel'
-  UncleCheese\Dashboard\DashboardRSSFeedPanel:
+  ilateral\SilverStripe\Dashboard\DashboardRSSFeedPanel:
     PLURALNAME: 'Dashboard R S S Feed Panels'
     SINGULARNAME: 'Dashboard R S S Feed Panel'
-  UncleCheese\Dashboard\DashboardRecentEdits:
+  ilateral\SilverStripe\Dashboard\DashboardRecentEdits:
     COUNT: 'Number of pages to display'
-  UncleCheese\Dashboard\DashboardRecentEditsPanel:
+  ilateral\SilverStripe\Dashboard\DashboardRecentEditsPanel:
     PLURALNAME: 'Dashboard Recent Edits Panels'
     SINGULARNAME: 'Dashboard Recent Edits Panel'
-  UncleCheese\Dashboard\DashboardRecentFile:
+  ilateral\SilverStripe\Dashboard\DashboardRecentFile:
     COUNT: 'Number of files to display'
-  UncleCheese\Dashboard\DashboardRecentFilesPanel:
+  ilateral\SilverStripe\Dashboard\DashboardRecentFilesPanel:
     PLURALNAME: 'Dashboard Recent Files Panels'
     SINGULARNAME: 'Dashboard Recent Files Panel'
-  UncleCheese\Dashboard\DashboardSectionEditorPanel:
+  ilateral\SilverStripe\Dashboard\DashboardSectionEditorPanel:
     PLURALNAME: 'Dashboard Section Editor Panels'
     SINGULARNAME: 'Dashboard Section Editor Panel'
-  UncleCheese\Dashboard\DashboardWeatherPanel:
+  ilateral\SilverStripe\Dashboard\DashboardWeatherPanel:
     PLURALNAME: 'Dashboard Weather Panels'
     SINGULARNAME: 'Dashboard Weather Panel'
   SilverStripe\Security\Permission:

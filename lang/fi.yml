@@ -3,11 +3,11 @@ fi:
     AddNew: 'Lisää uusi sivu'
     ListFiltered: 'Suodatettu lista.'
     TreeFilteredClear: 'Puhdista lista'
-  UncleCheese\Dashboard\Dashboard_Content:
+  ilateral\SilverStripe\Dashboard\Dashboard_Content:
     ADMINISTRATION: Ylläpito
-  UncleCheese\Dashboard\DashboardModelAdmin:
+  ilateral\SilverStripe\Dashboard\DashboardModelAdmin:
     COUNT: 'Näytettävien tietueiden määrä'
-  UncleCheese\Dashboard\Dashboard:
+  ilateral\SilverStripe\Dashboard\Dashboard:
     QUICKLINKSDESCRIPTION: 'Antaa ylläpidon hallita satunnaisia linkkejä etusivulta'
     SECTIONEDITORDESCRIPTION: 'Vetää sivuja webbisivun alueelta katselua ja luontia varten'
     ACCESS: 'Käyttöoikeus osioon ''{title}'''
@@ -69,44 +69,44 @@ fi:
     WEATHER: Sää
     WEATHERDESCRIPTION: 'Näyttää sään annetussa sijainnissa.'
     WEATHERNORESPONSE: 'Sää palvelin ei vastaa. Kokeile muutaman minuutin kuluttua uudelleen.'
-  UncleCheese\Dashboard\DashboardGoogleAnalyticsPanel:
+  ilateral\SilverStripe\Dashboard\DashboardGoogleAnalyticsPanel:
     PLURALNAME: 'Dashboard Google Analytics Panels'
     SINGULARNAME: 'Dashboard Google Analytics Panel'
-  UncleCheese\Dashboard\DashboardModelAdminPanel:
+  ilateral\SilverStripe\Dashboard\DashboardModelAdminPanel:
     PLURALNAME: 'ModelAdmins'
     SINGULARNAME: 'ModelAdmin'
-  UncleCheese\Dashboard\DashboardPanel:
+  ilateral\SilverStripe\Dashboard\DashboardPanel:
     PLURALNAME: 'Etusivun Paneelit'
     SINGULARNAME: 'Etusivun Paneeli'
-  UncleCheese\Dashboard\DashboardPanelDataObject:
+  ilateral\SilverStripe\Dashboard\DashboardPanelDataObject:
     PLURALNAME: 'Etusivu Paneelin Data Objektit'
     SINGULARNAME: 'Etusivu Paneelin Data Objekti'
-  UncleCheese\Dashboard\DashboardQuickLink:
+  ilateral\SilverStripe\Dashboard\DashboardQuickLink:
     LINK: 'Linkki (sisältäen alussa http://)'
     LINKTEXT: 'Linkin teksti'
     NEWWINDOW: 'Avaa linkki uuteen ikkunaan'
     PLURALNAME: 'Etusivun Pika Linkit'
     SINGULARNAME: 'Etusivun Pika Linkki'
-  UncleCheese\Dashboard\DashboardQuickLinksPanel:
+  ilateral\SilverStripe\Dashboard\DashboardQuickLinksPanel:
     PLURALNAME: 'Etusivun Pika Linkki Paneelit'
     SINGULARNAME: 'Etusivun Pika Linkki Paneeli'
-  UncleCheese\Dashboard\DashboardRSSFeedPanel:
+  ilateral\SilverStripe\Dashboard\DashboardRSSFeedPanel:
     PLURALNAME: 'Etusivun Syötteen Paneelit'
     SINGULARNAME: 'Etusivun Syötteen Paneeli'
-  UncleCheese\Dashboard\DashboardRecentEdits:
+  ilateral\SilverStripe\Dashboard\DashboardRecentEdits:
     COUNT: 'Näytettävä sivumäärä'
-  UncleCheese\Dashboard\DashboardRecentEditsPanel:
+  ilateral\SilverStripe\Dashboard\DashboardRecentEditsPanel:
     PLURALNAME: 'Etusivun Viimeaikaiset muutokset Paneelit'
     SINGULARNAME: 'Etusivun Viimeaikaiset muutokset Paneeli'
-  UncleCheese\Dashboard\DashboardRecentFile:
+  ilateral\SilverStripe\Dashboard\DashboardRecentFile:
     COUNT: 'Näytettävät tiedostot'
-  UncleCheese\Dashboard\DashboardRecentFilesPanel:
+  ilateral\SilverStripe\Dashboard\DashboardRecentFilesPanel:
     PLURALNAME: 'Etusivun Viimeaikaiset Tiedostot Paneelit'
     SINGULARNAME: 'Etusivun Viimeaikaiset Tiedostot Paneeli'
-  UncleCheese\Dashboard\DashboardSectionEditorPanel:
+  ilateral\SilverStripe\Dashboard\DashboardSectionEditorPanel:
     PLURALNAME: 'Etusivun Editori Paneelit'
     SINGULARNAME: 'Etusivun Editori Paneeli'
-  UncleCheese\Dashboard\DashboardWeatherPanel:
+  ilateral\SilverStripe\Dashboard\DashboardWeatherPanel:
     PLURALNAME: 'Etusivun Sää Paneelit'
     SINGULARNAME: 'Etusivun Sää Paneeli'
   SilverStripe\Security\Permission:

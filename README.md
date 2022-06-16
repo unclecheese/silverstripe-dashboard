@@ -39,7 +39,7 @@ First, create a class for the panel as a descendant of DashboardPanel. We'll inc
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxField;
 
-class DashboardRecentOrdersPanel extends UncleCheese\Dashboard\DashboardPanel {
+class DashboardRecentOrdersPanel extends ilateral\SilverStripe\Dashboard\DashboardPanel {
 
   private static $db = [
     'Count' => 'Int',

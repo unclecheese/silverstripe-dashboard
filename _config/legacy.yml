@@ -3,5 +3,7 @@ Name: dashboardlegacy
 ---
 SilverStripe\ORM\DatabaseAdmin:
   classname_value_remapping:
-    DashboardPanel: 'UncleCheese\Dashboard\DashboardPanel'
-    DashboardPanelDataObject: 'UncleCheese\Dashboard\DashboardPanelDataObject'
+    DashboardPanel: 'ilateral\SilverStripe\Dashboard\DashboardPanel'
+    DashboardPanelDataObject: 'ilateral\SilverStripe\Dashboard\DashboardPanelDataObject'
+    UncleCheese\Dashboard\DashboardPanel: 'ilateral\SilverStripe\Dashboard\DashboardPanel'
+    UncleCheese\Dashboard\DashboardPanelDataObject: 'ilateral\SilverStripe\Dashboard\DashboardPanelDataObject'

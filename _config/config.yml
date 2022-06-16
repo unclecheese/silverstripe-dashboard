@@ -4,15 +4,15 @@ Name: dashboard
 
 SilverStripe\Security\Member:
   extensions:
-    - UncleCheese\Dashboard\DashboardMember
+    - ilateral\SilverStripe\Dashboard\DashboardMember
 
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
-    - UncleCheese\Dashboard\DashboardSiteConfig
+    - ilateral\SilverStripe\Dashboard\DashboardSiteConfig
 
 SilverStripe\Forms\GridField\GridFieldDetailForm_ItemRequest:
   extensions:
-    - UncleCheese\Dashboard\DashboardItemEditForm
+    - ilateral\SilverStripe\Dashboard\DashboardItemEditForm
 
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:

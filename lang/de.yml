@@ -3,11 +3,11 @@ de:
     AddNew: 'Neue Seite hinzufügen'
     ListFiltered: 'Gefilterte Liste.'
     TreeFilteredClear: 'Filter leeren'
-  UncleCheese\Dashboard\Dashboard_Content:
+  ilateral\SilverStripe\Dashboard\Dashboard_Content:
     ADMINISTRATION: Administration
-  UncleCheese\Dashboard\DashboardModelAdmin:
+  ilateral\SilverStripe\Dashboard\DashboardModelAdmin:
     COUNT: 'Anzahl der Objekte zur Anzeige'
-  UncleCheese\Dashboard\Dashboard:
+  ilateral\SilverStripe\Dashboard\Dashboard:
     QUICKLINKSDESCRIPTION: 'Ermöglicht die Verwaltung von beliebigen Links aus dem Dashboard heraus'
     SECTIONEDITORDESCRIPTION: 'Holt Seiten aus einem Bereich der Website zur Anzeige und Erstellung'
     ACCESS: 'Zugriff zum ''{title}'' Bereich'
@@ -69,44 +69,44 @@ de:
     WEATHER: Wetter
     WEATHERDESCRIPTION: 'Zeigt das Wetter für den angegebenen Ort.'
     WEATHERNORESPONSE: 'Der Wetter-Server antwortet nicht. Versuchen Sie es in wenigen Minuten erneut.'
-  UncleCheese\Dashboard\DashboardGoogleAnalyticsPanel:
+  ilateral\SilverStripe\Dashboard\DashboardGoogleAnalyticsPanel:
     PLURALNAME: 'Dashboard Google Analytics Felder'
     SINGULARNAME: 'Dashboard Google Analytics Feld'
-  UncleCheese\Dashboard\DashboardModelAdminPanel:
+  ilateral\SilverStripe\Dashboard\DashboardModelAdminPanel:
     PLURALNAME: 'Model Admins'
     SINGULARNAME: 'Model Admin'
-  UncleCheese\Dashboard\DashboardPanel:
+  ilateral\SilverStripe\Dashboard\DashboardPanel:
     PLURALNAME: 'Dashboard Felder'
     SINGULARNAME: 'Dashboard Feld'
-  UncleCheese\Dashboard\DashboardPanelDataObject:
+  ilateral\SilverStripe\Dashboard\DashboardPanelDataObject:
     PLURALNAME: 'Dashboard Felder Data Objects'
     SINGULARNAME: 'Dashboard Feld Data Object'
-  UncleCheese\Dashboard\DashboardQuickLink:
+  ilateral\SilverStripe\Dashboard\DashboardQuickLink:
     LINK: 'Link (mit http://)'
     LINKTEXT: 'Link text'
     NEWWINDOW: 'Öffnet link in einem neuen Fenster'
     PLURALNAME: 'Dashboard Quick Links'
     SINGULARNAME: 'Dashboard Quick Link'
-  UncleCheese\Dashboard\DashboardQuickLinksPanel:
+  ilateral\SilverStripe\Dashboard\DashboardQuickLinksPanel:
     PLURALNAME: 'Dashboard Quick Links Felder'
     SINGULARNAME: 'Dashboard Quick Links Feld'
-  UncleCheese\Dashboard\DashboardRSSFeedPanel:
+  ilateral\SilverStripe\Dashboard\DashboardRSSFeedPanel:
     PLURALNAME: 'Dashboard R S S Feed Felder'
     SINGULARNAME: 'Dashboard R S S Feed Feld'
-  UncleCheese\Dashboard\DashboardRecentEdits:
+  ilateral\SilverStripe\Dashboard\DashboardRecentEdits:
     COUNT: 'Anzahl der Seiten zur Anzeige'
-  UncleCheese\Dashboard\DashboardRecentEditsPanel:
+  ilateral\SilverStripe\Dashboard\DashboardRecentEditsPanel:
     PLURALNAME: 'Dashboard Zuletzt Editiert Felder'
     SINGULARNAME: 'Dashboard Zuletzt Editiert Felder'
-  UncleCheese\Dashboard\DashboardRecentFile:
+  ilateral\SilverStripe\Dashboard\DashboardRecentFile:
     COUNT: 'Anzahl der Dateien zur Anzeige'
-  UncleCheese\Dashboard\DashboardRecentFilesPanel:
+  ilateral\SilverStripe\Dashboard\DashboardRecentFilesPanel:
     PLURALNAME: 'Dashboard Letzte Dateien Felder'
     SINGULARNAME: 'Dashboard Letzte Dateien Felde'
-  UncleCheese\Dashboard\DashboardSectionEditorPanel:
+  ilateral\SilverStripe\Dashboard\DashboardSectionEditorPanel:
     PLURALNAME: 'Dashboard Bereichs-Editor Felder'
     SINGULARNAME: 'Dashboard Bereichs-Editor Felde'
-  UncleCheese\Dashboard\DashboardWeatherPanel:
+  ilateral\SilverStripe\Dashboard\DashboardWeatherPanel:
     PLURALNAME: 'Dashboard Wetter Felder'
     SINGULARNAME: 'Dashboard Wetter Feld'
   SilverStripe\Security\Permission:

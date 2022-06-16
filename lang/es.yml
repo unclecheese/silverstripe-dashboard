@@ -3,11 +3,11 @@ es:
     AddNew: 'Agregar nueva página'
     ListFiltered: 'Lista filtrada.'
     TreeFilteredClear: 'Limpiar filtro'
-  UncleCheese\Dashboard\Dashboard_Content:
+  ilateral\SilverStripe\Dashboard\Dashboard_Content:
     ADMINISTRATION: Administración
-  UncleCheese\Dashboard\DashbordModelAdmin:
+  ilateral\SilverStripe\Dashboard\DashbordModelAdmin:
     COUNT: 'Objetos a mostrar'
-  UncleCheese\Dashboard\Dashboard:
+  ilateral\SilverStripe\Dashboard\Dashboard:
     QUICKLINKSDESCRIPTION: 'Enlaces arbitrarios en el panel de control'
     SECTIONEDITORDESCRIPTION: 'Agrega páginas a sección del sitio'
     ACCESS: 'Acceso a la sección ''{title}'''
@@ -67,44 +67,44 @@ es:
     WEATHER: Clima
     WEATHERDESCRIPTION: 'Clima de un lugar en el mundo.'
     WEATHERNORESPONSE: 'El servidor de climas no responde, deben tener una tormenta por ahí.'
-  UncleCheese\Dashboard\DashboardGoogleAnalyticsPanel:
+  ilateral\SilverStripe\Dashboard\DashboardGoogleAnalyticsPanel:
     PLURALNAME: 'Paneles de control para Google Analytics'
     SINGULARNAME: 'Panel de control para Google Analytics'
-  UncleCheese\Dashboard\DashboardModelAdminPanel:
+  ilateral\SilverStripe\Dashboard\DashboardModelAdminPanel:
     PLURALNAME: 'Model Admins'
     SINGULARNAME: 'Model Admin'
-  UncleCheese\Dashboard\DashboardPanel:
+  ilateral\SilverStripe\Dashboard\DashboardPanel:
     PLURALNAME: 'Paneles de control'
     SINGULARNAME: 'Panel de control'
-  UncleCheese\Dashboard\DashboardPanelDataObject:
+  ilateral\SilverStripe\Dashboard\DashboardPanelDataObject:
     PLURALNAME: 'Paneles de control para Data Objects'
     SINGULARNAME: 'Panel de control para Data Objects'
-  UncleCheese\Dashboard\DashboardQuickLink:
+  ilateral\SilverStripe\Dashboard\DashboardQuickLink:
     LINK: 'Enlace (incluír http://)'
     LINKTEXT: 'Texto del enlace'
     NEWWINDOW: 'Abrir el enlace en una ventana nueva'
     PLURALNAME: 'Enlaces rápidos para el panel de control'
     SINGULARNAME: 'Enlace rápido para el panel de control'
-  UncleCheese\Dashboard\DashboardQuickLinksPanel:
+  ilateral\SilverStripe\Dashboard\DashboardQuickLinksPanel:
     PLURALNAME: 'Paneles de control para enlaces'
     SINGULARNAME: 'Panel de control para enlaces'
-  UncleCheese\Dashboard\DashboardRSSFeedPanel:
+  ilateral\SilverStripe\Dashboard\DashboardRSSFeedPanel:
     PLURALNAME: 'Paneles de control para RSS'
     SINGULARNAME: 'Panel de control para RSS'
-  UncleCheese\Dashboard\DashboardRecentEdits:
+  ilateral\SilverStripe\Dashboard\DashboardRecentEdits:
     COUNT: 'Número de páginas a mostrar'
-  UncleCheese\Dashboard\DashboardRecentEditsPanel:
+  ilateral\SilverStripe\Dashboard\DashboardRecentEditsPanel:
     PLURALNAME: 'Paneles de control para páginas recién editadas'
     SINGULARNAME: 'Panel de control para páginas recién editadas'
-  UncleCheese\Dashboard\DashboardRecentFile:
+  ilateral\SilverStripe\Dashboard\DashboardRecentFile:
     COUNT: 'Número de archivos a mostrar'
-  UncleCheese\Dashboard\DashboardRecentFilesPanel:
+  ilateral\SilverStripe\Dashboard\DashboardRecentFilesPanel:
     PLURALNAME: 'Paneles de control para archivos'
     SINGULARNAME: 'Panel de control para archivos'
-  UncleCheese\Dashboard\DashboardSectionEditorPanel:
+  ilateral\SilverStripe\Dashboard\DashboardSectionEditorPanel:
     PLURALNAME: 'Paneles de control para el panel de edición'
     SINGULARNAME: 'Panel de control para el panel de edición'
-  UncleCheese\Dashboard\DashboardWeatherPanel:
+  ilateral\SilverStripe\Dashboard\DashboardWeatherPanel:
     PLURALNAME: 'Paneles de control para el panel del tiempo'
     SINGULARNAME: 'Panel de control para el panel del tiempo'
   SilverStripe\Security\Permission:

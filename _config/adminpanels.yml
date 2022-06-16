@@ -4,4 +4,4 @@ After: cmsdefaultadmin #Override the CMS module's setting (if CMS is installed)
 ---
 
 SilverStripe\Admin\AdminRootController:
-  default_panel: 'UncleCheese\Dashboard\Dashboard'
+  default_panel: 'ilateral\SilverStripe\Dashboard\Dashboard'
