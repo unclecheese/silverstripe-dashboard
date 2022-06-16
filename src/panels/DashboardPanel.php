@@ -1,6 +1,6 @@
 <?php
 
-namespace UncleCheese\Dashboard;
+namespace ilateral\SilverStripe\Dashboard;
 
 use SilverStripe\Control\Controller;
 use SilverStripe\Core\Injector\Injector;
@@ -84,7 +84,7 @@ class DashboardPanel extends DataObject {
 	/**
 	 * @var string the name of the template used for the wrapper of this panel
 	 */
-	protected $holderTemplate = "UncleCheese\Dashboard\DashboardPanel";
+	protected $holderTemplate = self::class;
 
 
 
@@ -270,13 +270,20 @@ class DashboardPanel extends DataObject {
 	public function getConfiguration() {
 		$default_size_title = ' '; //Cannot be an empty string because SilverStripe\i18n\i18n::_t() would yell that a default should be defined. So use a space as a workaround.
 		return FieldList::create(
-			DashboardButtonOptionsField::create("PanelSize",_t('UncleCheese\Dashboard\Dashboard.PANELSIZE', $default_size_title), [
-				'small' => '',
-				'normal' => '',
-				'large' => ''
-			])->setSize("small"),
+			DashboardButtonOptionsField::create(
+				"PanelSize",
+				_t(Dashboard::class . '.PANELSIZE', $default_size_title),
+				[
+					'small' => '',
+					'normal' => '',
+					'large' => ''
+				]
+			)->setSize("small"),
 
-			TextField::create("Title", _t('Dashboard.TITLE','Title'))
+			TextField::create(
+				"Title",
+				_t(Dashboard::class . '.TITLE','Title')
+			)
 		);
 	}
 

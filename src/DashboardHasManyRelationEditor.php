@@ -1,6 +1,6 @@
 <?php
 
-namespace UncleCheese\Dashboard;
+namespace ilateral\SilverStripe\Dashboard;
 
 use SilverStripe\Control\Controller;
 use SilverStripe\Control\HTTPRequest;
@@ -69,8 +69,7 @@ class DashboardHasManyRelationEditor extends FormField {
 	/**
 	 * @var string The template that renders the editor
 	 */
-	protected $template = "UncleCheese\Dashboard\DashboardHasManyRelationEditor";
-
+	protected $template = self::class;
 
 
 	

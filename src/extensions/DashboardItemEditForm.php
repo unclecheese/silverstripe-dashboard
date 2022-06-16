@@ -1,6 +1,6 @@
 <?php
 
-namespace UncleCheese\Dashboard;
+namespace ilateral\SilverStripe\Dashboard;
 
 use SilverStripe\CMS\Controllers\CMSMain;
 use SilverStripe\Core\Extension;

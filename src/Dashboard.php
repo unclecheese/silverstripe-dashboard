@@ -1,7 +1,6 @@
 <?php
 
-namespace UncleCheese\Dashboard;
-
+namespace ilateral\SilverStripe\Dashboard;
 
 use SilverStripe\Admin\LeftAndMain;
 use SilverStripe\Control\HTTPRequest;
@@ -10,7 +9,6 @@ use SilverStripe\Control\RequestHandler;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Core\Manifest\ClassLoader;
-use SilverStripe\Core\Manifest\ModuleResourceLoader;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\Form;
 use SilverStripe\Forms\FormAction;

@@ -1,6 +1,6 @@
 <?php
 
-namespace UncleCheese\Dashboard;
+namespace ilateral\SilverStripe\Dashboard;
 
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\TextField;
@@ -34,9 +34,18 @@ class DashboardQuickLink extends DashboardPanelDataObject {
 
 	public function getConfiguration() {
 		$fields = parent::getConfiguration();
-		$fields->push(TextField::create("Link",_t('UncleCheese\Dashboard\DashboardQuickLink.LINK','Link (include http://)')));
-		$fields->push(TextField::create("Text",_t('UncleCheese\Dashboard\DashboardQuickLink.LINKTEXT','Link text')));
-		$fields->push(CheckboxField::create("NewWindow",_t('UncleCheese\Dashboard\DashboardQuickLink.NEWWINDOW','Open link in new window')));
+		$fields->push(TextField::create(
+			"Link",
+			_t(static::class . '.LINK','Link (include http://)')
+		));
+		$fields->push(TextField::create(
+			"Text",
+			_t(static::class . '.LINKTEXT','Link text'))
+		);
+		$fields->push(CheckboxField::create(
+			"NewWindow",
+			_t(static::class . '.NEWWINDOW','Open link in new window'))
+		);
 		return $fields;
 	}
 }

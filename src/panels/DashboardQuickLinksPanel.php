@@ -1,6 +1,6 @@
 <?php
 
-namespace UncleCheese\Dashboard;
+namespace ilateral\SilverStripe\Dashboard;
 
 /**
  * Defines the "Quick Links" dashboard panel type
@@ -33,13 +33,13 @@ class DashboardQuickLinksPanel extends DashboardPanel {
 
 
 	public function getLabel() {
-		return _t('UncleCheese\Dashboard\Dashboard.QUICKLINKSLABEL','Quick Links');
+		return _t(Dashboard::class . '.QUICKLINKSLABEL', 'Quick Links');
 	}
 
 
 
 	public function getDescription() {
-		return _t('UncleCheese\Dashboard\Dashbaord.QUICKLINKSDESCRIPTION','Allows management of arbitrary links from the dashboard');
+		return _t(Dashboard::class . '.QUICKLINKSDESCRIPTION', 'Allows management of arbitrary links from the dashboard');
 	}
 
 
