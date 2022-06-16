@@ -2,7 +2,12 @@
     "name": "i-lateral/silverstripe-dashboard",
     "description": "Adds a customisable dashboard to the SilverStripe CMS (fork of Unclecheese's module)",
     "type": "silverstripe-vendormodule",
-    "keywords": ["silverstripe", "dashboard", "module", "cms"],
+    "keywords": [
+        "silverstripe",
+        "dashboard",
+        "module",
+        "cms"
+    ],
 	"license": "BSD-3-Clause",
     "authors": [
         {
@@ -14,12 +19,16 @@
             "email": "morven@ilateral.co.uk"
         }
     ],
-    "require":
-    {
+    "require": {
         "silverstripe/framework": "^4.0"
     },
     "replace": {
         "silverstripe/dashboard": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "ilateral\\SilverStripe\\Dashboard\\": "src/"
+        }
     },
     "extra": {
         "expose": [
@@ -28,7 +37,9 @@
             "javascript"
         ]
     },
-    "branch-alias": {
-    	"5.x-dev": "dev-master"
-    }
+    "support": {
+        "issues": "http://github.com/i-lateral/silverstripe-dashboard/issues"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
