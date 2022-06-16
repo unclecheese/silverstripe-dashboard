@@ -1,5 +1,8 @@
 # The Dashboard Module for SilverStripe 4
 
+**NOTE: This is a fork of the original module from UncleCheese that has not seen much love in SilverStripe 4. The intention is to bring this a bit
+more up to date and maintain a working copy for SilverStripe 4**
+
 The Dashboard module provides a splash page for the CMS in SilverStripe 4 with configurable widgets that display relevant information. Panels can be created and extended easily. The goal of the Dashboard module is to provide users with a launchpad for common CMS actions such as creating specific page types or browsing new content.
 
 
