@@ -48,7 +48,7 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 
 	
 	
-	private static $menu_icon = "unclecheese/dashboard:images/dashboard.png";
+	private static $menu_icon = "ilateral/silverstripe-dashboard:images/dashboard.png";
 	
 	
 	
@@ -64,9 +64,9 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 
 	public function init() {
 		parent::init();
-		Requirements::css("unclecheese/dashboard:css/dashboard.css");
-		Requirements::javascript("unclecheese/dashboard:javascript/jquery.flip.js");
-		Requirements::javascript("unclecheese/dashboard:javascript/dashboard.js");
+		Requirements::css("ilateral/silverstripe-dashboard:css/dashboard.css");
+		Requirements::javascript("ilateral/silverstripe-dashboard:javascript/jquery.flip.js");
+		Requirements::javascript("ilateral/silverstripe-dashboard:javascript/dashboard.js");
 	}
 
 	private static $allowed_actions = [

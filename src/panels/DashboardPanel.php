@@ -51,7 +51,7 @@ class DashboardPanel extends DataObject {
 	/**
 	 * @var string The path to the icon image that represents this dashboard panel type
 	 */
-	private static $icon = "unclecheese/dashboard:images/dashboard-panel-default.png";
+	private static $icon = "ilateral/silverstripe-dashboard:images/dashboard-panel-default.png";
 
 
 

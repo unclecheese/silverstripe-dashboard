@@ -24,7 +24,7 @@ class DashboardQuickLinksPanel extends DashboardPanel {
 
 
 
-	private static $icon = "unclecheese/dashboard:images/quick-links.png";
+	private static $icon = "ilateral/silverstripe-dashboard:images/quick-links.png";
 
 
 
