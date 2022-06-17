@@ -1,0 +1,1 @@
+<a href="{$Link}" class="dashboard-panel-action btn {$UIClass}">{$Title}</a>

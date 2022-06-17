@@ -1,6 +1,6 @@
 <?php
 
-namespace ilateral\SilverStripe\Dashboard;
+namespace ilateral\SilverStripe\Dashboard\Components;
 
 use SilverStripe\View\ViewableData;
 
@@ -12,21 +12,16 @@ use SilverStripe\View\ViewableData;
  */
 class DashboardPanelAction extends ViewableData
 {
-    
 
     /**
      * @var string The link for this action button
      */
     protected $Link;
 
-
-
     /**
      * @var string The title (label) of the button
      */
     protected $Title;
-
-
 
     /**
      * @var string The type of action. Default is the plain button color. 
@@ -36,18 +31,12 @@ class DashboardPanelAction extends ViewableData
      */
     protected $Type;
 
-
-
-
     public function __construct($link, $title, $type = null)
     {
         $this->Link = $link;
         $this->Title = $title;
         $this->Type = $type;
     }
-
-
-
 
     /**
      * Converts the simple type name into a real SS CSS class.
@@ -64,8 +53,6 @@ class DashboardPanelAction extends ViewableData
         return "";
     }
 
-
-
     /**
      * Gets the HTML link
      *
@@ -73,11 +60,8 @@ class DashboardPanelAction extends ViewableData
      */
     public function forTemplate()
     {
-        return "<a href='$this->Link' class='dashboard-panel-action btn {$this->getUIClass()}'>$this->Title</a>";
+        return $this->renderWith($this->getViewerTemplates());
     }
-
-
-
 
     /**
      * A template accessor used to render this object
@@ -88,6 +72,4 @@ class DashboardPanelAction extends ViewableData
     {
         return $this->forTemplate();
     }
-
-
 }

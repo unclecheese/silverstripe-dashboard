@@ -13,5 +13,7 @@ SilverStripe\Admin\LeftAndMain:
     - "i-lateral/silverstripe-dashboard:javascript/dashboard.js"
     - "i-lateral/silverstripe-dashboard:javascript/thirdparty/google_jsapi_visualization.js"
     - "i-lateral/silverstripe-dashboard:javascript/dashboard-chart.js"
+    - "i-lateral/silverstripe-dashboard:javascript/dashboard-button-options.js"
   extra_requirements_css:
     - "i-lateral/silverstripe-dashboard:css/dashboard.css"
+    - "i-lateral/silverstripe-dashboard:css/dashboard_icon.css"

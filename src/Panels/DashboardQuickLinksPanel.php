@@ -1,6 +1,11 @@
 <?php
 
-namespace ilateral\SilverStripe\Dashboard;
+namespace ilateral\SilverStripe\Dashboard\Panels;
+
+use SilverStripe\Forms\FieldList;
+use ilateral\SilverStripe\Dashboard\Dashboard;
+use ilateral\SilverStripe\Dashboard\Components\DashboardQuickLink;
+use ilateral\SilverStripe\Dashboard\Components\DashboardHasManyRelationEditor;
 
 /**
  * Defines the "Quick Links" dashboard panel type
@@ -10,47 +15,40 @@ namespace ilateral\SilverStripe\Dashboard;
  */
 class DashboardQuickLinksPanel extends DashboardPanel
 {
-    
     private static $table_name = 'DashboardQuickLinksPanel';
     
     private static $has_many = [
-    'Links' => DashboardQuickLink::class
+        'Links' => DashboardQuickLink::class
     ];
 
-
-    
     private static $defaults = [
-    'PanelSize' => "small"
+        'PanelSize' => "small"
     ];
-
-
 
     private static $icon = "i-lateral/silverstripe-dashboard:images/quick-links.png";
 
-
-
     private static $configure_on_create = true;
 
-
-
-    public function getLabel()
+    public function getLabel(): string
     {
         return _t(Dashboard::class . '.QUICKLINKSLABEL', 'Quick Links');
     }
 
-
-
-    public function getDescription()
+    public function getDescription(): string
     {
         return _t(Dashboard::class . '.QUICKLINKSDESCRIPTION', 'Allows management of arbitrary links from the dashboard');
     }
 
-
-    public function getConfiguration()
+    public function getConfigurationFields(): FieldList
     {
-        $fields = parent::getConfiguration();
-        $fields->push(DashboardHasManyRelationEditor::create($this, "Links", DashboardQuickLink::class));
+        $fields = parent::getConfigurationFields();
+
+        $fields->push(DashboardHasManyRelationEditor::create(
+            $this,
+            "Links",
+            DashboardQuickLink::class
+        ));
+
         return $fields;
     }
-
 }

@@ -1,16 +1,19 @@
 <?php
 
-namespace ilateral\SilverStripe\Dashboard;
+namespace ilateral\SilverStripe\Dashboard\Components;
 
+use SilverStripe\Forms\Form;
+use SilverStripe\ORM\DataList;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\FormAction;
 use SilverStripe\Control\Controller;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Control\HTTPResponse;
 use SilverStripe\Control\RequestHandler;
 use SilverStripe\Core\Injector\Injector;
-use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\Form;
-use SilverStripe\Forms\FormAction;
-use SilverStripe\ORM\DataList;
+use ilateral\SilverStripe\Dashboard\Dashboard;
+use ilateral\SilverStripe\Dashboard\Panels\DashboardPanel;
+use ilateral\SilverStripe\Dashboard\DashboardPanelDataObject;
 
 /**
  * Defines the {@link RequestHandler} object that handles an item belonging to the editor
@@ -20,50 +23,36 @@ use SilverStripe\ORM\DataList;
  */
 class DashboardHasManyRelationEditorItemRequest extends RequestHandler
 {
-    
     private static $allowed_actions = [
-    "edit",
-    "delete",
-    "DetailForm"
+        "edit",
+        "delete",
+        "DetailForm"
     ];
-
 
     /**
      * @var Dashboard The Dashboard controller in the CMS
      */
     protected $dashboard;
 
-
-
     /** 
      * @var DashboardPanel The dashboard panel that owns the editor that is running the request
      */
     protected $panel;
-
-
 
     /**
      * @var DashboardHasManyRelationEditor The editor that is running the request
      */
     protected $editor;
 
-
-
     /**
      * @var DashboardPanelDataObject The object that was requested for edit/create/delete
      */
     protected $item;
 
-
-
-
     private static $url_handlers = [
-    '$Action!' => '$Action',
-    '' => 'edit'
+        '$Action!' => '$Action',
+        '' => 'edit'
     ];
-
-
-
 
     public function __construct($dashboard, $panel, $editor, $item)
     {
@@ -73,9 +62,6 @@ class DashboardHasManyRelationEditorItemRequest extends RequestHandler
         $this->item = $item;
         parent::__construct();
     }
-
-
-
 
     /**
      * An action that handles the edit of an object managed by the editor
@@ -87,9 +73,6 @@ class DashboardHasManyRelationEditorItemRequest extends RequestHandler
     {
         return $this->renderWith(__NAMESPACE__ . '\DashboardHasManyRelationEditorDetailForm');
     }
-
-
-
 
     /**
      * An action that handles the deletion of an object managed by the editor
@@ -103,9 +86,6 @@ class DashboardHasManyRelationEditorItemRequest extends RequestHandler
         return new HTTPResponse("OK");
     }
 
-
-
-
     /**
      * A link to this item as managed by the editor belonging to a dashboard panel
      *
@@ -115,8 +95,6 @@ class DashboardHasManyRelationEditorItemRequest extends RequestHandler
     {
         return Controller::join_links($this->editor->Link(), "item", $this->item->ID ? $this->item->ID : "new", $action);
     }
-
-
 
     /** 
      * A link to refresh the editor
@@ -128,9 +106,6 @@ class DashboardHasManyRelationEditorItemRequest extends RequestHandler
         return $this->Link("edit");
     }
 
-
-
-
     /**
      * Provides a form to edit or create an object managed by the editor
      *
@@ -141,7 +116,7 @@ class DashboardHasManyRelationEditorItemRequest extends RequestHandler
         $form = Form::create(
             $this,
             "DetailForm",
-            Injector::inst()->get($this->editor->relationClass)->getConfiguration(),
+            Injector::inst()->get($this->editor->relationClass)->getConfigurationFields(),
             FieldList::create(
                 FormAction::create('saveDetail', _t('Dashboard.SAVE', 'Save'))
                     ->setUseButtonTag(true)
@@ -156,9 +131,6 @@ class DashboardHasManyRelationEditorItemRequest extends RequestHandler
         $form->addExtraClass('dashboard-has-many-editor-detail-form-form');
         return $form;
     }
-
-
-
 
     /**
      * Saves the DetailForm and writes or creates a new object managed by the editor
@@ -181,6 +153,4 @@ class DashboardHasManyRelationEditorItemRequest extends RequestHandler
         $item->write();
         return new HTTPResponse("OK");
     }
-
-
 }

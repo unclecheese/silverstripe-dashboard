@@ -1,19 +1,15 @@
 ---
-Name: dashboard
+Name: dashboardconfig
 ---
 
 SilverStripe\Security\Member:
   extensions:
-    - ilateral\SilverStripe\Dashboard\DashboardMember
+    - ilateral\SilverStripe\Dashboard\Extensions\DashboardMember
 
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
-    - ilateral\SilverStripe\Dashboard\DashboardSiteConfig
+    - ilateral\SilverStripe\Dashboard\Extensions\DashboardSiteConfig
 
 SilverStripe\Forms\GridField\GridFieldDetailForm_ItemRequest:
   extensions:
-    - ilateral\SilverStripe\Dashboard\DashboardItemEditForm
-
-SilverStripe\Admin\LeftAndMain:
-  extra_requirements_css:
-    - i-lateral/silverstripe-dashboard:css/dashboard_icon.css
+    - ilateral\SilverStripe\Dashboard\Extensions\DashboardItemEditForm

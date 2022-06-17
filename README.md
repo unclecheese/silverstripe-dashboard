@@ -41,8 +41,9 @@ First, create a class for the panel as a descendant of DashboardPanel. We'll inc
 
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxField;
+use ilateral\SilverStripe\Dashboard\DashboardPanel;
 
-class DashboardRecentOrdersPanel extends ilateral\SilverStripe\Dashboard\DashboardPanel {
+class DashboardRecentOrdersPanel extends DashboardPanel {
 
   private static $db = [
     'Count' => 'Int',
@@ -63,8 +64,8 @@ class DashboardRecentOrdersPanel extends ilateral\SilverStripe\Dashboard\Dashboa
   }
   
   
-  public function getConfiguration() {
-    $fields = parent::getConfiguration();
+  public function getConfigurationFields() {
+    $fields = parent::getConfigurationFields();
     $fields->push(TextField::create("Count", "Number of orders to show"));
     $fields->push(CheckboxField::create("OnlyShowShipped","Only show shipped orders"));
     return $fields;
@@ -104,9 +105,9 @@ The best place to inject CSS and JavaScript requirements is in the inherited Pan
 **mysite/code/DashboardRecentOrdersPanel.php**
 ```php
 <?php
-public function PanelHolder() {
+public function getPanelHolder() {
   Requirements::css("mysite/css/dashboard-recent-orders.css");
-  return parent::PanelHolder();
+  return parent::getPanelHolder();
 }
 ```
 

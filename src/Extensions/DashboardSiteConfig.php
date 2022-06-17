@@ -1,8 +1,9 @@
 <?php
 
-namespace ilateral\SilverStripe\Dashboard;
+namespace ilateral\SilverStripe\Dashboard\Extensions;
 
 use SilverStripe\ORM\DataExtension;
+use ilateral\SilverStripe\Dashboard\Panels\DashboardPanel;
 
 /**
  * Decorates the {@link SiteConfig} object to work with the Dashboard CMS interface
@@ -13,11 +14,7 @@ use SilverStripe\ORM\DataExtension;
  */
 class DashboardSiteConfig extends DataExtension
 {
-    
-
     private static $has_many = [
-    'DashboardPanels' => DashboardPanel::class,
+       'DashboardPanels' => DashboardPanel::class,
     ];
-
-
 }

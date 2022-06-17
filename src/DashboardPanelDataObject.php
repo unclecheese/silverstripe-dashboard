@@ -2,10 +2,9 @@
 
 namespace ilateral\SilverStripe\Dashboard;
 
-use SilverStripe\Core\Injector\Injector;
-use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\Form;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\Forms\FieldList;
+use ilateral\SilverStripe\Dashboard\Panels\DashboardPanel;
 
 /** 
  * A {@link DataObject} subclass that is required for use on a has_many relationship
@@ -16,54 +15,28 @@ use SilverStripe\ORM\DataObject;
  */
 class DashboardPanelDataObject extends DataObject
 {
-
     private static $table_name = 'DashboardPanelDataObject';
 
     private static $db = [
-    'SortOrder' => 'Int'
+        'SortOrder' => 'Int'
     ];
-
-
 
     private static $has_one = [
-    'DashboardPanel' => 'DashboardPanel'
+        'DashboardPanel' => DashboardPanel::class
     ];
 
-
     private static $default_sort = "SortOrder ASC";
-
-    
 
     /**
      * @var string Like $summary_fields, but these objects only render one field in list view.
      */
     private static $label_field = "ID";
-    
-    
+
     /**
      * @return FieldList
      */
-    public function getConfiguration()
+    public function getConfigurationFields(): FieldList
     {
-        $fields = FieldList::create();    
-        return $fields;
+        return FieldList::create();
     }
-
-
-
-
-    /**
-     * Gets a form for editing or creating this object
-     *
-     * TODO: Is this used? Seems to be broken but dunno if it affects anything.
-     *
-     * @return Form
-     */
-    public function getConfigFields()
-    {
-        $form = Form::create(Injector::inst()->get(Dashboard::class), "Form", $this->getConfiguration());
-    }
-
-
-
 }

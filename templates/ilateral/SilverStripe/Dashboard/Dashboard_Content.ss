@@ -16,7 +16,6 @@
 					</span>
 				</span>
 			<% end_if %>
-
 		</div>
 	</div>
 	<div class="dashboard dashboard-sortable" data-sort-url="$Link('sort')">

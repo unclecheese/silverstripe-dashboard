@@ -1,11 +1,9 @@
 <?php
 
-namespace ilateral\SilverStripe\Dashboard;
-
+namespace ilateral\SilverStripe\Dashboard\Components;
 
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
-use SilverStripe\View\Requirements;
 use SilverStripe\View\ViewableData;
 
 /**
@@ -63,10 +61,14 @@ class DashboardChart extends ViewableData
     public static function create(...$args)
     {
         list($title, $x_label, $y_label, $chartData) = $args;
-        if ($chartData === null) { $chartData = [];
+
+        if ($chartData === null) {
+			$chartData = [];
         }
+
         self::$instances++;
-        return new DashboardChart($title, $x_label, $y_label, $chartData);
+
+		return parent::create($title, $x_label, $y_label, $chartData);
     }
 
     /**
@@ -77,9 +79,13 @@ class DashboardChart extends ViewableData
      * @param string The label for the Y axis
      * @param array The chart data, in x/y pairs
      */
-    public function __construct($title = null, $x_label = null, $y_label = null, $chartData = [])
-    {
-        if(!is_array($chartData)) {
+    public function __construct(
+        $title = null,
+        $x_label = null,
+        $y_label = null,
+        $chartData = []
+    ) {
+        if (!is_array($chartData)) {
             user_error("DashboardChart: \$chartData must be an array", E_USER_ERROR);
         }
 
@@ -104,19 +110,19 @@ class DashboardChart extends ViewableData
      *
      * @return ArrayList
      */
-    public function getChartData()
+    public function getChartData(): ArrayList
     {
-        $list = ArrayList::create([]);
-        foreach($this->chartData as $x => $y) {
+        $list = ArrayList::create();
+
+        foreach ($this->chartData as $x => $y) {
             $list->push(
-                ArrayData::create(
-                    [
-                    'XValue' => $x,
-                    'YValue' => $y
-                    ]
-                )
+                ArrayData::create([
+					'XValue' => $x,
+					'YValue' => $y
+				])
             );
         }
+
         return $list;
     }
 
@@ -126,9 +132,10 @@ class DashboardChart extends ViewableData
      * @param string The X value
      * @param int The Y value
      */
-    public function addData($x, $y)
+    public function addData($x, $y): self
     {
         $this->chartData[$x] = $y;
+        return $this;
     }
 
     /**
@@ -136,9 +143,10 @@ class DashboardChart extends ViewableData
      *
      * @param array The chart data
      */
-    public function setData($data)
+    public function setData($data): self
     {
         $this->chartData = $data;
+        return $this;
     }
 
     /**
@@ -148,6 +156,6 @@ class DashboardChart extends ViewableData
      */
     public function forTemplate()
     {
-        return $this->renderWith(static::class);
+        return $this->renderWith($this->getViewerTemplates());
     }
 }
