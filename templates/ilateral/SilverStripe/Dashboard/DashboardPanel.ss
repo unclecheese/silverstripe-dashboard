@@ -30,10 +30,10 @@
 			<% end_if %>
 			<div class="dashboard-panel-toolbar">
 				<% if $Dashboard.CanConfigurePanels %>
-					<a class="btn-dashboard-panel-configure" href="$ConfigLink"><img src="$resourceURL('ilateral/silverstripe-dashboard:images/configure.png')"/></a>
+					<a class="btn-dashboard-panel-configure" href="$ConfigLink"><img src="$resourceURL('i-lateral/silverstripe-dashboard:images/configure.png')"/></a>
 				<% end_if %>
 				<% if $Dashboard.CanDeletePanels %>
-					<a class="btn-dashboard-panel-delete" href="$DeleteLink"><img src="$resourceURL('ilateral/silverstripe-dashboard:images/trash.png')"/></a>
+					<a class="btn-dashboard-panel-delete" href="$DeleteLink"><img src="$resourceURL('i-lateral/silverstripe-dashboard:images/trash.png')"/></a>
 				<% end_if %>
 			</div>
 		</div>

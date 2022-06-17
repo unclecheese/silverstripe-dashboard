@@ -29,7 +29,7 @@
 				<div class="dashboard-panel-selection-inner">
 					<div class="dashboard-panel-header">
 						<div class="dashboard-panel-icon">
-							<img src="$resourceURL('ilateral/silverstripe-dashboard:images/dashboard-panel-default.png')" width="24" height="24"/>
+							<img src="$resourceURL('i-lateral/silverstripe-dashboard:images/dashboard-panel-default.png')" width="24" height="24"/>
 						</div>
 
 						<h3><%t ilateral\SilverStripe\Dashboard\Dashboard.CHOOSEPANELTYPE 'Choose a panel type' %></h3>
