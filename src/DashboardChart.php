@@ -14,59 +14,42 @@ use SilverStripe\View\ViewableData;
  * @author Uncle Cheese <unclecheese@leftandmain.com>
  * @package Dashboard
  */
-class DashboardChart extends ViewableData {
-
-
+class DashboardChart extends ViewableData
+{
 	/**
 	 * @var int A count of the instances, used to create a unique ID for the chart
 	 */
 	private static $instances = 0;
-
-
 
 	/**
 	 * @var array The chart data, in x/y pairs. The Y value must be an integer
 	 */
 	protected $chartData = [];
 
-
-
 	/**
 	 * @var int The number of points between each text label on the X axis
 	 */
 	public $TextInterval = 5;
-
-
 
 	/**
 	 * @var int The height of the chart in pixels
 	 */
 	public $Height = 200;
 
-
-
 	/**
 	 * @var int The size of the circle on each data point, in pixels
 	 */
 	public $PointSize = 5;
-
-
 
 	/**
 	 * @var int The font size on the chart
 	 */
 	public $FontSize = 10;
 
-
-
-
 	/**
 	 * @var string The position of the text on the chart
 	 */
 	public $TextPosition = 'in';
-
-
-
 
 	/**
 	 * Creates a new instance of a DashboardChart
@@ -83,9 +66,6 @@ class DashboardChart extends ViewableData {
 		self::$instances++;
 		return new DashboardChart($title, $x_label, $y_label, $chartData);
 	}
-
-
-
 
 	/**
 	 * Constructor for the DashboardChart
@@ -106,9 +86,6 @@ class DashboardChart extends ViewableData {
 		$this->XAxisLabel = $x_label;
 	}
 
-
-
-
 	/**
 	 * The ID of the chart. Javascript needs to target a specific element
 	 *
@@ -117,9 +94,6 @@ class DashboardChart extends ViewableData {
 	public function getChartID() {
 		return "dashboard-chart-".self::$instances;
 	}
-
-
-
 
 	/**
 	 * Gets a list of x/y pairs for the template
@@ -137,9 +111,6 @@ class DashboardChart extends ViewableData {
 		return $list;
 	}
 
-
-
-
 	/**
 	 * Adds a single data point to the chart
 	 *
@@ -150,9 +121,6 @@ class DashboardChart extends ViewableData {
 		$this->chartData[$x] = $y;
 	}
 
-
-
-
 	/**
 	 * Sets the chart data, in x/y pairs
 	 *
@@ -162,19 +130,12 @@ class DashboardChart extends ViewableData {
 		$this->chartData = $data;
 	}
 
-
-
-
 	/**
 	 * Renders the chart and loads the dependencies
 	 *
 	 * @return \SilverStripe\ORM\FieldType\DBHTMLText
 	 */
 	public function forTemplate() {
-		Requirements::javascript("dashboard/javascript/thirdparty/google_jsapi_visualization.js");
-		Requirements::javascript("dashboard/javascript/dashboard-chart.js");
-		return $this->renderWith('DashboardChart');
+		return $this->renderWith(static::class);
 	}
-
-
 }

@@ -12,8 +12,8 @@ class DashboardButtonOptionsField extends OptionsetField {
 
 
 	public function FieldHolder($attributes = []) {
-//		Requirements::css("ilateral/silverstripe-dashboard:css/dashboard-button-options.css");
-		Requirements::javascript("ilateral/silverstripe-dashboard:javascript/dashboard-button-options.js");
+//		Requirements::css("i-lateral/silverstripe-dashboard:css/dashboard-button-options.css");
+		Requirements::javascript("i-lateral/silverstripe-dashboard:javascript/dashboard-button-options.js");
 		return parent::FieldHolder($attributes);
 	}
 

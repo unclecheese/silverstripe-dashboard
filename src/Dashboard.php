@@ -28,46 +28,26 @@ use SilverStripe\View\SSViewer;
  * @package Dashboard
  * @author Uncle Cheese <unclecheese@leftandmain.com>
  */
-class Dashboard extends LeftAndMain implements PermissionProvider {
-
-	
+class Dashboard extends LeftAndMain implements PermissionProvider
+{
 
 	private static $menu_title = "Dashboard";
 
-
-	
 	private static $url_segment = "dashboard";
-
-
 	
 	private static $menu_priority = 100;
-
-
 	
 	private static $url_priority = 30;
 
-	
-	
-	private static $menu_icon = "ilateral/silverstripe-dashboard:images/dashboard.png";
-	
-	
-	
+    private static $menu_icon_class = 'font-icon-dashboard';
+
 	private static $tree_class = 'DashboardPanel';
 
-
-	
 	private static $url_handlers = [
 		'panel/$ID' => 'handlePanel',
 		'$Action!' => '$Action',
 		'' => 'index'
 	];
-
-	public function init() {
-		parent::init();
-		Requirements::css("ilateral/silverstripe-dashboard:css/dashboard.css");
-		Requirements::javascript("ilateral/silverstripe-dashboard:javascript/jquery.flip.js");
-		Requirements::javascript("ilateral/silverstripe-dashboard:javascript/dashboard.js");
-	}
 
 	private static $allowed_actions = [
 		"handlePanel",
@@ -76,7 +56,6 @@ class Dashboard extends LeftAndMain implements PermissionProvider {
 		"applytoall"
 	];
 
-	
 	/**
 	 * Provides custom permissions to the Security section
 	 *
