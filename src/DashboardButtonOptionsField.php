@@ -5,27 +5,30 @@ namespace ilateral\SilverStripe\Dashboard;
 use SilverStripe\Forms\OptionsetField;
 use SilverStripe\View\Requirements;
 
-class DashboardButtonOptionsField extends OptionsetField {
+class DashboardButtonOptionsField extends OptionsetField
+{
 
 
-	protected $Size;
+    protected $Size;
 
 
-	public function FieldHolder($attributes = []) {
-//		Requirements::css("i-lateral/silverstripe-dashboard:css/dashboard-button-options.css");
-		Requirements::javascript("i-lateral/silverstripe-dashboard:javascript/dashboard-button-options.js");
-		return parent::FieldHolder($attributes);
-	}
-
-
-
-
-	public function setSize($size) {
-		$this->Size = $size;
-		return $this;
-	}
+    public function FieldHolder($attributes = [])
+    {
+        //        Requirements::css("i-lateral/silverstripe-dashboard:css/dashboard-button-options.css");
+        Requirements::javascript("i-lateral/silverstripe-dashboard:javascript/dashboard-button-options.js");
+        return parent::FieldHolder($attributes);
+    }
 
 
 
-	
+
+    public function setSize($size)
+    {
+        $this->Size = $size;
+        return $this;
+    }
+
+
+
+    
 }

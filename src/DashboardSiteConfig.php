@@ -9,14 +9,15 @@ use SilverStripe\ORM\DataExtension;
  * SiteConfig holds the default configuration of a dashboard.
  * 
  * @package Dashboard
- * @author Uncle Cheese <unclecheese@leftandmain.com>
+ * @author  Uncle Cheese <unclecheese@leftandmain.com>
  */
-class DashboardSiteConfig extends DataExtension {
-	
+class DashboardSiteConfig extends DataExtension
+{
+    
 
-	private static $has_many = [
-		'DashboardPanels' => DashboardPanel::class,
-	];
+    private static $has_many = [
+    'DashboardPanels' => DashboardPanel::class,
+    ];
 
 
 }

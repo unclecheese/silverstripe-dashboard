@@ -10,15 +10,16 @@ use SilverStripe\Forms\HiddenField;
 
 class DashboardItemEditForm extends Extension
 {
-	
-	
-	/**
-	 * @param Form $form
-	 */
-	public function updateItemEditForm($form) {
+    
+    
+    /**
+     * @param Form $form
+     */
+    public function updateItemEditForm($form)
+    {
         if($id = $this->owner->request->getVar('ID')) {
             Injector::inst()->get(CMSMain::class)->setCurrentPageID($id);
-            $form->Fields()->push(new HiddenField('ID','', $id));
+            $form->Fields()->push(new HiddenField('ID', '', $id));
         }
     }
 }
