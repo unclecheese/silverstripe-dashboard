@@ -237,10 +237,15 @@ class Dashboard extends LeftAndMain implements PermissionProvider
      *
      * @return DataList
      */
-    public function Panels(): DataList
+    public function getPanels(): DataList
     {
         $config = SiteConfig::current_site_config();
         $member = Security::getCurrentUser();
+
+        // If user has not configured panels, do so now
+        if ($member->needsToConfigureDashboard()) {
+            $member->configureDefaultDashboardPanels();
+        }
 
         return DashboardPanel::get()->filter([
             'MemberID' => $member->ID,
