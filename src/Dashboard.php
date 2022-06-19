@@ -107,13 +107,16 @@ class Dashboard extends LeftAndMain implements PermissionProvider
     {
         if ($r->param('ID') == "new") {
             $class = $r->getVar('type');
-            if($class && class_exists($class) && is_subclass_of($class, DashboardPanel::class)) {
+            $config = SiteConfig::current_site_config();
+
+            if ($class && class_exists($class) && is_subclass_of($class, DashboardPanel::class)) {
                 /** @var DashboardPanel $panel */
-                $panel = new $class();
+                $panel = $class::create();
 				$member = Security::getCurrentUser();
 
-                if($panel->canCreate($member)) {
+                if ($panel->canCreate($member)) {
                     $panel->MemberID = $member->ID;
+                    $panel->SiteConfigID = $config->ID;
                     $panel->Title = $panel->getLabel();
                     $panel->write();
                 } else {
@@ -236,7 +239,13 @@ class Dashboard extends LeftAndMain implements PermissionProvider
      */
     public function Panels(): DataList
     {
-        return Security::getCurrentUser()->DashboardPanels();
+        $config = SiteConfig::current_site_config();
+        $member = Security::getCurrentUser();
+
+        return DashboardPanel::get()->filter([
+            'MemberID' => $member->ID,
+            'SiteConfigID' => $config->ID
+        ]);
     }
 
     /**
