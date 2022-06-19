@@ -3,10 +3,14 @@
 		<div class="cms-content-header-info fill-width vertical-align-items">
 			<% include SilverStripe/Admin/CMSBreadcrumbs %>
 		</div>
+
 		<div class="dashboard-top-buttons">
 			<% if $CanAddPanels %>
-				<a class="btn btn-primary manage-dashboard" href="javascript:void(0);"><%t ilateral\SilverStripe\Dashboard\Dashboard.ADDPANEL 'New Panel' %></a>
+				<a class="btn btn-primary manage-dashboard" href="javascript:void(0);">
+					<%t ilateral\SilverStripe\Dashboard\Dashboard.ADDPANEL 'New Panel' %>
+				</a>
 			<% end_if %>
+
 			<% if $IsAdmin %>
 				<span class="ss-fancy-dropdown right">
 					<a class="btn btn-secondary ss-fancy-dropdown-btn" href="javascript:void(0)"><%t ilateral\SilverStripe\Dashboard\Dashboard_Content.ADMINISTRATION 'Administration' %></a>
@@ -18,11 +22,15 @@
 			<% end_if %>
 		</div>
 	</div>
+
 	<div class="dashboard dashboard-sortable" data-sort-url="$Link('sort')">
 		<div id="dashboard-message"></div>
 		<div class="dashboard-panel-list">
-			$PanelHolder
+			<% loop $Panels %>
+				$PanelHolder
+			<% end_loop %>
 		</div>
+
 		<div class="dashboard-panel-selection dashboard-panel normal" id="dashboard-panel-0">
 			<div class="dashboard-panel-inner">
 				<div class="dashboard-panel-selection-inner">
