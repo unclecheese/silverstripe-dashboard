@@ -1,7 +1,5 @@
 (function($) {
 
-
-
 	$('.dashboard-panel').entwine({
 		refresh: function() {
 			var $t = this;
@@ -13,7 +11,7 @@
 				}
 			})
 		},
-		
+
 		showConfigure: function() {		
 			var $t = this;
 			this.find('.dashboard-panel-inner').flip({
@@ -43,11 +41,7 @@
 		hideConfigure: function() {
 			this.find('.dashboard-panel-inner').revertFlip();
 		},
-
-
 	});
-
-	
 
 	$('.dashboard-panel *').entwine({
 		getPanel: function() {
@@ -76,7 +70,6 @@
 		}
 	})
 
-
 	$('.ss-fancy-dropdown').entwine({
 		Open: false,
 		toggle: function() {
@@ -89,11 +82,11 @@
 		},
 		reveal: function() {
 			this.find('.ss-fancy-dropdown-options').css({'display':'block'});
-			this.setOpen(true);			
+			this.setOpen(true);
 		},
 		obscure: function () {
-			this.find('.ss-fancy-dropdown-options').css({'display':'none'})
-			this.setOpen(false);							
+			this.find('.ss-fancy-dropdown-options').css({'display':'none'});
+			this.setOpen(false);
 		}
 	});
 
@@ -127,14 +120,12 @@
 		}
 	});
 
-
 	$('.manage-dashboard').entwine({
 		onclick: function(e) {
 			e.preventDefault();
 			$('.dashboard').createPanel();
 		}
 	});
-
 
 	$('.dashboard-message-link').entwine({
 		onclick: function(e) {
@@ -166,9 +157,6 @@
 		}
 	});
 
-
-
-
 	$('.btn-dashboard-panel-configure').entwine({
 		onclick: function(e) {
 			e.preventDefault();
@@ -183,7 +171,6 @@
 			this.getPanel().hideConfigure();
 		}
 	});
-
 
 	$('.dashboard-panel-configure-actions [name=action_saveConfiguration]').entwine({
 		onclick: function(e) {
@@ -200,8 +187,6 @@
 			})
 		}
 	})
-
-
 
 	$('.available-panel').entwine({
 		onclick: function(e) {
@@ -220,9 +205,6 @@
 			})
 		}
 	})
-
-
-
 
 	$('.dashboard-sortable').entwine({
 		setSort: function(serial) {			
@@ -253,7 +235,6 @@
 		}
 	});
 
-
 	$('.dashboard-create-cancel').entwine({
 		onclick: function(e) {			
 			this.getPanel().find('.dashboard-panel-selection-inner').fadeOut(function() {
@@ -264,13 +245,11 @@
 		}
 	})
 
-
 	$('.dashboard-has-many-editor *').entwine({
 		getFormHolder: function() {
 			return this.closest(".dashboard-has-many-editor").find('.dashboard-has-many-editor-form:first');
 		}
 	});
-
 
 	$('.dashboard-has-many-editor-header a').entwine({
 		onclick: function(e) {
@@ -279,7 +258,6 @@
 			this.getHasManyFormWrapper().loadForm();
 		}
 	});
-
 
 	$('.dashboard-has-many-editor').entwine({
 		refresh: function() {
@@ -292,8 +270,6 @@
 			})
 		}
 	});
-	
-
 
 	$('.dashboard-has-many-editor-form').entwine({
 
@@ -371,9 +347,6 @@
 		}
 	});
 
-
-
-
 	$('.dashboard-has-many-editor-detail-form-actions [name=action_cancel]').entwine({
 		onclick: function(e) {
 			e.preventDefault();
@@ -383,7 +356,6 @@
 			
 		}
 	});
-
 
 	$('.dashboard-has-many-list .delete-link').entwine({
 		onclick: function(e) {
@@ -399,8 +371,6 @@
 			})
 		}
 	});
-
-
 
 	$('.dashboard-has-many-list .edit-link').entwine({
 		onclick: function(e) {
@@ -421,8 +391,6 @@
 			});
 		}
 	});
-
-
 
 	$('.configure-form .dashboard-button-options-btn-group > a').entwine({
 		onclick: function(e) {			
