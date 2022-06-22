@@ -25,7 +25,7 @@ class DashboardQuickLinksPanel extends DashboardPanel
         'PanelSize' => "small"
     ];
 
-    private static $icon = "i-lateral/silverstripe-dashboard:images/quick-links.png";
+    private static $font_icon = 'link';
 
     private static $configure_on_create = true;
 

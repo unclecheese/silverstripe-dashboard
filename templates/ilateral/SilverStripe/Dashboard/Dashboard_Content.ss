@@ -36,23 +36,27 @@
 				<div class="dashboard-panel-selection-inner">
 					<div class="dashboard-panel-header">
 						<div class="dashboard-panel-icon">
-							<img src="$resourceURL('i-lateral/silverstripe-dashboard:images/dashboard-panel-default.png')" width="24" height="24"/>
+							<span class="font-icon font-icon-cog"></span>
 						</div>
 
 						<h3><%t ilateral\SilverStripe\Dashboard\Dashboard.CHOOSEPANELTYPE 'Choose a panel type' %></h3>
 					</div>
 					<div class="dashboard-panel-content">
-						<% loop $AllPanels %>
-							<div class="available-panel $EvenOdd" data-type="$Class" data-create-url="$CreateLink" <% if $ShowConfigure %>data-configure="true"<% end_if %>>
-								<div class="available-panel-icon">
-									<img src="$Icon"/>
+						<div class="row mx-0">
+							<% loop $AllPanels %>
+								<div class="col-12 col-lg-6 mb-2 px-1">
+									<div class="available-panel {$EvenOdd}" data-type="$Class" data-create-url="$CreateLink" <% if $ShowConfigure %>data-configure="true"<% end_if %>>
+										<div class="btn btn-secondary w-100 text-left mr-0 available-panel-content">
+											<h4 class="mb-0">
+												<span class="font-icon {$FontIconClass}"></span>
+												$Label
+											</h4>
+											<p class="mb-0">$Description</p>
+										</div>
+									</div>
 								</div>
-								<div class="available-panel-content">
-									<h4>$Label</h4>
-									<p>$Description</p>
-								</div>
-							</div>
-						<% end_loop %>
+							<% end_loop %>
+						</div>
 					</div>
 					<div class="dashboard-panel-footer">
 						<div class="dashboard-panel-footer-actions">

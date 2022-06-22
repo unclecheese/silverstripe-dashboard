@@ -16,6 +16,7 @@ use SilverStripe\Core\Injector\Injector;
 use ilateral\SilverStripe\Dashboard\Dashboard;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
 use ilateral\SilverStripe\Dashboard\Components\DashboardButtonOptionsField;
+use SilverStripe\Core\Config\Config;
 
 /**
  * Defines the DashboardPanel dataobject. All dashboard panels must descend from this class.
@@ -56,9 +57,9 @@ class DashboardPanel extends DataObject
     private static $size = "normal";
 
     /**
-     * @var string The path to the icon image that represents this dashboard panel type
+     * @var string Classname of font icon to use for the current panel
      */
-    private static $icon = "i-lateral/silverstripe-dashboard:images/dashboard-panel-default.png";
+    private static $font_icon = "dashboard";
 
     /**
      * @var int The "weight" of the dashboard panel when listed in the available panels.
@@ -139,9 +140,16 @@ class DashboardPanel extends DataObject
      *
      * @return string
      */
-    public function getIcon(): string
+    public function getFontIconClass(): string
     {
-        return ModuleResourceLoader::resourceURL(static::config()->icon);
+        $icon_class = Config::inst()
+            ->get(static::class, 'font_icon');
+        
+        if (empty($icon_class)) {
+            return "";
+        }
+
+        return "font-icon-" . $icon_class;
     }
 
     /**

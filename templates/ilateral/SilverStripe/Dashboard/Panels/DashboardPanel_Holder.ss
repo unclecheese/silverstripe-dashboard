@@ -10,7 +10,7 @@
 			<% end_if %>
 
 			<div class="dashboard-panel-icon">
-				<img src="$Icon" width="24" height="24"/>
+				<span class="font-icon {$FontIconClass}"></span>
 			</div>
 
 			<h3>$Title</h3>
