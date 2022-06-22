@@ -144,7 +144,7 @@ class DashboardHasManyRelationEditorItemRequest extends RequestHandler
     {
         $item = $this->item;
         if(!$item->exists()) {
-            $item->DashboardPanelID = $this->panel->ID;
+            $item->PanelID = $this->panel->ID;
             $sort = DataList::create($item->ClassName)->max("SortOrder");
             $item->SortOrder = $sort+1;
             $item->write();

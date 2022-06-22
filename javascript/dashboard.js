@@ -281,12 +281,10 @@
 		reveal: function(callback) {			
 			this.animate({height: '248px' }, callback);
 			this.getPanel().find('.dashboard-panel-configure-actions').hide();
-
 		},
 		obscure: function(callback) {
 			this.animate({height: 0 }, callback);
 			this.getPanel().find('.dashboard-panel-configure-actions').show();
-
 		},
 		toggle: function(callback) {
 			if(this.getOpen()) {
@@ -310,7 +308,6 @@
 				}
 			});
 		}
-
 	});
 
 	$('.dashboard-has-many-editor-detail-form-form').entwine({
@@ -320,6 +317,9 @@
 		onsubmit: function(e) {
 			e.preventDefault();
 			var $form = this;
+
+			console.log($form);
+
 			$.ajax({
 				url: $form.attr('action'),
 				type: "POST",
@@ -327,10 +327,12 @@
 				success: function(data) {
 					$form.fadeOut(function() {
 						$(this).getHasManyFormWrapper().obscure();
-					});	
+					});
 					$form.getEditor().refresh();
 				}
-			})
+			});
+
+			return false;
 		},
 		getEditor: function() {
 			return this.getPanel().find('.dashboard-has-many-editor:first');
@@ -343,7 +345,6 @@
 			this.closest("form").fadeOut(function() {
 				$(this).getEditor().obscure();
 			});
-			
 		}
 	});
 

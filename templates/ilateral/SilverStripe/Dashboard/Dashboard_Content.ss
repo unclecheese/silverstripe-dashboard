@@ -43,7 +43,7 @@
 					</div>
 					<div class="dashboard-panel-content">
 						<div class="row mx-0">
-							<% loop $AllPanels %>
+							<% loop $AvailablePanels %>
 								<div class="col-12 col-lg-6 mb-2 px-1">
 									<div class="available-panel {$EvenOdd}" data-type="$Class" data-create-url="$CreateLink" <% if $ShowConfigure %>data-configure="true"<% end_if %>>
 										<div class="btn btn-secondary w-100 text-left mr-0 available-panel-content">

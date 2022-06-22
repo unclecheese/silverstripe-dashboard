@@ -259,7 +259,7 @@ class Dashboard extends LeftAndMain implements PermissionProvider
      *
      * @return ArrayList
      */
-    public function AllPanels(): ArrayList
+    public function getAvailablePanels(): ArrayList
     {
         $set = ArrayList::create([]);
         $panels = ClassLoader::inst()

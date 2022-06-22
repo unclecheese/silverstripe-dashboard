@@ -218,11 +218,6 @@
 	border: 0;
 }
 
-.dashboard-panel-inner ul li a {
-	padding: 4px;
-	display: block;
-}
-
 .dashboard-panel-inner ul li a:hover {
 	background: #ddd;
 	text-decoration: none;
@@ -265,7 +260,7 @@
 
 .dashboard-has-many-list {
 	background: #f9f9f9;
-	margin: 0 10px;
+	margin: 0;
 }
 
 .dashboard-has-many-list li:after {
@@ -281,16 +276,6 @@
 	background: transparent;
 }
 
-.dashboard-has-many-list .edit-link {
-	float: left;
-	width: 80%;
-}
-
-.dashboard-has-many-list .delete-link {
-	float: right;
-	width: 16px;
-}
-
 .dashboard-has-many-editor-form {
 	position: absolute;
 	height: 0;
@@ -301,13 +286,13 @@
 
 .dashboard-has-many-editor-header {
 	position: relative;
-	padding: 0 11px;
+	padding: 0.5rem;
 }
 
-.dashboard-has-many-editor-header .ss-ui-button {
+.dashboard-has-many-editor-header .btn {
 	position: absolute;
-	top: 7px;
-	right: 10px;
+	top: 0;
+	right: 0;
 }
 
 .dashboard-has-many-editor-detail-form-actions {
@@ -326,12 +311,13 @@
 	padding: 0.1em 0.5em;
 }
 
-.dashboard-panel-inner .dashboard-panel-quick-links-list li {
-	border: 0;
+.dashboard-panel-inner .dashboard-panel-quick-links-list {
+	list-style: none;
+	margin-left: 0;
 }
 
-.dashboard-panel-quick-link {
-	margin: 10px auto;
+.dashboard-panel-inner .dashboard-panel-quick-links-list li {
+	border: 0;
 }
 
 #dashboard-message {
